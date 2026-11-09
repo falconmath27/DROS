@@ -15,7 +15,7 @@ same file. Fill in the names (the plan leaves them open).
 | P1 ___ | OSPG core and replication | `ospg/`, `simulators/gbm.py`, `experiments/` | `intro.tex`, `method.tex`, `results_replication.tex` | **done** |
 | P2 ___ | Baselines and stopping theory | `baselines/` | `theory.tex`, `conclusion.tex`; edits the report, assembles the slides | **done** (conclusion awaits P3/P5 findings) |
 | P3 ___ | Stochastic simulation and rough volatility | `simulators/fbm.py`, `simulators/rbergomi.py`, `experiments/rough_vol/` | `rough_vol.tex` | skeleton; `rbergomi.py` is a stand-in |
-| P4 ___ | Market data and backtest harness | `data/`, `backtest/` | `data_backtest.tex` | skeleton; `simulators/market.py` is a stand-in |
+| P4 ___ | Market data and backtest harness | `data/`, `backtest/` | `data_backtest.tex` | implemented; real-data pipeline, rules, costs and dated walk-forward handoff; see `backtest/P4_GUIDE.md` |
 | P5 ___ | Backtest experiments and statistics | `analysis/`, `experiments/backtest/` | `backtest_results.tex` | skeleton; per-path results ready in `results/paths/` |
 
 Every skeleton file lists its owner's tasks from the plan. House rules: fixed random seeds,
@@ -45,10 +45,12 @@ docs/          the paper and the project plan
 pip install -r requirements.txt
 python -m pytest -q tests                  # 59 tests, about a minute
 python -m experiments.benchmarks           # tree vs PDE ground truth, about 1 min
-python -m experiments.run_parallel --threads 3 --max-procs 4   # E1-E5 in parallel
+python -m experiments.run_parallel --threads 3 --max-procs 4   # includes full real E5 training
 python -m experiments.run_all E1 E4        # or selected experiments, one after another
 python -m experiments.summarize            # -> results/summary.md, tables.tex, replication_table.tex
 python -m experiments.paired               # -> results/paired.md (paired differences)
+python -m backtest.run --help              # P4 real-data preparation, rules and walk-forward CLI
+python -m backtest.summarize               # -> results/p4/overview.md and coverage_table.tex
 ```
 
 `run_parallel` runs each experiment in its own process (results/raw_E?.jsonl and
@@ -128,9 +130,10 @@ out of sample. FQI is FQI-MLP except for E4 (FQI-GRU).
 - **P3:** return a `Problem` with `X` = (S/K, v/xi0, ...) and `R` = discounted put payoff, like
   `rbergomi_put_problem`, then change `E4_rough_bergomi` in `experiments/run_all.py`.
   `simulators/fbm.py` has the signatures for the fBm table.
-- **P4:** fill in `data/` and `backtest/`. Until then, the stand-in in `simulators/market.py`
-  works on real prices too: `prices = load_prices_csv("prices.csv")` (dates × tickers), then
-  `make_exit_windows(prices, H=20, cost=...)` and `walk_forward_split(...)`; change `E5_market`.
+- **P4:** the real-data pipeline is implemented in `data/` and `backtest/`.
+  See [`backtest/P4_GUIDE.md`](backtest/P4_GUIDE.md) for commands, execution/cost assumptions,
+  cached data, dated walk-forward folds and the P5 handoff. `E5_market` now uses it;
+  the original synthetic experiment remains available as `E5synthetic`.
 
 ## For P5: per-path results
 

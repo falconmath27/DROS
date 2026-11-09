@@ -1,0 +1,25 @@
+{
+  "source": "binance",
+  "requested_symbols": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "BNB/USDT",
+    "XRP/USDT",
+    "SOL/USDT",
+    "TRX/USDT",
+    "FIGR_HELOC/USDT",
+    "ZEC/USDT",
+    "HYPE/USDT",
+    "XMR/USDT"
+  ],
+  "failures": {
+    "FIGR_HELOC/USDT": "400 Client Error: Bad Request for url: https://data-api.binance.vision/api/v3/klines?symbol=FIGR_HELOCUSDT&interval=1d&startTime=1483228800000&endTime=1735689599999&limit=1000",
+    "HYPE/USDT": "No observations in requested interval"
+  },
+  "start": "2017-01-01",
+  "end_exclusive": "2025-01-01",
+  "retrieved_at": "2026-11-09T12:34:37.248692+00:00",
+  "adjustment": "spot daily close; UTC sessions",
+  "universe_warning": "Fixed supplied/retrieval-date universe; not historical membership.",
+  "cache_file": "V:\\3-1\\STOCHASTIC CALCULUS\\PROJ\\DROS\\data\\cache\\binance_4cb7dd9abe551c96.csv"
+}

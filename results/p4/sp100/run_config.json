@@ -1,0 +1,44 @@
+{
+  "market": "sp100",
+  "symbols": null,
+  "csv": null,
+  "context_csv": null,
+  "context": "local",
+  "start": "2015-01-01",
+  "end": "2025-01-01",
+  "calendar_days": 30,
+  "sessions": null,
+  "lookback": 20,
+  "stride": 5,
+  "venue": null,
+  "cost_multiplier": 1.0,
+  "cost_json": null,
+  "reward": "linear",
+  "risk_aversion": 5.0,
+  "train_months": 36,
+  "validation_months": 6,
+  "test_months": 6,
+  "embargo_days": 0,
+  "max_folds": null,
+  "seeds": [
+    0
+  ],
+  "methods": [
+    "Hold",
+    "TakeProfitStopLoss",
+    "TrailingStop"
+  ],
+  "prepare_only": false,
+  "smoke": false,
+  "price_sha256": "715d0ab90b8f227175d7e20dc0a5bfbbd8d5b0d227a3bf2367103226c5102e41",
+  "costs": {
+    "buy_bps": 1.0,
+    "sell_bps": 1.0,
+    "half_spread_bps": 1.0,
+    "slippage_bps": 1.0,
+    "funding_bps_per_day": 0.0,
+    "discount_rate": 0.0,
+    "label": "US_assumed_1bp_fees_each_side"
+  },
+  "context_sha256": "6b88095b76be1d0b16c3f1fc49eb14e51af61e4c6b18125a5825105e104b2fa3"
+}

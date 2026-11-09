@@ -1,0 +1,14 @@
+{
+  "source": "yahoo",
+  "requested_symbols": [
+    "AAPL",
+    "MSFT"
+  ],
+  "failures": {},
+  "start": "2020-01-01",
+  "end_exclusive": "2025-01-01",
+  "retrieved_at": "2026-11-09T12:36:26.773476+00:00",
+  "adjustment": "split/dividend adjusted close",
+  "universe_warning": "Fixed supplied/retrieval-date universe; not historical membership.",
+  "cache_file": "V:\\3-1\\STOCHASTIC CALCULUS\\PROJ\\DROS\\data\\cache\\yahoo_6d5a82c58d698e99.csv"
+}

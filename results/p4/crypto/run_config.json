@@ -1,0 +1,45 @@
+{
+  "market": "crypto",
+  "symbols": [
+    "top10"
+  ],
+  "csv": null,
+  "context_csv": null,
+  "context": "local",
+  "start": "2017-01-01",
+  "end": "2025-01-01",
+  "calendar_days": 30,
+  "sessions": null,
+  "lookback": 20,
+  "stride": 5,
+  "venue": null,
+  "cost_multiplier": 1.0,
+  "cost_json": null,
+  "reward": "linear",
+  "risk_aversion": 5.0,
+  "train_months": 36,
+  "validation_months": 6,
+  "test_months": 6,
+  "embargo_days": 0,
+  "max_folds": null,
+  "seeds": [
+    0
+  ],
+  "methods": [
+    "Hold",
+    "TakeProfitStopLoss",
+    "TrailingStop"
+  ],
+  "prepare_only": false,
+  "smoke": false,
+  "price_sha256": "80a05eab190bf1e966dead3f016bb95bb9aef9b1923851c9441c737ea7fdca51",
+  "costs": {
+    "buy_bps": 10.0,
+    "sell_bps": 10.0,
+    "half_spread_bps": 2.0,
+    "slippage_bps": 2.0,
+    "funding_bps_per_day": 0.0,
+    "discount_rate": 0.0,
+    "label": "spot_assumed_10bp_taker_each_side"
+  }
+}

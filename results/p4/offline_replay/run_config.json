@@ -1,0 +1,48 @@
+{
+  "market": "sp100",
+  "symbols": [
+    "AAPL",
+    "MSFT"
+  ],
+  "csv": null,
+  "context_csv": null,
+  "context": "local",
+  "start": "2020-01-01",
+  "end": "2025-01-01",
+  "calendar_days": 30,
+  "sessions": null,
+  "lookback": 20,
+  "stride": 5,
+  "venue": null,
+  "cost_multiplier": 1.0,
+  "cost_json": null,
+  "reward": "linear",
+  "risk_aversion": 5.0,
+  "train_months": 36,
+  "validation_months": 6,
+  "test_months": 6,
+  "embargo_days": 0,
+  "max_folds": null,
+  "seeds": [
+    0
+  ],
+  "methods": [
+    "Hold",
+    "TakeProfitStopLoss",
+    "TrailingStop",
+    "LSM"
+  ],
+  "prepare_only": true,
+  "smoke": false,
+  "price_sha256": "3e3ae1fa134136f34b4ca886abbbeccfe831b923b22b98ee23051d101fda7194",
+  "costs": {
+    "buy_bps": 1.0,
+    "sell_bps": 1.0,
+    "half_spread_bps": 1.0,
+    "slippage_bps": 1.0,
+    "funding_bps_per_day": 0.0,
+    "discount_rate": 0.0,
+    "label": "US_assumed_1bp_fees_each_side"
+  },
+  "context_sha256": "4bc47ee9e123f005e661dab66d529e31a28f22e639817596698e580a337309dc"
+}

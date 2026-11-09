@@ -1,0 +1,14 @@
+{
+  "source": "yahoo",
+  "requested_symbols": [
+    "^GSPC",
+    "^VIX"
+  ],
+  "failures": {},
+  "start": "2015-01-01",
+  "end_exclusive": "2025-01-01",
+  "retrieved_at": "2026-11-09T12:34:42.669671+00:00",
+  "adjustment": "split/dividend adjusted close",
+  "universe_warning": "Fixed supplied/retrieval-date universe; not historical membership.",
+  "cache_file": "V:\\3-1\\STOCHASTIC CALCULUS\\PROJ\\DROS\\data\\cache\\yahoo_5ec33de151320173.csv"
+}
