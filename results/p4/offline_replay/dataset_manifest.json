@@ -1,0 +1,66 @@
+{
+  "market": "sp100",
+  "assets": [
+    "AAPL",
+    "MSFT"
+  ],
+  "observations": 1258,
+  "first_date": "2020-01-02",
+  "last_date": "2024-12-31",
+  "n_windows": 488,
+  "features": [
+    "return_since_entry",
+    "drawdown",
+    "time_remaining",
+    "log_return",
+    "trailing_vol",
+    "log_return_lag_1",
+    "log_return_lag_2",
+    "log_return_lag_5",
+    "context_^GSPC",
+    "context_^VIX"
+  ],
+  "config": {
+    "calendar_days": 30,
+    "sessions": null,
+    "lookback": 20,
+    "stride": 5,
+    "annualization": 252,
+    "costs": {
+      "buy_bps": 1.0,
+      "sell_bps": 1.0,
+      "half_spread_bps": 1.0,
+      "slippage_bps": 1.0,
+      "funding_bps_per_day": 0.0,
+      "discount_rate": 0.0,
+      "label": "US_assumed_1bp_fees_each_side"
+    },
+    "reward": "linear",
+    "risk_aversion": 5.0,
+    "execution": "daily_close_reference_with_assumed_friction; not guaranteed close fills",
+    "context_source_observation_lag": 1,
+    "skipped_windows": 8,
+    "padding": "absorbing terminal state; tau clipped to terminal_index"
+  },
+  "source": {
+    "source": "yahoo",
+    "requested_symbols": [
+      "AAPL",
+      "MSFT"
+    ],
+    "failures": {},
+    "start": "2020-01-01",
+    "end_exclusive": "2025-01-01",
+    "retrieved_at": "2026-11-09T12:36:26.773476+00:00",
+    "adjustment": "split/dividend adjusted close",
+    "universe_warning": "Fixed supplied/retrieval-date universe; not historical membership.",
+    "cache_file": "V:\\3-1\\STOCHASTIC CALCULUS\\PROJ\\DROS\\data\\cache\\yahoo_6d5a82c58d698e99.csv"
+  },
+  "limitations": [
+    "Fixed/retrieval-date universe is not point-in-time membership.",
+    "Daily-close reference execution; same-close fills are not guaranteed.",
+    "Cost scenarios are assumptions, not official historical tariffs.",
+    "Delisting returns unavailable; no invented terminal payouts.",
+    "Overlapping windows require P5 date-block bootstrap; no portfolio CAGR inferred."
+  ]
+}

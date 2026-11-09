@@ -1,0 +1,18 @@
+[
+  {
+    "asset": "AAPL",
+    "action": "coverage",
+    "first": "2020-01-02",
+    "last": "2024-12-31",
+    "observations": 1258,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MSFT",
+    "action": "coverage",
+    "first": "2020-01-02",
+    "last": "2024-12-31",
+    "observations": 1258,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  }
+]

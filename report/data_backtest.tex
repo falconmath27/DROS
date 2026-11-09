@@ -1,5 +1,103 @@
 % ---------------------------------------------------------------- Data and backtest methodology (P4)
 \subsection{Data and backtest methodology}
 \label{sec:data}
-% P4: markets and sources, cleaning and survivorship, windows, features, walk-forward splits,
-% cost models, rule-based exits.
+We construct a long-only exit-timing experiment from daily historical market data.
+Each observation is a position entered in one asset on one session; a policy chooses
+its exit date, with mandatory liquidation by a fixed deadline. The unit of evaluation
+is a hypothetical trade window, rather than a self-financing multi-asset portfolio.
+
+\paragraph{Sources and universe selection.}
+Indian and US equities use Yahoo Finance daily closes with split and dividend
+adjustment explicitly enabled through \texttt{yfinance}. We freeze the NIFTY~50 list
+from the NSE and the S\&P~100 constituent table at retrieval. Binance public spot daily klines supply crypto prices,
+with pagination, UTC daily sessions, and an exclusive end date. Crypto selection uses
+a frozen retrieval-date market-cap ranking from CoinGecko, excluding identified
+stablecoins and wrapped/staked representations. These are current-universe snapshots,
+not point-in-time historical constituents; survivorship and selection bias remain.
+Original requests are cached with source, retrieval date, symbols, adjustments and
+failures. Equity histories cover 2015--2024; crypto is requested from 2017 through 2024.
+
+\begin{center}
+\input{../results/p4/coverage_table.tex}
+\end{center}
+
+There are 101 requested US share-class tickers for the 100-company index. SNDK has no
+usable history in the frozen interval. Of ten requested crypto assets, FIGR\_HELOC
+has no requested Binance spot pair and HYPE has no observations in the interval;
+eight are retained, including BTC and ETH. These exclusions are recorded, rather
+than replaced by simulated prices. Later listings contribute only after their own
+feature lookback is available. Missing terminal delisting proceeds are not imputed.
+FX and gold are omitted under the project's reduced-scope fallback; CSV/custom-symbol
+loaders support subsequent extensions with appropriate cost and currency assumptions.
+
+\paragraph{Cleaning and calendars.}
+We sort and deduplicate session dates, convert nonpositive/nonfinite prices to missing,
+exclude stablecoins, and log coverage and exclusions. Missing observations remain
+missing by default: there is no backward filling, interpolation, or extrapolation
+before listing or after the last observed price. Windows containing missing prices
+or features are discarded. Extreme log returns are flagged against preceding rolling
+statistics and retained, so a genuine crash is not removed as a data error. Equity
+sessions use observed dates within each local panel; crypto is reindexed to every UTC
+day. This does not reconstruct exchange-specific historical holidays or delisting cashflows.
+
+\paragraph{Windows and observable features.}
+The default deadline is 30 calendar days after entry, with exit on the last observed
+session on or before that deadline. Entries are spaced five panel observations apart.
+Windows without a complete horizon are excluded. Because calendar-month windows
+contain different numbers of sessions, arrays repeat the terminal state, reward and
+date up to 31 states; stopping indices are clipped to each window's true terminal
+index. Padding creates no additional price movement or holding opportunity.
+
+Let $S_0$ be the entry reference price and $S_j$ the current price. Features include
+$S_j/S_0-1$, running drawdown $S_j/\max_{k\leq j}S_k-1$, remaining time, the current
+daily log return, 20-observation trailing volatility, and log returns lagged by one,
+two and five observations. Volatility uses annualization factors 252 for equities
+and 365 for crypto. Local index and volatility-index levels (NIFTY/India VIX or
+S\&P~500/VIX) are shifted one source observation before backward date alignment.
+This prevents using an external close that becomes available later than the decision.
+Feature construction is causal; any fitted scaling is learned on training data only.
+
+\paragraph{Execution convention and costs.}
+We use a stylized daily-close reference-price model. The current close and current
+exit reward are observable inputs, consistent with the existing stopping-method
+interface. We do not claim that an order submitted after observing a close can fill
+at that close. Next-open execution would require separating unobserved execution
+payoffs from policy inputs, which is outside this close-mark experiment.
+
+Writing $c_b,c_s$ for proportional entry/exit friction, $f$ for a simple daily funding
+assumption and $d_j$ for elapsed calendar days, the undiscounted net return is
+\[
+ r_j=\frac{S_j}{S_0}\frac{1-c_s}{1+c_b}-1-fd_j.
+\]
+Both legs include fees, half-spread and slippage. Research fee scenarios per side are
+12 basis points for NSE, one for US equities and ten for spot crypto; assumed
+half-spread/slippage are respectively 2/2, 1/1 and 2/2 basis points. These are explicit
+sensitivity assumptions, not official historical tariffs. Spot funding and discounting
+default to zero. A configurable perpetual-funding scenario represents an initial-notional
+charge, not a leveraged margin-account backtest. Cost multipliers and JSON overrides
+support sensitivity studies. The default reward is $R_j=r_j$; a second available
+objective is exponential utility $(1-e^{-a r_j})/a$, with raw net returns saved separately.
+
+\paragraph{Chronological evaluation and rules.}
+Expanding walk-forward folds start with 36 months of training, six months validation
+and six months test, advancing by six months. All assets share date boundaries.
+A training or validation window is purged if its scheduled outcome horizon crosses
+the next boundary; an optional extra embargo is configurable. Test periods are disjoint.
+Trailing test features may use genuinely available earlier history. No threshold or
+model choice uses test outcomes. Fixed comparison rules are hold-to-deadline,
+take-profit/stop-loss at $+5\%/-3\%$, and a $5\%$ trailing drawdown exit. Rules observe
+daily closes, rather than claiming intraday stop fills.
+
+\paragraph{Validation and statistical handoff.}
+The harness exports aligned asset IDs, unique window IDs, entry dates, all decision
+dates, deadlines, exit dates, realized rewards and raw net returns. All methods within
+a fold use identical test windows. Offline checks verify reward accounting, causal
+features and rules, boundary purging, missing-data behavior, calendar padding, cache
+replay, pagination, and metadata round trips. A real-data smoke run exercises every
+existing learned-method family with deliberately shortened neural training; it is
+an integration check, not the final learned-model comparison. Existing methods retain
+their global date-zero rule, originally designed for common simulated initial states;
+heterogeneous market entry states are a limitation. Overlapping windows and correlated
+assets invalidate independent-window standard errors. P5 receives dated per-path
+outputs for block-bootstrap inference, risk-sensitive comparisons and regime analysis.
+Mean trade returns are not interpreted as portfolio returns or annualized performance.

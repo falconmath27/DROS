@@ -3,3 +3,6 @@ scipy>=1.10
 pandas>=2.0
 torch>=2.0
 pytest>=7
+yfinance>=0.2.54
+requests>=2.31
+lxml>=5

@@ -1,7 +1,8 @@
 """All experiments. Run from the project root:
-    python -m experiments.run_all            (everything, about 1.5 hours on 2 CPU cores)
+    python -m experiments.run_all            (all benchmarks and full real-market training)
     python -m experiments.run_all E1 E4      (selected experiments)
-Results go to results/raw.jsonl; then run  python -m experiments.summarize
+E1-E4/synthetic results go to results/raw.jsonl; then run python -m experiments.summarize.
+Real E5 outputs go to results/p4; see backtest/P4_GUIDE.md. Full E5 training can be long.
 """
 import sys
 
@@ -58,7 +59,7 @@ def E4_rough_bergomi(seeds=(0, 1)):
             method_overrides={"LSM-lags3": lambda: LSM()})
 
 
-def E5_market(seeds=(0, 1)):
+def E5_synthetic_market(seeds=(0, 1)):
     """STAND-IN market data (synthetic GARCH prices with weak momentum), walk-forward.
     Replace synthetic_prices(...) with load_prices_csv(path) for real data."""
     for s in seeds:
@@ -69,10 +70,25 @@ def E5_market(seeds=(0, 1)):
             ["Hold", "LSM", "DOS", "OSPG-MLP", "OSPG-GRU"], s)
 
 
+def E5_market(seeds=(0, 1), markets=("nifty50", "sp100", "crypto")):
+    """Real-market P4 harness; outputs isolated under results/p4, with dated metadata.
+
+    Full learned-model training belongs to P5's experiments and can take substantial
+    time. For a quick handoff check use python -m backtest.run --smoke --max-folds 1.
+    """
+    from backtest.run import main
+    for market in markets:
+        args = ["--market", market, "--seeds", *map(str, seeds), "--methods",
+                "Hold", "TakeProfitStopLoss", "TrailingStop", "LSM", "DOS", "OSPG-MLP", "OSPG-GRU"]
+        if market == "crypto":
+            args += ["--symbols", "top10", "--start", "2017-01-01"]
+        main(args)
+
+
 ALL = dict(E1=E1_american_put, E2=E2_bermudan_maxcall, E3=E3_geometric_call,
            E4=E4_rough_bergomi, E5=E5_market)
 
 if __name__ == "__main__":
     for key in (sys.argv[1:] or list(ALL)):
         print(f"===== {key}", flush=True)
-        ALL[key]()
+        (E5_synthetic_market if key == "E5synthetic" else ALL[key])()

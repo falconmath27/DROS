@@ -11,3 +11,5 @@ results/raw_E*.jsonl
 *.toc
 *.nav
 *.snm
+.venv/
+data/cache/

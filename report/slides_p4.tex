@@ -1,6 +1,33 @@
 % Slide block for P4 (data and backtest harness). Frames only; included by slides.tex.
-\begin{frame}{Data and backtest (P4)}
+\begin{frame}{Real market data and reproducible windows (P4)}
 \begin{itemize}
-\item To do: markets, cleaning, windows and features, walk-forward splits, costs.
+\item Adjusted equity closes: 50 Indian and 100 usable US tickers; Binance spot: eight crypto assets.
+\item Frozen 2015--2024 equity history; crypto requested from 2017. Retrieval-date universes have selection bias.
+\item Audited cleaning: no future filling; missing windows excluded; large moves flagged and retained.
+\item 30-calendar-day deadline; five-observation entry stride; 72,048 windows before fold selection.
+\item Causal return, drawdown, volatility, lagged returns, remaining time; lagged local index/VIX context.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Execution, costs and fair comparisons (P4)}
+\[
+r_j=\frac{S_j}{S_0}\frac{1-c_s}{1+c_b}-1-fd_j
+\]
+\begin{itemize}
+\item Daily-close reference-price experiment; guaranteed same-close execution is not assumed.
+\item Fees, half-spread and slippage on both legs; configurable research scenarios and cost sensitivity.
+\item Hold to deadline; fixed $+5\%/-3\%$ profit/loss rule; $5\%$ trailing stop.
+\item Expanding 36-month train / 6-month validation / 6-month test folds; purge overlapping outcomes.
+\item Linear and exponential-utility rewards; actual net returns retained for both.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Validation and the statistics handoff (P4)}
+\begin{itemize}
+\item 71 tests passed, including 12 P4 accounting, causality, split and integration tests.
+\item Real-data smoke verified LSM, DOS, FQI-MLP/GRU and OSPG-MLP/GRU interfaces.
+\item Saved asset/window IDs, entry/deadline/decision dates, stopping indices and actual exit dates.
+\item Full rule runs: 12 walk-forward folds per equity market; seven crypto folds.
+\item P5 performs final training and date-block inference: overlapping trades are dependent and are not portfolio returns.
 \end{itemize}
 \end{frame}

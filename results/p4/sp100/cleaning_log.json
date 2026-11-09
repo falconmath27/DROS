@@ -1,0 +1,1300 @@
+[
+  {
+    "asset": "AAPL",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ABBV",
+    "action": "flag_jump_retained",
+    "date": "2018-01-26",
+    "log_return": 0.12898470693699338
+  },
+  {
+    "asset": "ABBV",
+    "action": "flag_jump_retained",
+    "date": "2019-06-25",
+    "log_return": -0.17736237182299508
+  },
+  {
+    "asset": "ABBV",
+    "action": "flag_jump_retained",
+    "date": "2024-11-11",
+    "log_return": -0.13429074752571069
+  },
+  {
+    "asset": "ABBV",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ABT",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ACN",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ADBE",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "AMAT",
+    "action": "flag_jump_retained",
+    "date": "2016-05-20",
+    "log_return": 0.12937908381392482
+  },
+  {
+    "asset": "AMAT",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "AMD",
+    "action": "flag_jump_retained",
+    "date": "2016-04-22",
+    "log_return": 0.4206169591986685
+  },
+  {
+    "asset": "AMD",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "AMGN",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "AMT",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "AMZN",
+    "action": "flag_jump_retained",
+    "date": "2017-10-27",
+    "log_return": 0.12413067896568464
+  },
+  {
+    "asset": "AMZN",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ANET",
+    "action": "flag_jump_retained",
+    "date": "2017-08-04",
+    "log_return": 0.17762466726516735
+  },
+  {
+    "asset": "ANET",
+    "action": "flag_jump_retained",
+    "date": "2019-11-01",
+    "log_return": -0.2775254466945545
+  },
+  {
+    "asset": "ANET",
+    "action": "flag_jump_retained",
+    "date": "2021-11-02",
+    "log_return": 0.18555116783327152
+  },
+  {
+    "asset": "ANET",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "AVGO",
+    "action": "flag_jump_retained",
+    "date": "2018-07-12",
+    "log_return": -0.14785817330504392
+  },
+  {
+    "asset": "AVGO",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "AXP",
+    "action": "flag_jump_retained",
+    "date": "2016-01-22",
+    "log_return": -0.128980589973807
+  },
+  {
+    "asset": "AXP",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BA",
+    "action": "flag_jump_retained",
+    "date": "2017-07-26",
+    "log_return": 0.09421417829787337
+  },
+  {
+    "asset": "BA",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BAC",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BKNG",
+    "action": "flag_jump_retained",
+    "date": "2017-11-07",
+    "log_return": -0.1452535343514283
+  },
+  {
+    "asset": "BKNG",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BLK",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BMY",
+    "action": "flag_jump_retained",
+    "date": "2016-08-05",
+    "log_return": -0.1741761036901215
+  },
+  {
+    "asset": "BMY",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BNY",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BRK-B",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "C",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "CAT",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "CMCSA",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "COF",
+    "action": "flag_jump_retained",
+    "date": "2015-07-24",
+    "log_return": -0.14065483227813846
+  },
+  {
+    "asset": "COF",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "COP",
+    "action": "flag_jump_retained",
+    "date": "2020-03-09",
+    "log_return": -0.28555182998643724
+  },
+  {
+    "asset": "COP",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "COST",
+    "action": "flag_jump_retained",
+    "date": "2017-06-16",
+    "log_return": -0.07463741379800037
+  },
+  {
+    "asset": "COST",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "CRM",
+    "action": "flag_jump_retained",
+    "date": "2020-08-26",
+    "log_return": 0.2314680932946107
+  },
+  {
+    "asset": "CRM",
+    "action": "flag_jump_retained",
+    "date": "2024-05-30",
+    "log_return": -0.21986313530167667
+  },
+  {
+    "asset": "CRM",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "CSCO",
+    "action": "flag_jump_retained",
+    "date": "2017-05-18",
+    "log_return": -0.07488143043590689
+  },
+  {
+    "asset": "CSCO",
+    "action": "flag_jump_retained",
+    "date": "2023-11-16",
+    "log_return": -0.10352692644355077
+  },
+  {
+    "asset": "CSCO",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "CVS",
+    "action": "flag_jump_retained",
+    "date": "2016-11-08",
+    "log_return": -0.12583494154542718
+  },
+  {
+    "asset": "CVS",
+    "action": "flag_jump_retained",
+    "date": "2024-05-01",
+    "log_return": -0.18436175530643473
+  },
+  {
+    "asset": "CVS",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "CVX",
+    "action": "flag_jump_retained",
+    "date": "2020-03-09",
+    "log_return": -0.16687255248281385
+  },
+  {
+    "asset": "CVX",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "DE",
+    "action": "flag_jump_retained",
+    "date": "2016-08-19",
+    "log_return": 0.1265533851587577
+  },
+  {
+    "asset": "DE",
+    "action": "flag_jump_retained",
+    "date": "2016-11-23",
+    "log_return": 0.10474060387175665
+  },
+  {
+    "asset": "DE",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "DELL",
+    "action": "flag_jump_retained",
+    "date": "2018-12-24",
+    "log_return": -0.24384711946177218
+  },
+  {
+    "asset": "DELL",
+    "action": "flag_jump_retained",
+    "date": "2023-09-01",
+    "log_return": 0.1926695738227715
+  },
+  {
+    "asset": "DELL",
+    "action": "flag_jump_retained",
+    "date": "2024-03-01",
+    "log_return": 0.27473672079572964
+  },
+  {
+    "asset": "DELL",
+    "action": "coverage",
+    "first": "2016-08-17",
+    "last": "2024-12-31",
+    "observations": 2107,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "DHR",
+    "action": "flag_jump_retained",
+    "date": "2016-07-05",
+    "log_return": 0.47759066632251823
+  },
+  {
+    "asset": "DHR",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "DIS",
+    "action": "flag_jump_retained",
+    "date": "2015-08-05",
+    "log_return": -0.0961897758293313
+  },
+  {
+    "asset": "DIS",
+    "action": "flag_jump_retained",
+    "date": "2019-04-12",
+    "log_return": 0.1092465950577921
+  },
+  {
+    "asset": "DIS",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "DUK",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "EMR",
+    "action": "flag_jump_retained",
+    "date": "2020-03-09",
+    "log_return": -0.21019274443969227
+  },
+  {
+    "asset": "EMR",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "FDX",
+    "action": "flag_jump_retained",
+    "date": "2022-09-16",
+    "log_return": -0.24084710568031653
+  },
+  {
+    "asset": "FDX",
+    "action": "flag_jump_retained",
+    "date": "2024-06-26",
+    "log_return": 0.1443405045050774
+  },
+  {
+    "asset": "FDX",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "GD",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "GE",
+    "action": "flag_jump_retained",
+    "date": "2015-04-10",
+    "log_return": 0.10259748177822026
+  },
+  {
+    "asset": "GE",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "GEV",
+    "action": "coverage",
+    "first": "2024-03-27",
+    "last": "2024-12-31",
+    "observations": 193,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "GILD",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "GM",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "GOOG",
+    "action": "flag_jump_retained",
+    "date": "2015-07-17",
+    "log_return": 0.1488717436461422
+  },
+  {
+    "asset": "GOOG",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "GOOGL",
+    "action": "flag_jump_retained",
+    "date": "2015-07-17",
+    "log_return": 0.15064534595893608
+  },
+  {
+    "asset": "GOOGL",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "GS",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "HD",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "IBM",
+    "action": "flag_jump_retained",
+    "date": "2017-10-18",
+    "log_return": 0.08493308897635465
+  },
+  {
+    "asset": "IBM",
+    "action": "flag_jump_retained",
+    "date": "2021-10-21",
+    "log_return": -0.10051759591230613
+  },
+  {
+    "asset": "IBM",
+    "action": "flag_jump_retained",
+    "date": "2024-01-25",
+    "log_return": 0.09063169460646403
+  },
+  {
+    "asset": "IBM",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "INTC",
+    "action": "flag_jump_retained",
+    "date": "2021-10-22",
+    "log_return": -0.12418741153560164
+  },
+  {
+    "asset": "INTC",
+    "action": "flag_jump_retained",
+    "date": "2024-08-02",
+    "log_return": -0.301896142876926
+  },
+  {
+    "asset": "INTC",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "INTU",
+    "action": "flag_jump_retained",
+    "date": "2015-08-21",
+    "log_return": -0.14227149455999744
+  },
+  {
+    "asset": "INTU",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ISRG",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "JNJ",
+    "action": "flag_jump_retained",
+    "date": "2018-12-14",
+    "log_return": -0.10578138950102911
+  },
+  {
+    "asset": "JNJ",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "JPM",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "KO",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "LIN",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "LLY",
+    "action": "flag_jump_retained",
+    "date": "2023-08-08",
+    "log_return": 0.13862758926588992
+  },
+  {
+    "asset": "LLY",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "LMT",
+    "action": "flag_jump_retained",
+    "date": "2021-10-26",
+    "log_return": -0.12560263381913295
+  },
+  {
+    "asset": "LMT",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "LOW",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "LRCX",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MA",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MCD",
+    "action": "flag_jump_retained",
+    "date": "2017-04-25",
+    "log_return": 0.05415736731830645
+  },
+  {
+    "asset": "MCD",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MDLZ",
+    "action": "flag_jump_retained",
+    "date": "2020-01-30",
+    "log_return": 0.07484036354854373
+  },
+  {
+    "asset": "MDLZ",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MDT",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "META",
+    "action": "flag_jump_retained",
+    "date": "2018-07-26",
+    "log_return": -0.2102386416266766
+  },
+  {
+    "asset": "META",
+    "action": "flag_jump_retained",
+    "date": "2022-02-03",
+    "log_return": -0.3063906192878809
+  },
+  {
+    "asset": "META",
+    "action": "flag_jump_retained",
+    "date": "2024-02-02",
+    "log_return": 0.18496504845736883
+  },
+  {
+    "asset": "META",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MMM",
+    "action": "flag_jump_retained",
+    "date": "2019-04-25",
+    "log_return": -0.13863096472560876
+  },
+  {
+    "asset": "MMM",
+    "action": "flag_jump_retained",
+    "date": "2024-01-23",
+    "log_return": -0.11692697769907845
+  },
+  {
+    "asset": "MMM",
+    "action": "flag_jump_retained",
+    "date": "2024-07-26",
+    "log_return": 0.20693778294388476
+  },
+  {
+    "asset": "MMM",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MO",
+    "action": "flag_jump_retained",
+    "date": "2017-07-28",
+    "log_return": -0.0997276730958836
+  },
+  {
+    "asset": "MO",
+    "action": "flag_jump_retained",
+    "date": "2023-10-26",
+    "log_return": -0.08679914847147385
+  },
+  {
+    "asset": "MO",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MRK",
+    "action": "flag_jump_retained",
+    "date": "2017-10-27",
+    "log_return": -0.06240073870519147
+  },
+  {
+    "asset": "MRK",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MS",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MSFT",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MU",
+    "action": "flag_jump_retained",
+    "date": "2015-06-26",
+    "log_return": -0.2003006275311643
+  },
+  {
+    "asset": "MU",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "NEE",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "NFLX",
+    "action": "flag_jump_retained",
+    "date": "2015-07-16",
+    "log_return": 0.16565784329487787
+  },
+  {
+    "asset": "NFLX",
+    "action": "flag_jump_retained",
+    "date": "2022-01-21",
+    "log_return": -0.2457785334251752
+  },
+  {
+    "asset": "NFLX",
+    "action": "flag_jump_retained",
+    "date": "2022-04-20",
+    "log_return": -0.43257848949508704
+  },
+  {
+    "asset": "NFLX",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "NOW",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "NVDA",
+    "action": "flag_jump_retained",
+    "date": "2016-11-11",
+    "log_return": 0.26087605324523144
+  },
+  {
+    "asset": "NVDA",
+    "action": "flag_jump_retained",
+    "date": "2023-05-25",
+    "log_return": 0.21808800676119455
+  },
+  {
+    "asset": "NVDA",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ORCL",
+    "action": "flag_jump_retained",
+    "date": "2017-06-22",
+    "log_return": 0.0822153515559827
+  },
+  {
+    "asset": "ORCL",
+    "action": "flag_jump_retained",
+    "date": "2021-12-10",
+    "log_return": 0.14508142701728666
+  },
+  {
+    "asset": "ORCL",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "PANW",
+    "action": "flag_jump_retained",
+    "date": "2017-03-01",
+    "log_return": -0.2764658364352277
+  },
+  {
+    "asset": "PANW",
+    "action": "flag_jump_retained",
+    "date": "2017-06-01",
+    "log_return": 0.15872989252239522
+  },
+  {
+    "asset": "PANW",
+    "action": "flag_jump_retained",
+    "date": "2021-08-24",
+    "log_return": 0.17059071630023048
+  },
+  {
+    "asset": "PANW",
+    "action": "flag_jump_retained",
+    "date": "2024-02-21",
+    "log_return": -0.33464919676060845
+  },
+  {
+    "asset": "PANW",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "PEP",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "PFE",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "PG",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "PLTR",
+    "action": "coverage",
+    "first": "2020-09-30",
+    "last": "2024-12-31",
+    "observations": 1070,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "PM",
+    "action": "flag_jump_retained",
+    "date": "2018-04-19",
+    "log_return": -0.16931493890382932
+  },
+  {
+    "asset": "PM",
+    "action": "flag_jump_retained",
+    "date": "2024-10-22",
+    "log_return": 0.0995349189818251
+  },
+  {
+    "asset": "PM",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "QCOM",
+    "action": "flag_jump_retained",
+    "date": "2019-04-16",
+    "log_return": 0.2086989350595485
+  },
+  {
+    "asset": "QCOM",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "RTX",
+    "action": "flag_jump_retained",
+    "date": "2023-07-25",
+    "log_return": -0.10775702078781979
+  },
+  {
+    "asset": "RTX",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "SBUX",
+    "action": "flag_jump_retained",
+    "date": "2017-07-28",
+    "log_return": -0.09699227034782876
+  },
+  {
+    "asset": "SBUX",
+    "action": "flag_jump_retained",
+    "date": "2024-05-01",
+    "log_return": -0.17289590797505738
+  },
+  {
+    "asset": "SBUX",
+    "action": "flag_jump_retained",
+    "date": "2024-08-13",
+    "log_return": 0.21911117863465268
+  },
+  {
+    "asset": "SBUX",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "SCHW",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "SO",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "T",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TMO",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TMUS",
+    "action": "flag_jump_retained",
+    "date": "2020-02-11",
+    "log_return": 0.11138778130087434
+  },
+  {
+    "asset": "TMUS",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TSLA",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TXN",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "UBER",
+    "action": "coverage",
+    "first": "2019-05-10",
+    "last": "2024-12-31",
+    "observations": 1421,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "UNH",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "UNP",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "UPS",
+    "action": "flag_jump_retained",
+    "date": "2022-02-01",
+    "log_return": 0.13176816204369057
+  },
+  {
+    "asset": "UPS",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "USB",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "V",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "VZ",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "WFC",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "WMT",
+    "action": "flag_jump_retained",
+    "date": "2017-11-16",
+    "log_return": 0.10344406901803982
+  },
+  {
+    "asset": "WMT",
+    "action": "flag_jump_retained",
+    "date": "2018-02-20",
+    "log_return": -0.10739847417324366
+  },
+  {
+    "asset": "WMT",
+    "action": "flag_jump_retained",
+    "date": "2022-05-17",
+    "log_return": -0.12076470293233266
+  },
+  {
+    "asset": "WMT",
+    "action": "flag_jump_retained",
+    "date": "2023-11-16",
+    "log_return": -0.08439112764537438
+  },
+  {
+    "asset": "WMT",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "XOM",
+    "action": "coverage",
+    "first": "2015-01-02",
+    "last": "2024-12-31",
+    "observations": 2516,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  }
+]
