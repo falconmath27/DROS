@@ -1,0 +1,116 @@
+% Slide block for P2 (theory and baselines) and P1 (OSPG and replication).
+% Frames only; included by slides.tex.
+
+% =============================================================== P2: theory
+\section{Optimal stopping}
+
+\begin{frame}{American options are optimal stopping problems}
+\begin{itemize}
+\item Exercising at date $j$ pays $g_j=e^{-rt_j}(K-S_j)^+$; the price is
+  $V_0=\sup_{\tau}\mathbb E^{\mathbb Q}[g_\tau]$ over stopping times $\tau$
+  ($\{\tau=j\}\in\mathcal F_j$: decide using the past only).
+\item \textbf{Snell envelope:} $U_H=g_H$, \ $U_j=\max\big(g_j,\ \mathbb E[U_{j+1}\mid\mathcal F_j]\big)$.
+  \begin{itemize}
+  \item smallest supermartingale above $g$; \ $\tau^*=\min\{j:U_j=g_j\}$, \ $V_0=U_0$
+  \end{itemize}
+\item Exercise when the payoff beats the \emph{continuation value} $C_j=\mathbb E[U_{j+1}\mid\mathcal F_j]$.
+\item Markov prices: $C_j=c_j(S_j)$, so tree, Longstaff--Schwartz and Deep Optimal Stopping
+  only need today's state. \textbf{With memory (rough volatility) they do not.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Continuous time: a free-boundary problem}
+\begin{columns}[T]
+\begin{column}{0.55\textwidth}
+\begin{itemize}
+\item $\min\big(-\partial_tV-\mathcal LV,\ V-g\big)=0$
+  \begin{itemize}
+  \item continue: Black--Scholes / Feynman--Kac PDE
+  \item exercise: $V=K-S$
+  \item boundary $L(t)$: smooth pasting $\partial_SV=-1$
+  \end{itemize}
+\item Perpetual put: $L^*=\frac{2rK}{2r+\sigma^2}=30$, \ $V(36)=5.79$
+\item Finite $T$: Crank--Nicolson in $\log S$ + penalty for $V\ge g$
+\item \textbf{Optional stopping:} for a martingale no rule beats holding,
+  so memory can only help when increments are dependent.
+\end{itemize}
+\end{column}
+\begin{column}{0.42\textwidth}
+\small Boundary, $S_0=36$, $\sigma=0.2$, $T=1$:\\[2pt]
+\begin{tabular}{rr}
+\toprule
+$t$ & $L(t)$\\
+\midrule
+0.00 & 32.94\\
+0.25 & 33.34\\
+0.50 & 33.99\\
+0.75 & 35.06\\
+0.95 & 37.05\\
+$T^-$ & 40.00\\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Ground truth: tree and PDE agree to $4\times10^{-4}$}
+\centering\scriptsize
+\begin{tabular}{rrr r rr rr}
+\toprule
+$S_0$ & $\sigma$ & $T$ & European & \multicolumn{2}{c}{Bermudan (50/yr)} & \multicolumn{2}{c}{American}\\
+ & & & & tree & PDE & tree & PDE\\
+\midrule
+\input{../results/benchmarks_table.tex}
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Baselines (P2)}
+\begin{itemize}
+\item \textbf{Longstaff--Schwartz:} regress realised cash flows on $[1,x,x^2]$ of today's
+  features, in-the-money paths only, backwards in time.
+\item \textbf{Deep Optimal Stopping:} one small network per date, trained backwards,
+  each warm-started from the next date.
+\item \textbf{Fitted Q-iteration:} one network (MLP or GRU) for every date, regressed on
+  bootstrapped targets $\max(g_{j+1},K_{j+1})$.
+\item All see the same features; all prices measured out of sample (lower bounds).
+\end{itemize}
+\end{frame}
+
+% =============================================================== P1: OSPG
+\section{OSPG}
+
+\begin{frame}{OSPG: learn the stopping rule directly}
+\begin{itemize}
+\item Policy outputs $\varphi_j=\mathbb P(\text{stop at }j\mid\text{not yet},\ \mathcal F_j)$
+  from the history (GRU) or today only (MLP).
+\item Stopping does not change the path, so the stopping-time law is exact:
+  \[\psi_j=\varphi_j\prod_{n<j}(1-\varphi_n),\qquad J(\theta)=\mathbb E\Big[\sum_j\psi_jg_j\Big].\]
+\item Policy gradient with a constant baseline:
+  $\nabla_\theta J=\mathbb E\big[\sum_j(g_j-b)\psi_j\nabla_\theta\log\psi_j\big]$.
+\item No rollouts, \textbf{no backward recursion}: no bias carried from date to date.
+\item Implicit Snell comparison: $\varphi_j$ rises when
+  $\dfrac{\psi_jg_j}{\sum_{n>j}\psi_ng_n}>\dfrac{\varphi_j}{1-\varphi_j}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What it took to make it work}
+\begin{itemize}
+\item \textbf{Start mostly waiting} (output bias $-2$): from $\varphi\approx\frac12$ the
+  put policy collapsed to ``stop now'' (4.0 instead of 4.478).
+\item \textbf{Small penalty on the logits}: the gradient is proportional to $\varphi$;
+  without it the GRU stalled at ``never stop'' on the 50-asset max-call.
+\item \textbf{Date 0 decided separately}: every simulated path starts in the same state.
+\item Batch norm in the MLP (as in the paper), using training statistics at decision time.
+\item Tests check the loss gradient equals the policy gradient, and that no method
+  looks ahead.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Replication: OSPG matches the exact prices}
+\centering\scriptsize
+\input{../results/replication_table.tex}
+
+\vspace{6pt}\normalsize
+\input{slides_p1_results_notes.tex}
+\end{frame}

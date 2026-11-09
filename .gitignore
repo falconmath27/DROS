@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+# per-experiment run logs (merged into results/run_log.txt)
+results/logs/
+results/raw_E*.jsonl
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.nav
+*.snm

@@ -1,0 +1,26 @@
+% Full presentation deck: one slide block per person, in the order of the report.
+% P2 assembles it. Compile from this folder: pdflatex slides.tex
+\documentclass[aspectratio=169,11pt]{beamer}
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\usepackage{amsmath,amssymb,booktabs}
+
+\title{Optimal Stopping with Memory}
+\subtitle{Deep recurrent policies for American options under rough volatility\\
+and multi-market backtesting}
+\author{Anamay Mittal, Vraj Shah, Anshul D Jain, Sachit Kapoor, Mridul Kwatra}
+\date{MAC F244 Stochastic Calculus}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\input{slides_p1_p2}   % (P2) optimal stopping, free boundary, baselines; (P1) OSPG, replication
+\input{slides_p3}      % (P3) fBm and rough volatility
+\input{slides_p4}      % (P4) data and backtest harness
+\input{slides_p5}      % (P5) backtest results
+
+\end{document}

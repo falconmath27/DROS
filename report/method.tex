@@ -1,0 +1,55 @@
+% ---------------------------------------------------------------- Method (P1)
+\section{Method: optimal stopping policy gradients}
+
+\paragraph{Stochastic stopping policy.}
+A network with parameters $\theta$ reads the history and outputs, at each date,
+$\varphi^\theta_j=\mathbb P(\text{stop at } j\mid\text{not stopped before},\ \mathcal F_j)$,
+with $\varphi_H=1$. Because stopping does not change the path, the distribution of the
+stopping time on a given path is exact~\cite{ospg2023}:
+\begin{equation}
+\psi^\theta_j=\mathbb P(\tau=j)=\varphi^\theta_j\prod_{n<j}\big(1-\varphi^\theta_n\big),\qquad
+\psi^\theta_H=\prod_{n<H}\big(1-\varphi^\theta_n\big).
+\end{equation}
+The expected reward $J(\theta)=\mathbb E\big[\sum_{j}\psi^\theta_j g_j\big]$ can therefore be
+evaluated on pre-simulated paths, without rollouts and without backward recursion.
+
+\paragraph{Gradient and loss.}
+By the log-derivative trick,
+\begin{equation}
+\nabla_\theta J=\mathbb E\Big[\sum_{j=0}^{H}(g_j-b)\,\psi^\theta_j\,\nabla_\theta\log\psi^\theta_j\Big],
+\end{equation}
+for any constant $b$, since $\sum_j\psi_j=1$ makes the $b$ term vanish. We minimise the
+temporal loss $\mathcal L=-\frac1N\sum_{i,j}\mathrm{sg}\big[\psi_{ij}(g_{ij}-b)\big]\log\psi_{ij}$,
+where $\mathrm{sg}$ stops gradients, whose gradient is exactly $-\nabla_\theta J$ (checked
+numerically in our tests). The update raises $\varphi_j$ when the ratio of the immediate
+value $\psi_jg_j$ to the continuation value $\sum_{n>j}\psi_ng_n$ exceeds the current odds
+$\varphi_j/(1-\varphi_j)$, an implicit Snell-envelope comparison at every date.
+
+\paragraph{Architecture and training.}
+The recurrent policy (OSPG-GRU) is a single-layer GRU with 20 hidden units followed by a
+linear layer and a sigmoid; the memoryless policy (OSPG-MLP) applies a two-layer
+network with 20 units to each date's inputs, with batch normalisation of its input and of
+each hidden layer's output, as in the paper; at decision time the normalisation uses the
+statistics from training, so a path's decision never depends on the other paths. Inputs at date $j$ are the standardised
+features, the current reward and $j/H$, all known at date~$j$. We train with Adam
+(learning rate $10^{-3}$), keep the parameters with the best validation value, and stop
+at the first date with $\varphi_j\ge\frac12$ at test time. Three implementation choices
+were needed. The output bias starts at $-2$, because a policy started near
+$\varphi=\frac12$ converged to ``stop immediately'' on the in-the-money put. A small
+penalty $10^{-3}\,\overline{z^2}$ on the pre-sigmoid outputs keeps $\varphi$ away from $0$:
+the policy gradient is proportional to $\varphi$, and without the penalty the GRU policy
+stalled at ``never stop'' on the 50-asset max-call. Finally, date~$0$, where all simulated
+paths coincide, is decided by comparing $g_0$ with the value achieved by the trained
+policy, as for the baselines.
+
+\paragraph{Baselines.}
+Longstaff--Schwartz regression on $[1,x,x^2]$ of the standardised features and current
+reward (in-the-money paths only for options); Deep Optimal Stopping with one network per
+date, warm-started from the next date; and fitted Q-iteration with one network (MLP or
+GRU) for all dates~\cite{ospg2023}. The baseline networks are run without batch
+normalisation: on the American put it lowered FQI-MLP from $4.480$ and $4.462$ to $4.426$
+and $4.442$ (two seeds), so we kept the stronger configuration for the baselines, which
+can only make the comparison harder for OSPG. Every method sees the same features, and
+all values are measured out of sample, so they are lower bounds on the true price; the
+binomial tree and the finite-difference solver of Section~2 give the exact prices they
+are measured against.

@@ -1,0 +1,33 @@
+% ---------------------------------------------------------------- Conclusion (P2)
+\section{Conclusion and limitations}
+
+\paragraph{What we found.}
+Optimal stopping can be solved without backward induction. The OSPG policy gradient
+optimises the expected reward of a stochastic stopping rule directly, using the exact
+distribution of its stopping time on pre-simulated paths; it needs neither rollouts nor
+the recursive continuation values on which the Snell-envelope methods rely. On the
+Markovian option benchmarks the memoryless OSPG policy comes closest to the exact
+prices, within $0.12\%$ on the put and $0.44\%$ on the 20-asset geometric call, ahead of
+Longstaff--Schwartz and fitted Q-iteration (Section~\ref{sec:replication}); the binomial
+tree and our finite-difference solver of the free-boundary problem, which agree with each
+other to $4\times10^{-4}$, provide the exact prices. A recurrent policy pays a small price
+for memory it does not need ($0.1$--$0.5\%$ on these problems), but still beats the
+backward-induction methods where the problems are hard.
+% P3: one or two sentences on the rough Bergomi put (does reading the history help?).
+% P5: one or two sentences on the backtest (does any rule beat holding, net of costs?).
+
+\paragraph{Limitations.}
+\begin{itemize}
+\item All values are out of sample and therefore lower bounds; we report no upper bounds
+  (dual methods), so the distance to the true price is known only where an exact price exists.
+\item For the 100-date geometric call we trained on 40{,}000 paths, about thirty times fewer
+  than the paper's 1.28 million, and our errors there are correspondingly larger.
+\item OSPG needed three practical fixes (initial bias, logit penalty, separate date-0
+  decision) that the paper does not describe; without them it can converge to ``stop
+  immediately'' or ``never stop''.
+\item The stopping rule is a hard threshold $\varphi_j\ge\frac12$ on a stochastic policy
+  trained for the soft objective; the two coincide only when the policy is nearly
+  deterministic.
+\item The memory results rest on one rough-volatility model and one set of markets.
+  % P3/P5: add model-specific limitations.
+\end{itemize}

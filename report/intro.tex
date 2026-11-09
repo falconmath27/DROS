@@ -1,0 +1,19 @@
+% ---------------------------------------------------------------- Introduction (P1)
+\section{Introduction}
+
+Pricing an American option means deciding when to exercise it, which makes it an
+\emph{optimal stopping} problem. The classical numerical methods (binomial trees,
+the least-squares Monte Carlo method of Longstaff and Schwartz~\cite{ls2001} and Deep
+Optimal Stopping~\cite{becker2019}) all solve it by backward induction. They assume that
+the price process is Markovian, so that today's state is enough to decide.
+
+Real markets are not Markovian in the price alone: volatility is persistent and,
+empirically, \emph{rough}~\cite{bfg2016}. When the past matters, backward induction needs
+an ever larger state, or it carries approximation errors from one date into the
+previous one. Damera Venkata and Bhattacharyya~\cite{ospg2023} proposed the
+\emph{Optimal Stopping Policy Gradient} (OSPG), which trains a recurrent network to
+choose stopping times directly and needs no backward recursion.
+
+We (i) replicate OSPG on the paper's Markovian option benchmarks, (ii) price American
+puts under the rough Bergomi model, where the price is non-Markovian, and (iii) backtest
+learned exit-timing rules on market data, comparing each with the classical methods.
