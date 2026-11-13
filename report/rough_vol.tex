@@ -1,5 +1,149 @@
-% ---------------------------------------------------------------- fBm and rough volatility (P3)
+% P3: fractional Brownian motion and rough volatility
 \subsection{Fractional Brownian motion and rough volatility}
 \label{sec:roughvol}
-% P3: models (fBm, rough Bergomi), why fBm is not a semimartingale for H != 1/2,
-% the fBm stopping table, and the American put under rough Bergomi (E4) with the H sweep.
+
+\paragraph{Fractional Brownian motion.}
+For a Hurst parameter $h\in(0,1)$, fractional Brownian motion (fBm)
+$W^h$ is a centred Gaussian process with covariance
+\begin{equation}
+  \mathbb E[W_t^h W_s^h]
+  =\frac12\left(t^{2h}+s^{2h}-|t-s|^{2h}\right).
+  \label{eq:fbm-covariance}
+\end{equation}
+When $h=1/2$, fBm is standard Brownian motion. For $h<1/2$ its increments
+are negatively correlated, while for $h>1/2$ they are positively correlated.
+For $h\ne1/2$, fBm is not a semimartingale, so the usual Markovian
+state representation is not available.
+
+The simulator generates exact finite-dimensional Gaussian samples on the
+chosen time grid. It constructs the covariance matrix $C$ from
+\eqref{eq:fbm-covariance}, computes its Cholesky factorisation
+$C=LL^\top$, draws independent standard normal vectors $Z$, and sets
+$W=ZL^\top$. The deterministic initial value $W_0^h=0$ is then prepended
+to every path. As a numerical check, for $h=0.3$, $40{,}000$ paths and
+10 time intervals, the empirical terminal variance was $1.0022$ against
+the theoretical value $1.0000$; the maximum absolute difference between
+the empirical and theoretical covariance matrices was $0.00792$.
+
+\paragraph{fBm stopping experiment.}
+Following the stopping problem in the OSPG paper~\cite{ospg2023}, the reward is the fBm
+value itself and the objective is
+\begin{equation}
+  \sup_{0\leq\tau\leq H}\mathbb E[W_\tau^h].
+\end{equation}
+The observation supplied to a policy contains the current fBm value and
+normalised time; the reward at date $j$ is $R_j=W_{t_j}^h$. We tested
+$h\in\{0.05,0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80,0.90,0.95\}$
+using 20,000 paths, 100 time intervals and two random 50/50 train--test
+splits, with 20\% of the training portion reserved for validation. The
+methods were DOS, FQI-MLP, FQI-GRU, OSPG-MLP and OSPG-GRU. This is a
+reduced-compute reproduction; the paper used 40,000 paths and ten splits.
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\caption{fBm stopping results. Entries are mean test rewards; parentheses
+show the standard deviation across the two split-level estimates.}
+\label{tab:fbm-results}
+\begin{tabular}{rccccc}
+\toprule
+$h$ & DOS & FQI-MLP & FQI-GRU & OSPG-MLP & OSPG-GRU \\
+\midrule
+0.05 & 0.700 (0.005) & 0.910 (0.017) & 1.297 (0.001) & 1.153 (0.004) & 1.286 (0.004) \\
+0.10 & 0.508 (0.024) & 0.740 (0.004) & 1.040 (0.004) & 0.926 (0.003) & 1.032 (0.008) \\
+0.20 & 0.304 (0.002) & 0.481 (0.009) & 0.643 (0.009) & 0.578 (0.004) & 0.639 (0.002) \\
+0.30 & 0.187 (0.007) & 0.299 (0.008) & 0.366 (0.005) & 0.334 (0.001) & 0.362 (0.008) \\
+0.40 & 0.092 (0.021) & 0.132 (0.008) & 0.158 (0.012) & 0.141 (0.010) & 0.151 (0.015) \\
+0.50 & -0.001 (0.007) & -0.002 (0.009) & -0.006 (0.003) & -0.004 (0.006) & -0.008 (0.011) \\
+0.60 & 0.070 (0.003) & 0.081 (0.013) & 0.099 (0.010) & 0.096 (0.003) & 0.094 (0.007) \\
+0.70 & 0.165 (0.002) & 0.177 (0.000) & 0.202 (0.001) & 0.191 (0.002) & 0.193 (0.002) \\
+0.80 & 0.245 (0.005) & 0.258 (0.004) & 0.260 (0.001) & 0.266 (0.004) & 0.262 (0.002) \\
+0.90 & 0.302 (0.007) & 0.306 (0.003) & 0.282 (0.013) & 0.314 (0.008) & 0.306 (0.007) \\
+0.95 & 0.353 (0.001) & 0.346 (0.004) & 0.328 (0.028) & 0.357 (0.002) & 0.349 (0.001) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At $h=0.5$, all five learned-method estimates are close to zero, as
+expected for a bounded stopping rule applied to a Brownian martingale.
+Away from $h=0.5$, the attainable mean reward is positive. In this
+reduced experiment, the recurrent models are competitive, but the GRU
+variants do not dominate the MLP variants at every $h$. The results
+therefore support the role of increment dependence in the stopping
+problem, but do not establish a uniform GRU advantage. The two-split
+sample is small, so differences between methods should be interpreted
+as descriptive rather than as conclusive statistical rankings.
+
+\paragraph{Rough Bergomi model and hybrid simulation.}
+For the rough-volatility experiments we use the rough Bergomi model
+\begin{align}
+  dS_t &= rS_t\,dt+\sqrt{v_t}S_t\,dZ_t,\\
+  Z_t &= \rho W_t+\sqrt{1-\rho^2}\,W_t^\perp,\\
+  v_t &= \xi_0\exp\!\left(\eta\widetilde W_t^h
+                    -\frac{\eta^2}{2}t^{2h}\right),\\
+  \widetilde W_t^h &= \sqrt{2h}\int_0^t(t-s)^{h-1/2}\,dW_s.
+  \label{eq:rough-bergomi}
+\end{align}
+Here $W$ and $W^\perp$ are independent Brownian motions, and $\rho$
+controls the correlation between the stock-price shock and the driver
+of volatility. The variance normalisation gives
+$\mathbb E[v_t]=\xi_0$.
+
+The rough Bergomi specification follows Bayer, Friz and Gatheral~\cite{bfg2016}. The active simulator uses a hybrid discretisation of the Volterra
+integral: the near-diagonal Brownian integral is sampled using its
+conditional Gaussian law given the corresponding Brownian increment;
+the remaining kernel contributions are approximated using the hybrid
+scheme's evaluation weights. The previous joint-Cholesky implementation
+is retained as \texttt{rbergomi\_paths\_exact} for comparison. Stock prices are
+then advanced in log space with a left-point variance step. For the
+American put, the discounted reward is
+\begin{equation}
+  R_j=e^{-rt_j}(K-S_{t_j})^+,
+\end{equation}
+and the base features at each exercise date are $S_{t_j}/K$ and
+$v_{t_j}/\xi_0$.
+
+\paragraph{Simulator validation.}
+The hybrid simulator passed the repository's existing 71-test suite;
+the additional P3 variance test also passed separately. A preliminary
+European-call check used $h=0.07$, $\eta=1.9$, $\rho=-0.9$,
+$\xi_0=0.0552$, $S_0=K=1$, $r=0$, 50 time intervals and 30,000 paths.
+The Monte Carlo estimate was $0.07886$ with standard error $0.00061$,
+compared with the published reference value $0.0791$. The difference is
+about 0.39 standard errors. This is a useful consistency check, not a
+high-precision benchmark reproduction, because the path count and time
+grid are smaller than those used for the reference calculation.
+
+\paragraph{American put experiment (E4).}
+We ran a reduced Hurst sweep at $h\in\{0.07,0.10,0.30,0.50\}$ using
+3,000 simulated paths, 25 time intervals and one random split per $h$.
+The model parameters were $T=1$, $\eta=1.9$, $\rho=-0.9$,
+$\xi_0=0.09$, $r=0.05$, $S_0=K=100$. We compared Longstaff--Schwartz
+(LSM), Deep Optimal Stopping (DOS), OSPG-MLP and OSPG-GRU. The table
+reports the test-set mean reward and its pathwise standard error.
+
+\begin{table}[ht]
+\centering
+\small
+\caption{Reduced E4 American put results under hybrid rough Bergomi.
+Entries are mean discounted payoffs (standard error).}
+\label{tab:e4-results}
+\begin{tabular}{rcccc}
+\toprule
+$h$ & LSM & DOS & OSPG-MLP & OSPG-GRU \\
+\midrule
+0.07 & 7.935 (0.340) & 7.985 (0.350) & 8.136 (0.340) & 7.932 (0.356) \\
+0.10 & 7.698 (0.329) & 7.776 (0.348) & 7.934 (0.340) & 7.690 (0.359) \\
+0.30 & 7.362 (0.337) & 7.435 (0.350) & 7.507 (0.332) & 7.367 (0.368) \\
+0.50 & 7.540 (0.314) & 7.619 (0.315) & 7.605 (0.352) & 7.479 (0.360) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+OSPG-MLP has the largest point estimate in these four pilot runs.
+However, the standard errors are around $0.31$--$0.37$, and the
+uncertainty intervals overlap substantially. With only one split and
+3,000 paths, these results do not establish that OSPG-MLP is superior
+to the other methods, nor do they establish a GRU advantage. The sweep
+is a preliminary computational comparison; more paths and independent
+splits would be needed for firm statistical conclusions.

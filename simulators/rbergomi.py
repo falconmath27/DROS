@@ -34,7 +34,7 @@ def _joint_covariance(t, H):
     return C
 
 
-def rbergomi_paths(N=100_000, n_steps=100, T=1.0, H=0.07, eta=1.9, rho=-0.9, xi0=0.09,
+def rbergomi_paths_exact(N=100_000, n_steps=100, T=1.0, H=0.07, eta=1.9, rho=-0.9, xi0=0.09,
                    r=0.05, S0=100.0, seed=0):
     """Return (S, v) each of shape (N, n_steps+1) on the grid t_k = k T / n_steps."""
     rng = np.random.default_rng(seed)
@@ -55,7 +55,97 @@ def rbergomi_paths(N=100_000, n_steps=100, T=1.0, H=0.07, eta=1.9, rho=-0.9, xi0
     S = S0 * np.exp(np.hstack([np.zeros((N, 1)), logS]))
     return S, v, tt, Wt
 
+def rbergomi_paths(
+    N=100_000, n_steps=100, T=1.0, H=0.07,
+    eta=1.9, rho=-0.9, xi0=0.09,
+    r=0.05, S0=100.0, seed=0
+):
+    """Rough Bergomi simulation using the hybrid scheme (kappa=1)."""
 
+    if not 0 < H <= 0.5:
+        raise ValueError("Rough Bergomi requires 0 < H <= 0.5")
+
+    rng = np.random.default_rng(seed)
+    dt = T / n_steps
+    tt = np.linspace(0, T, n_steps + 1)
+
+    # Brownian increments
+    dW = np.sqrt(dt) * rng.standard_normal((N, n_steps))
+
+    # Volterra process
+    Wt = np.zeros((N, n_steps + 1))
+
+    if np.isclose(H, 0.5):
+        # At H=0.5, the Volterra process is ordinary Brownian motion
+        Wt[:, 1:] = np.cumsum(dW, axis=1)
+
+    else:
+        alpha = H - 0.5
+
+        # Generate the near-diagonal Wiener integrals.
+        # These are correlated with the corresponding Brownian increments.
+
+        cov = dt**(alpha + 1) / (alpha + 1)
+        var = dt**(2 * alpha + 1) / (2 * alpha + 1)
+
+        conditional_mean = (cov / dt) * dW
+        conditional_var = max(var - cov**2 / dt, 0.0)
+
+        J = (
+            conditional_mean
+            + np.sqrt(conditional_var)
+            * rng.standard_normal((N, n_steps))
+        )
+
+        # Optimal evaluation points for the remaining kernel terms
+        k = np.arange(2, n_steps + 1)
+
+        b_star = (
+            (k**(alpha + 1) - (k - 1)**(alpha + 1))
+            / (alpha + 1)
+        )**(1 / alpha)
+
+        weights = (b_star * dt)**alpha
+
+        # Build the convolution matrix
+        kernel = np.zeros((n_steps, n_steps))
+
+        for lag, weight in zip(k, weights):
+            rows = np.arange(lag, n_steps + 1)
+            cols = rows - lag
+            kernel[rows - 1, cols] = weight
+
+        # Hybrid approximation of the Volterra process
+        Wt[:, 1:] = np.sqrt(2 * H) * (
+            J + dW @ kernel.T
+        )
+
+    # Rough variance process
+    v = xi0 * np.exp(
+        eta * Wt - 0.5 * eta**2 * tt**(2 * H)
+    )
+
+    # Correlated Brownian motion driving the stock price
+    dZ = (
+        rho * dW
+        + np.sqrt(1 - rho**2)
+        * np.sqrt(dt)
+        * rng.standard_normal((N, n_steps))
+    )
+
+    # Log-Euler stock price simulation
+    vl = v[:, :-1]
+
+    logS = np.cumsum(
+        (r - 0.5 * vl) * dt + np.sqrt(vl) * dZ,
+        axis=1
+    )
+
+    S = S0 * np.exp(
+        np.hstack([np.zeros((N, 1)), logS])
+    )
+
+    return S, v, tt, Wt
 def rbergomi_put_problem(N=100_000, n_steps=100, exercise_every=2, K=100.0, lags=0, seed=0,
                          **model):
     """American (Bermudan) put under rough Bergomi.
