@@ -1,6 +1,94 @@
 % Slide block for P3 (fBm and rough volatility). Frames only; included by slides.tex.
-\begin{frame}{Rough volatility (P3)}
+\section{P3: fBm and rough volatility}
+
+\begin{frame}{P3 scope: simulate memory, learn when to stop}
 \begin{itemize}
-\item To do: fBm and rough Bergomi, fBm stopping table, American put under rough vol.
+\item \textbf{fBm experiment:} a controlled non-Markovian stopping problem with reward
+  $R_j=W^h_{t_j}$ and objective $\sup_{\tau}\mathbb E[W^h_\tau]$.
+\item \textbf{Rough Bergomi:} simulate a stochastic-volatility price process whose
+  variance depends on a Volterra Gaussian process.
+\item Compare memory-aware GRU policies with MLP policies and classical baselines.
+\item Our deliverables: simulation, covariance / martingale / option-price checks,
+  numerical experiments and analysis.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exact fBm samples on a discrete grid}
+\begin{itemize}
+\item Covariance:
+  \[\mathbb E[W_t^hW_s^h]=\tfrac12(t^{2h}+s^{2h}-|t-s|^{2h}).\]
+\item Build the grid covariance $C$, factorise $C=LL^\top$, draw $Z\sim N(0,I)$,
+  and generate correlated samples $W=ZL^\top$; prepend $W_0=0$.
+\item Empirical check at $h=0.3$: terminal variance $1.0022$ vs theoretical $1.0000$;
+  maximum absolute covariance error $0.00792$ (40,000 paths, 10 intervals).
+\item Stopping study: 20,000 paths, 100 intervals, two random splits; 11 Hurst values
+  from $0.05$ to $0.95$; DOS, FQI-MLP/GRU and OSPG-MLP/GRU.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{fBm stopping results: reduced-compute run}
+\centering\tiny
+\begin{tabular}{rccccc}
+\toprule
+$h$ & DOS & FQI-MLP & FQI-GRU & OSPG-MLP & OSPG-GRU \\
+\midrule
+0.05 & 0.700 & 0.910 & 1.297 & 1.153 & 1.286 \\
+0.10 & 0.508 & 0.740 & 1.040 & 0.926 & 1.032 \\
+0.20 & 0.304 & 0.481 & 0.643 & 0.578 & 0.639 \\
+0.30 & 0.187 & 0.299 & 0.366 & 0.334 & 0.362 \\
+0.40 & 0.092 & 0.132 & 0.158 & 0.141 & 0.151 \\
+0.50 & -0.001 & -0.002 & -0.006 & -0.004 & -0.008 \\
+0.60 & 0.070 & 0.081 & 0.099 & 0.096 & 0.094 \\
+0.70 & 0.165 & 0.177 & 0.202 & 0.191 & 0.193 \\
+0.80 & 0.245 & 0.258 & 0.260 & 0.266 & 0.262 \\
+0.90 & 0.302 & 0.306 & 0.282 & 0.314 & 0.306 \\
+0.95 & 0.353 & 0.346 & 0.328 & 0.357 & 0.349 \\
+\bottomrule
+\end{tabular}
+\vspace{4pt}
+\begin{itemize}\tiny
+\item At $h=0.5$, all methods are close to zero, consistent with the Brownian martingale benchmark.
+\item GRU is competitive, but does not outperform MLP uniformly in this reduced run.
+\item Means are over two split-level estimates; interpret rankings cautiously.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rough Bergomi: model and hybrid simulation}
+\small
+\begin{align*}
+ dS_t &= rS_t\,dt+\sqrt{v_t}S_t\,dZ_t,\qquad
+ dZ_t=\rho\,dW_t+\sqrt{1-\rho^2}\,dW_t^\perp,\\
+ v_t &=\xi_0\exp\!\left(\eta\widetilde W_t^h-\tfrac12\eta^2t^{2h}\right),\\
+ \widetilde W_t^h&=\sqrt{2h}\int_0^t(t-s)^{h-1/2}\,dW_s.
+\end{align*}
+\begin{itemize}
+\item Hybrid scheme: conditionally sample the near-diagonal kernel integral and approximate
+  the remaining Volterra terms with hybrid evaluation weights.
+\item Log-Euler stock update uses the left-point variance; put reward is
+  $e^{-rt_j}(K-S_{t_j})^+$.
+\item Preliminary European call check: $0.07886\pm0.00061$ (MC standard error),
+  against reference $0.0791$; difference is about 0.39 standard errors.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{E4: American put under rough Bergomi}
+\centering\scriptsize
+\begin{tabular}{rcccc}
+\toprule
+$h$ & LSM & DOS & OSPG-MLP & OSPG-GRU \\
+\midrule
+0.07 & 7.935 (0.340) & 7.985 (0.350) & 8.136 (0.340) & 7.932 (0.356) \\
+0.10 & 7.698 (0.329) & 7.776 (0.348) & 7.934 (0.340) & 7.690 (0.359) \\
+0.30 & 7.362 (0.337) & 7.435 (0.350) & 7.507 (0.332) & 7.367 (0.368) \\
+0.50 & 7.540 (0.314) & 7.619 (0.315) & 7.605 (0.352) & 7.479 (0.360) \\
+\bottomrule
+\end{tabular}
+\vspace{5pt}
+\begin{itemize}\small
+\item 3,000 paths, 25 exercise intervals and one random split per $h$.
+\item OSPG-MLP has the largest point estimate in these pilot runs, but the standard errors
+  overlap substantially; no method is shown to be statistically superior.
+\item Main takeaway: the simulators and method interfaces run end-to-end; larger multi-split
+  experiments are needed for stronger performance claims.
 \end{itemize}
 \end{frame}

@@ -13,3 +13,10 @@ results/raw_E*.jsonl
 *.snm
 .venv/
 data/cache/
+*:Zone.Identifier
+
+# Generated simulation data and temporary experiment outputs
+results/paths/
+results/*_smoke*.jsonl
+results/*_smoke_summary.csv
+results/e4_pilot_raw.jsonl
