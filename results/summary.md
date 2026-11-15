@@ -55,6 +55,8 @@ mean = average over seeds of the test-set value; sd = spread across seeds; se = 
 
 ## E4 - rbergomi_put
 
+> **Earlier simulator.** These rows were produced on 9 Nov 2026 with the exact (joint Cholesky) rough Bergomi simulator, now `simulators.rbergomi.rbergomi_paths_exact`. `rbergomi_put_problem` has since switched to P3's hybrid scheme, so re-running E4 would not reproduce them. The report uses P3's hybrid-scheme sweep (`results/e4_h_sweep_summary.csv`) instead.
+
 | method | seeds | mean | sd | se | reference | error % | paper | mean stop date | train s |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | LSM | 2 | 8.4380 | 0.0122 | 0.0565 |  |  |  | 42.5 | 1 |
@@ -65,6 +67,8 @@ mean = average over seeds of the test-set value; sd = spread across seeds; se = 
 | OSPG-GRU | 2 | 8.4732 | 0.0023 | 0.0568 |  |  |  | 42.0 | 417 |
 
 ## E5 - synthetic_market
+
+> **Synthetic data.** Stand-in GARCH prices (`E5synthetic` in `run_all.py`). The real-market results are in `results/p5/summary/`.
 
 | method | seeds | mean | sd | se | reference | error % | paper | mean stop date | train s |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

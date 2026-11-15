@@ -1,16 +1,24 @@
 % Full presentation deck: one slide block per person, in the order of the report.
-% P2 assembles it. Compile from this folder: pdflatex slides.tex
+% Compile from this folder (pdflatex or tectonic slides.tex).
 \documentclass[aspectratio=169,11pt]{beamer}
 \usetheme{default}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]
-\usepackage{amsmath,amssymb,booktabs}
+\usepackage{amsmath,amssymb,booktabs,graphicx}
 
 \title{Optimal Stopping with Memory}
 \subtitle{Deep recurrent policies for American options under rough volatility\\
 and multi-market backtesting}
-\author{Anamay Mittal, Vraj Shah, Anshul D Jain, Sachit Kapoor, Mridul Kwatra}
-\date{MAC F244 Stochastic Calculus}
+\author{\small
+  \begin{tabular}{ll}
+  Anamay Mittal & 2024ADPS0865G\\
+  Vraj Shah     & 2024ADPS0846G\\
+  Anshul D Jain & 2024ADPS0844G\\
+  Sachit Kapoor & 2024ADPS0858G\\
+  Mridul Kwatra & 2024ADPS0819G
+  \end{tabular}}
+\institute{MAC F244 Stochastic Calculus --- Project Presentation\\BITS Pilani, K K Birla Goa Campus}
+\date{15 November 2026}
 
 \begin{document}
 
@@ -18,9 +26,30 @@ and multi-market backtesting}
 \titlepage
 \end{frame}
 
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
 \input{slides_p1_p2}   % (P2) optimal stopping, free boundary, baselines; (P1) OSPG, replication
 \input{slides_p3}      % (P3) fBm and rough volatility
 \input{slides_p4}      % (P4) data and backtest harness
 \input{slides_p5}      % (P5) backtest results
+
+\section{Takeaways}
+\begin{frame}{Takeaways}
+\begin{itemize}
+\item \textbf{OSPG works without backward induction.} On the Markovian benchmarks OSPG-MLP is
+  closest to the exact prices ($-0.12\%$ put, $-0.05\%$/$-0.44\%$ geometric call), ahead of
+  Longstaff--Schwartz and FQI.
+\item \textbf{Memory helps only where there is memory to use.} GRU policies win clearly for fBm
+  with $h\le0.3$, cost $0.1$--$0.5\%$ on Markovian problems, and show no advantage in the
+  rough Bergomi pilot or, with one exception, on real markets.
+\item \textbf{Learned exits do not beat holding.} After costs, every exit rule earns less than
+  holding to the 30-day deadline; on equities the gap is $0.55$--$1.40$ points per window.
+  Consistent with optional sampling for upward-drifting prices.
+\item \textbf{Caveats:} rough-volatility runs are reduced pilots; market universes carry
+  survivorship bias; execution is stylized.
+\end{itemize}
+\end{frame}
 
 \end{document}

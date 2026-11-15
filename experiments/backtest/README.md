@@ -25,17 +25,16 @@ Real E5 uses the P4 harness. Older synthetic artifacts under results/paths/ are
 separate and never loaded by summarize.py. Utility scores and economic net returns
 are separately labelled; neither represents an annualized portfolio return.
 PDF compilation requires a LaTeX distribution with beamer, graphicx and booktabs.
-P4 review remains pending until the teammate reviews report/backtest_results.tex.
+The report tables for this section (`results/report/p5_*.tex`) are built from the summary
+outputs by `python -m experiments.report_tables`; run it after step 4.
 
-Portable compiler used on this machine (run from the repository root):
+With Tectonic instead of pdflatex (run from inside report/):
 
-    & 'C:\Users\ASUS\Documents\Codex\work\p5-tex\tectonic.exe' --keep-logs report/main.tex
-    & 'C:\Users\ASUS\Documents\Codex\work\p5-tex\tectonic.exe' --keep-logs report/slides.tex
+    tectonic main.tex
+    tectonic slides.tex
 
 These commands write report/main.pdf and report/slides.pdf. The first invocation
-downloads standard TeX packages. costs.tex and regimes.tex are compact report
-tables generated from the full CSV results. report/P4_REVIEW_REQUEST.md is a draft
-to forward to P4; it is not a completed review.
+downloads standard TeX packages.
 
 config.json freezes the three core markets, their P4 input hashes, features, venue
 cost assumptions, folds, seeds, methods, objectives and planned contrasts.
@@ -44,7 +43,7 @@ cost assumptions, folds, seeds, methods, objectives and planned contrasts.
 
     python -B -m experiments.backtest.run
 
-This writes shortened-training validation artifacts to results/p5/one_fold/.
+This writes shortened-training validation artifacts to results/p5/one_fold/ (not committed).
 
 ## Full grid and cost sensitivity
 

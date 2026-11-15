@@ -1,5 +1,6 @@
 % ---------------------------------------------------------------- Conclusion (P2)
 \section{Conclusion and limitations}
+\label{sec:conclusion}
 
 \paragraph{What we found.}
 Optimal stopping can be solved without backward induction. The OSPG policy gradient
@@ -13,8 +14,30 @@ tree and our finite-difference solver of the free-boundary problem, which agree 
 other to $4\times10^{-4}$, provide the exact prices. A recurrent policy pays a small price
 for memory it does not need ($0.1$--$0.5\%$ on these problems), but still beats the
 backward-induction methods where the problems are hard.
-% P3: one or two sentences on the rough Bergomi put (does reading the history help?).
-% P5: one or two sentences on the backtest (does any rule beat holding, net of costs?).
+
+\paragraph{Does memory help?}
+Only where the process has strong memory and the training data show it. When stopping a
+fractional Brownian motion with $h\le0.3$, whose increments are negatively correlated, the
+recurrent policies (OSPG-GRU and FQI-GRU) earn clearly more than their memoryless
+counterparts, for example $1.286$ against $1.153$ for OSPG at $h=0.05$; for $h\ge0.4$ the
+ordering is mixed, with the GRU variants ahead at some values of $h$ and behind at others,
+and at $h=0.5$ every method is close to the value $0$ that optional stopping predicts
+(Table~\ref{tab:fbm-results}). In the
+rough Bergomi pilot no method is distinguishable from another at its standard errors, and
+there is no GRU advantage (Table~\ref{tab:e4-results}). On real markets the primary
+contrast, GRU minus MLP, has an interval that includes zero in five of the six
+market--objective combinations; the exception is S\&P~100 under the exponential reward,
+where the GRU earns $0.27$ percentage points more per window (Table~\ref{tab:p5-primary}).
+
+\paragraph{Does learned exit timing pay?}
+No. At base costs, no learned or rule-based exit earns more than holding each position to
+its 30-day deadline, in any market (Tables~\ref{tab:p5-means} and~\ref{tab:p5-hold}). On
+both equity universes OSPG-GRU falls short of holding by $0.55$ to $1.40$ percentage points
+per window, with intervals that exclude zero; on crypto the intervals are too wide to
+decide. This is consistent with optional sampling: over the test periods holding earned
+$1.3$ to $3.6\%$ per window, a positive drift, and for a submartingale no bounded stopping
+rule improves on stopping at the deadline in expectation, so exiting early mainly gives up
+drift. We did not test the submartingale property directly.
 
 \paragraph{Limitations.}
 \begin{itemize}
@@ -28,6 +51,11 @@ backward-induction methods where the problems are hard.
 \item The stopping rule is a hard threshold $\varphi_j\ge\frac12$ on a stochastic policy
   trained for the soft objective; the two coincide only when the policy is nearly
   deterministic.
-\item The memory results rest on one rough-volatility model and one set of markets.
-  % P3/P5: add model-specific limitations.
+\item The rough-volatility evidence is thin: the fBm table uses two splits and the rough
+  Bergomi sweep one split of 3{,}000 paths, both with shortened training. A full-budget
+  sweep could still reveal a difference that the pilot cannot resolve.
+\item The market study uses current, not historical, index membership and coin rankings
+  (survivorship bias), stylized close-to-close execution with assumed costs, and the
+  date-0 rule designed for simulated paths with a common starting state. The planned
+  Hurst-exponent and regime diagnostics were not completed.
 \end{itemize}

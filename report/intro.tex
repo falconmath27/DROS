@@ -8,7 +8,8 @@ Optimal Stopping~\cite{becker2019}) all solve it by backward induction. They ass
 the price process is Markovian, so that today's state is enough to decide.
 
 Real markets are not Markovian in the price alone: volatility is persistent and,
-empirically, \emph{rough}~\cite{bfg2016}. When the past matters, backward induction needs
+empirically, \emph{rough}~\cite{gjr2018}, which motivates rough-volatility pricing models
+such as rough Bergomi~\cite{bfg2016}. When the past matters, backward induction needs
 an ever larger state, or it carries approximation errors from one date into the
 previous one. Damera Venkata and Bhattacharyya~\cite{ospg2023} proposed the
 \emph{Optimal Stopping Policy Gradient} (OSPG), which trains a recurrent network to
@@ -17,3 +18,7 @@ choose stopping times directly and needs no backward recursion.
 We (i) replicate OSPG on the paper's Markovian option benchmarks, (ii) price American
 puts under the rough Bergomi model, where the price is non-Markovian, and (iii) backtest
 learned exit-timing rules on market data, comparing each with the classical methods.
+Section~\ref{sec:theory} sets out the optimal stopping theory and the exact pricing
+methods used as ground truth, Section~\ref{sec:method} the OSPG method and the baselines,
+and Section~\ref{sec:results} the three sets of experiments; Section~\ref{sec:conclusion}
+concludes.

@@ -4,7 +4,7 @@
 
 \paragraph{Set-up.}
 We ran three Markovian problems for which the exact price is known.
-\emph{E1}: the Bermudan put of Section~2 ($S_0=36$, $K=40$, $r=0.06$, $\sigma=0.2$, $T=1$,
+\emph{E1}: the Bermudan put of Section~\ref{sec:theory} ($S_0=36$, $K=40$, $r=0.06$, $\sigma=0.2$, $T=1$,
 50 exercise dates; exact price $4.478$ from the tree and the PDE solver).
 \emph{E2}: the paper's Bermudan max-call on $d=20$ and $50$ independent assets
 ($s_0=100$, 9 exercise dates, Table~1 of~\cite{ospg2023}); the reference is the midpoint of
@@ -40,8 +40,7 @@ significant.
 
 \paragraph{Paired comparisons.}
 Because all methods are evaluated on the same test paths, we compare them path by path:
-the noise common to both methods cancels and much smaller differences become visible
-(\texttt{results/paired.md}). OSPG-GRU is ahead of Longstaff--Schwartz and FQI-MLP on both
+the noise common to both methods cancels and much smaller differences become visible. OSPG-GRU is ahead of Longstaff--Schwartz and FQI-MLP on both
 geometric calls by $0.04$ to $0.09$ ($z$ between $2.6$ and $4.6$), and of DOS and FQI-MLP on
 the 50-asset max-call by $0.15$ and $0.20$ ($z=3.9$ and $5.4$). It is, however, behind
 OSPG-MLP on the put ($0.008$, $z=3.0$), on both max-calls ($0.086$ and $0.064$, $z=2.9$ and
@@ -62,8 +61,3 @@ below Becker et al.'s lower bounds and below every method here, including our
 implementations of the paper's baselines. We therefore compare with Becker et al.\ rather than with the
 paper's numbers; the paper's conclusions about the max-call (all methods within a few
 tenths of each other) are unaffected.
-
-% Note for P3 (rough Bergomi, stand-in simulator, results/paired.md): both OSPG policies
-% beat LSM, DOS and FQI-GRU by 0.035-0.08 (z = 2.3-4.5), but OSPG-GRU and OSPG-MLP are equal
-% (difference 0.004, z = 0.3). On the stand-in, the gain comes from avoiding backward
-% induction, not from reading the history. Re-check with your simulator and an H sweep.

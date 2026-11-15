@@ -1,5 +1,6 @@
 % ---------------------------------------------------------------- Method (P1)
 \section{Method: optimal stopping policy gradients}
+\label{sec:method}
 
 \paragraph{Stochastic stopping policy.}
 A network with parameters $\theta$ reads the history and outputs, at each date,
@@ -10,19 +11,19 @@ stopping time on a given path is exact~\cite{ospg2023}:
 \psi^\theta_j=\mathbb P(\tau=j)=\varphi^\theta_j\prod_{n<j}\big(1-\varphi^\theta_n\big),\qquad
 \psi^\theta_H=\prod_{n<H}\big(1-\varphi^\theta_n\big).
 \end{equation}
-The expected reward $J(\theta)=\mathbb E\big[\sum_{j}\psi^\theta_j g_j\big]$ can therefore be
+The expected reward $J(\theta)=\mathbb E\big[\sum_{j}\psi^\theta_j R_j\big]$ can therefore be
 evaluated on pre-simulated paths, without rollouts and without backward recursion.
 
 \paragraph{Gradient and loss.}
 By the log-derivative trick,
 \begin{equation}
-\nabla_\theta J=\mathbb E\Big[\sum_{j=0}^{H}(g_j-b)\,\psi^\theta_j\,\nabla_\theta\log\psi^\theta_j\Big],
+\nabla_\theta J=\mathbb E\Big[\sum_{j=0}^{H}(R_j-b)\,\psi^\theta_j\,\nabla_\theta\log\psi^\theta_j\Big],
 \end{equation}
 for any constant $b$, since $\sum_j\psi_j=1$ makes the $b$ term vanish. We minimise the
-temporal loss $\mathcal L=-\frac1N\sum_{i,j}\mathrm{sg}\big[\psi_{ij}(g_{ij}-b)\big]\log\psi_{ij}$,
+temporal loss $\mathcal L=-\frac1N\sum_{i,j}\mathrm{sg}\big[\psi_{ij}(R_{ij}-b)\big]\log\psi_{ij}$,
 where $\mathrm{sg}$ stops gradients, whose gradient is exactly $-\nabla_\theta J$ (checked
 numerically in our tests). The update raises $\varphi_j$ when the ratio of the immediate
-value $\psi_jg_j$ to the continuation value $\sum_{n>j}\psi_ng_n$ exceeds the current odds
+value $\psi_jR_j$ to the continuation value $\sum_{n>j}\psi_nR_n$ exceeds the current odds
 $\varphi_j/(1-\varphi_j)$, an implicit Snell-envelope comparison at every date.
 
 \paragraph{Architecture and training.}
@@ -39,7 +40,7 @@ $\varphi=\frac12$ converged to ``stop immediately'' on the in-the-money put. A s
 penalty $10^{-3}\,\overline{z^2}$ on the pre-sigmoid outputs keeps $\varphi$ away from $0$:
 the policy gradient is proportional to $\varphi$, and without the penalty the GRU policy
 stalled at ``never stop'' on the 50-asset max-call. Finally, date~$0$, where all simulated
-paths coincide, is decided by comparing $g_0$ with the value achieved by the trained
+paths coincide, is decided by comparing $R_0$ with the value achieved by the trained
 policy, as for the baselines.
 
 \paragraph{Baselines.}
@@ -51,5 +52,5 @@ normalisation: on the American put it lowered FQI-MLP from $4.480$ and $4.462$ t
 and $4.442$ (two seeds), so we kept the stronger configuration for the baselines, which
 can only make the comparison harder for OSPG. Every method sees the same features, and
 all values are measured out of sample, so they are lower bounds on the true price; the
-binomial tree and the finite-difference solver of Section~2 give the exact prices they
+binomial tree and the finite-difference solver of Section~\ref{sec:theory} give the exact prices they
 are measured against.
