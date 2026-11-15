@@ -1,0 +1,126 @@
+[
+  {
+    "asset": "BTC/USDT",
+    "action": "flag_jump_retained",
+    "date": "2020-03-12",
+    "log_return": -0.5026069427414583
+  },
+  {
+    "asset": "BTC/USDT",
+    "action": "coverage",
+    "first": "2017-08-17",
+    "last": "2024-12-31",
+    "observations": 2694,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ETH/USDT",
+    "action": "flag_jump_retained",
+    "date": "2020-03-12",
+    "log_return": -0.5905343858695513
+  },
+  {
+    "asset": "ETH/USDT",
+    "action": "coverage",
+    "first": "2017-08-17",
+    "last": "2024-12-31",
+    "observations": 2694,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BNB/USDT",
+    "action": "flag_jump_retained",
+    "date": "2020-03-12",
+    "log_return": -0.5822871953902031
+  },
+  {
+    "asset": "BNB/USDT",
+    "action": "coverage",
+    "first": "2017-11-06",
+    "last": "2024-12-31",
+    "observations": 2613,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "XRP/USDT",
+    "action": "flag_jump_retained",
+    "date": "2020-11-21",
+    "log_return": 0.3385399260452926
+  },
+  {
+    "asset": "XRP/USDT",
+    "action": "flag_jump_retained",
+    "date": "2023-07-13",
+    "log_return": 0.5486980496524474
+  },
+  {
+    "asset": "XRP/USDT",
+    "action": "coverage",
+    "first": "2018-05-04",
+    "last": "2024-12-31",
+    "observations": 2434,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "SOL/USDT",
+    "action": "flag_jump_retained",
+    "date": "2022-11-09",
+    "log_return": -0.549007773323229
+  },
+  {
+    "asset": "SOL/USDT",
+    "action": "coverage",
+    "first": "2020-08-11",
+    "last": "2024-12-31",
+    "observations": 1604,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TRX/USDT",
+    "action": "flag_jump_retained",
+    "date": "2020-03-12",
+    "log_return": -0.571268372711061
+  },
+  {
+    "asset": "TRX/USDT",
+    "action": "flag_jump_retained",
+    "date": "2024-12-03",
+    "log_return": 0.6734983875845058
+  },
+  {
+    "asset": "TRX/USDT",
+    "action": "coverage",
+    "first": "2018-06-11",
+    "last": "2024-12-31",
+    "observations": 2396,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ZEC/USDT",
+    "action": "coverage",
+    "first": "2019-03-21",
+    "last": "2024-12-31",
+    "observations": 2113,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "XMR/USDT",
+    "action": "flag_jump_retained",
+    "date": "2020-03-12",
+    "log_return": -0.532900202684548
+  },
+  {
+    "asset": "XMR/USDT",
+    "action": "flag_jump_retained",
+    "date": "2024-02-06",
+    "log_return": -0.4506041464823287
+  },
+  {
+    "asset": "XMR/USDT",
+    "action": "coverage",
+    "first": "2019-03-15",
+    "last": "2024-02-20",
+    "observations": 1804,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  }
+]

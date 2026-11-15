@@ -1,0 +1,70 @@
+{
+  "markets": [
+    "nifty50",
+    "sp100",
+    "crypto"
+  ],
+  "objectives": [
+    "linear",
+    "exponential"
+  ],
+  "cost_multipliers": [
+    0.0,
+    1.0,
+    2.0
+  ],
+  "folds_by_market": {
+    "nifty50": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "sp100": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "crypto": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "methods": [
+    "OSPG-GRU",
+    "OSPG-MLP",
+    "LSM",
+    "Hold",
+    "TakeProfitStopLoss",
+    "TrailingStop"
+  ],
+  "smoke": false,
+  "workers": 6
+}

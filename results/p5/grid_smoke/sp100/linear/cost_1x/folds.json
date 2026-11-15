@@ -1,0 +1,12 @@
+[
+  {
+    "number": 0,
+    "n_train": 14274,
+    "n_validation": 2037,
+    "n_test": 2037,
+    "validation_start": "2018-02-02",
+    "test_start": "2018-08-02",
+    "test_end_exclusive": "2019-02-02",
+    "embargo_days": 0
+  }
+]

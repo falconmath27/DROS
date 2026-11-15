@@ -1,5 +1,75 @@
-% ---------------------------------------------------------------- Backtest results (P5)
-\subsection{Backtest results}
+\subsection{Real-data stopping results (P5)}
 \label{sec:backtest}
-% P5: results across asset classes, both rewards, block-bootstrap intervals, regimes,
-% cost sensitivity, GRU advantage vs volatility persistence, leakage checks.
+The completed frozen grid contains 3,348 method evaluations: 31 market folds,
+three seeds, two objectives, three cost scenarios and six methods. The runner
+reports zero failed or pending evaluations and matching support. Real E5 uses
+the P4 preparation and evaluation harness; older synthetic E5 files in
+\texttt{results/paths/} are excluded.
+
+\paragraph{Estimands and uncertainty.}
+The tables report window-weighted mean scores, averaging seeds within each
+window. Linear reward equals economic net return. Exponential reward is
+\[u(r)=(1-\exp(-5r))/5.\]
+Utility scores are not percentage returns and must not be
+compared numerically with linear scores. The primary contrast is GRU minus MLP;
+secondary contrasts compare GRU with LSM, Hold, TakeProfitStopLoss and
+TrailingStop. Positive differences favor GRU.
+The generated table gives 95\% paired moving-block intervals with 30-calendar-day
+blocks, all assets on a date together, and separate resampling within folds.
+The JSON artifact also contains 15/60-day sensitivity and per-seed estimates.
+Two-sided null-centered bootstrap p-values use 2,000 replicates and seed zero
+(the manifest records the actual count for regeneration).
+Holm correction applies separately to the configured primary and secondary
+families within each market, objective, cost and metric; it does not control
+error across all reported scenarios. Cost and calendar-slice means are descriptive.
+
+\begin{center}\scriptsize
+\resizebox{\linewidth}{!}{\input{../results/p5/summary/primary.tex}}
+\end{center}
+\input{../results/p5/summary/interpretation.tex}
+
+\paragraph{Costs and regimes.}
+Every 0x, 1x and 2x scenario rebuilds reward and refits learned methods.
+The venue-specific base fees, spread, slippage and funding assumptions are
+recorded in the frozen config and each resolved scenario config.
+\texttt{market\_cost\_tables.csv} separates utility and economic returns;
+\texttt{regime\_tables.csv} provides 2020, 2022 and other-year slices and support
+counts. These are descriptive calendar periods, not validated calm/stress
+classifications. The available data do not cover 2008. Task 5's broader regime
+and Hurst diagnostics remain outstanding.
+\begin{center}\scriptsize
+\resizebox{.85\linewidth}{!}{\input{../results/p5/summary/costs.tex}}
+\end{center}
+\begin{center}\scriptsize
+\resizebox{.85\linewidth}{!}{\input{../results/p5/summary/regimes.tex}}
+\end{center}
+
+\paragraph{Memory diagnostic.}
+The persistence plot uses lag-one absolute-log-return autocorrelation estimated
+only before each fold's validation start, against the asset/fold GRU-minus-MLP
+economic return at base costs. Points reuse assets across folds and are dependent;
+the plot is exploratory and does not establish causation or long memory.
+\begin{center}
+\includegraphics[width=.95\linewidth]{../results/p5/summary/persistence.png}
+\end{center}
+
+\paragraph{Validity and interpretation.}
+The evaluation checks prefix causality, finite outputs, matched test windows,
+scheduled-deadline purging before validation and test boundaries, and exits
+within each window's terminal index. No extra embargo is added beyond that
+purge. Learned methods use a global entry-day decision; immediate-exit rates
+are retained in fold status files. These checks do not eliminate all model risk.
+Current/retrieval-date universes induce survivorship and selection bias.
+Adjusted daily-close execution and proportional costs are stylized; an order
+submitted after observing a close is not assured that fill. Overlapping trade
+windows do not constitute a self-financing portfolio or an annualized return.
+
+The optional stopping theorem does not promise trading profits: under its
+conditions, stopping an appropriate martingale preserves its expectation.
+These physical-market, cost-adjusted payoffs need not be martingales. Differences
+between fitted policies assess this experimental stopping problem and do not
+disprove optional stopping or establish arbitrage. Concave utility can change
+policy rankings by penalizing losses; compare the two objectives on economic
+returns as well as on their own utility, using the intervals rather than signs alone.
+All numbers and the plot trace to the summary script and its SHA-256 manifest.
+P4 methodology review is pending.

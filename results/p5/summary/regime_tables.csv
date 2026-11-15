@@ -1,0 +1,577 @@
+market,objective,cost,metric,method,regime,mean,n_windows,n_dates
+nifty50,linear,0,objective,Hold,2020,0.02919688973566444,1797,38
+nifty50,linear,0,objective,Hold,2022,0.0031144769403954418,1813,37
+nifty50,linear,0,objective,Hold,other years,0.025172991372485288,6527,135
+nifty50,linear,0,objective,LSM,2020,0.025151186924671713,1797,38
+nifty50,linear,0,objective,LSM,2022,0.005075113042730697,1813,37
+nifty50,linear,0,objective,LSM,other years,0.004924150755923705,6527,135
+nifty50,linear,0,objective,OSPG-GRU,2020,0.025734383983905318,1797,38
+nifty50,linear,0,objective,OSPG-GRU,2022,0.0024656912897068088,1813,37
+nifty50,linear,0,objective,OSPG-GRU,other years,0.017222582090018094,6527,135
+nifty50,linear,0,objective,OSPG-MLP,2020,0.030747248896200438,1797,38
+nifty50,linear,0,objective,OSPG-MLP,2022,0.004072650114313855,1813,37
+nifty50,linear,0,objective,OSPG-MLP,other years,0.013343045515595169,6527,135
+nifty50,linear,0,objective,TakeProfitStopLoss,2020,0.01063817763159196,1797,38
+nifty50,linear,0,objective,TakeProfitStopLoss,2022,0.002900614138851872,1813,37
+nifty50,linear,0,objective,TakeProfitStopLoss,other years,0.01019701394759151,6527,135
+nifty50,linear,0,objective,TrailingStop,2020,0.023032079990608915,1797,38
+nifty50,linear,0,objective,TrailingStop,2022,0.0029693847408006333,1813,37
+nifty50,linear,0,objective,TrailingStop,other years,0.015229319798399593,6527,135
+nifty50,linear,0,net_return,Hold,2020,0.02919688973566444,1797,38
+nifty50,linear,0,net_return,Hold,2022,0.0031144769403954418,1813,37
+nifty50,linear,0,net_return,Hold,other years,0.025172991372485288,6527,135
+nifty50,linear,0,net_return,LSM,2020,0.025151186924671713,1797,38
+nifty50,linear,0,net_return,LSM,2022,0.005075113042730697,1813,37
+nifty50,linear,0,net_return,LSM,other years,0.004924150755923705,6527,135
+nifty50,linear,0,net_return,OSPG-GRU,2020,0.025734383983905318,1797,38
+nifty50,linear,0,net_return,OSPG-GRU,2022,0.0024656912897068088,1813,37
+nifty50,linear,0,net_return,OSPG-GRU,other years,0.017222582090018094,6527,135
+nifty50,linear,0,net_return,OSPG-MLP,2020,0.030747248896200438,1797,38
+nifty50,linear,0,net_return,OSPG-MLP,2022,0.004072650114313855,1813,37
+nifty50,linear,0,net_return,OSPG-MLP,other years,0.013343045515595169,6527,135
+nifty50,linear,0,net_return,TakeProfitStopLoss,2020,0.01063817763159196,1797,38
+nifty50,linear,0,net_return,TakeProfitStopLoss,2022,0.002900614138851872,1813,37
+nifty50,linear,0,net_return,TakeProfitStopLoss,other years,0.01019701394759151,6527,135
+nifty50,linear,0,net_return,TrailingStop,2020,0.023032079990608915,1797,38
+nifty50,linear,0,net_return,TrailingStop,2022,0.0029693847408006333,1813,37
+nifty50,linear,0,net_return,TrailingStop,other years,0.015229319798399593,6527,135
+nifty50,linear,1,objective,Hold,2020,0.025908720758873086,1797,38
+nifty50,linear,1,objective,Hold,2022,-9.036164407875462e-05,1813,37
+nifty50,linear,1,objective,Hold,other years,0.021897678301007605,6527,135
+nifty50,linear,1,objective,LSM,2020,0.0218759435159666,1797,38
+nifty50,linear,1,objective,LSM,2022,0.0018640104451499928,1813,37
+nifty50,linear,1,objective,LSM,other years,0.0017135304659685866,6527,135
+nifty50,linear,1,objective,OSPG-GRU,2020,0.01649116429731094,1797,38
+nifty50,linear,1,objective,OSPG-GRU,2022,0.00010734558033200729,1813,37
+nifty50,linear,1,objective,OSPG-GRU,other years,0.013638806224776263,6527,135
+nifty50,linear,1,objective,OSPG-MLP,2020,0.028367211111745186,1797,38
+nifty50,linear,1,objective,OSPG-MLP,2022,0.001795164202981128,1813,37
+nifty50,linear,1,objective,OSPG-MLP,other years,0.011196760790615327,6527,135
+nifty50,linear,1,objective,TakeProfitStopLoss,2020,0.007409301664717771,1797,38
+nifty50,linear,1,objective,TakeProfitStopLoss,2022,-0.000303541177885765,1813,37
+nifty50,linear,1,objective,TakeProfitStopLoss,other years,0.0069695474493563,6527,135
+nifty50,linear,1,objective,TrailingStop,2020,0.01976360689159729,1797,38
+nifty50,linear,1,objective,TrailingStop,2022,-0.00023499029032022622,1813,37
+nifty50,linear,1,objective,TrailingStop,other years,0.01198577564568896,6527,135
+nifty50,linear,1,net_return,Hold,2020,0.025908720758873086,1797,38
+nifty50,linear,1,net_return,Hold,2022,-9.036164407875462e-05,1813,37
+nifty50,linear,1,net_return,Hold,other years,0.021897678301007605,6527,135
+nifty50,linear,1,net_return,LSM,2020,0.0218759435159666,1797,38
+nifty50,linear,1,net_return,LSM,2022,0.0018640104451499928,1813,37
+nifty50,linear,1,net_return,LSM,other years,0.0017135304659685866,6527,135
+nifty50,linear,1,net_return,OSPG-GRU,2020,0.01649116429731094,1797,38
+nifty50,linear,1,net_return,OSPG-GRU,2022,0.00010734558033200729,1813,37
+nifty50,linear,1,net_return,OSPG-GRU,other years,0.013638806224776263,6527,135
+nifty50,linear,1,net_return,OSPG-MLP,2020,0.028367211111745186,1797,38
+nifty50,linear,1,net_return,OSPG-MLP,2022,0.001795164202981128,1813,37
+nifty50,linear,1,net_return,OSPG-MLP,other years,0.011196760790615327,6527,135
+nifty50,linear,1,net_return,TakeProfitStopLoss,2020,0.007409301664717771,1797,38
+nifty50,linear,1,net_return,TakeProfitStopLoss,2022,-0.000303541177885765,1813,37
+nifty50,linear,1,net_return,TakeProfitStopLoss,other years,0.0069695474493563,6527,135
+nifty50,linear,1,net_return,TrailingStop,2020,0.01976360689159729,1797,38
+nifty50,linear,1,net_return,TrailingStop,2022,-0.00023499029032022622,1813,37
+nifty50,linear,1,net_return,TrailingStop,other years,0.01198577564568896,6527,135
+nifty50,linear,2,objective,Hold,2020,0.022631040359360286,1797,38
+nifty50,linear,2,objective,Hold,2022,-0.003284977457948458,1813,37
+nifty50,linear,2,objective,Hold,other years,0.018632812799136027,6527,135
+nifty50,linear,2,objective,LSM,2020,0.01861114745465779,1797,38
+nifty50,linear,2,objective,LSM,2022,-0.0013368494009231573,1813,37
+nifty50,linear,2,objective,LSM,other years,-0.001486848610940315,6527,135
+nifty50,linear,2,objective,OSPG-GRU,2020,0.01525158373108902,1797,38
+nifty50,linear,2,objective,OSPG-GRU,2022,-0.002429235266645494,1813,37
+nifty50,linear,2,objective,OSPG-GRU,other years,0.010395694704921023,6527,135
+nifty50,linear,2,objective,OSPG-MLP,2020,0.029335764446013154,1797,38
+nifty50,linear,2,objective,OSPG-MLP,2022,0.0026397281386172063,1813,37
+nifty50,linear,2,objective,OSPG-MLP,other years,0.005951120543516121,6527,135
+nifty50,linear,2,objective,TakeProfitStopLoss,2020,0.004190725142714108,1797,38
+nifty50,linear,2,objective,TakeProfitStopLoss,2022,-0.00349747590350132,1813,37
+nifty50,linear,2,objective,TakeProfitStopLoss,other years,0.0037523759000788934,6527,135
+nifty50,linear,2,objective,TrailingStop,2020,0.01650555954409778,1797,38
+nifty50,linear,2,objective,TrailingStop,2022,-0.0034291440294756774,1813,37
+nifty50,linear,2,objective,TrailingStop,other years,0.00875257772632042,6527,135
+nifty50,linear,2,net_return,Hold,2020,0.022631040359360286,1797,38
+nifty50,linear,2,net_return,Hold,2022,-0.003284977457948458,1813,37
+nifty50,linear,2,net_return,Hold,other years,0.018632812799136027,6527,135
+nifty50,linear,2,net_return,LSM,2020,0.01861114745465779,1797,38
+nifty50,linear,2,net_return,LSM,2022,-0.0013368494009231573,1813,37
+nifty50,linear,2,net_return,LSM,other years,-0.001486848610940315,6527,135
+nifty50,linear,2,net_return,OSPG-GRU,2020,0.01525158373108902,1797,38
+nifty50,linear,2,net_return,OSPG-GRU,2022,-0.002429235266645494,1813,37
+nifty50,linear,2,net_return,OSPG-GRU,other years,0.010395694704921023,6527,135
+nifty50,linear,2,net_return,OSPG-MLP,2020,0.029335764446013154,1797,38
+nifty50,linear,2,net_return,OSPG-MLP,2022,0.0026397281386172063,1813,37
+nifty50,linear,2,net_return,OSPG-MLP,other years,0.005951120543516121,6527,135
+nifty50,linear,2,net_return,TakeProfitStopLoss,2020,0.004190725142714108,1797,38
+nifty50,linear,2,net_return,TakeProfitStopLoss,2022,-0.00349747590350132,1813,37
+nifty50,linear,2,net_return,TakeProfitStopLoss,other years,0.0037523759000788934,6527,135
+nifty50,linear,2,net_return,TrailingStop,2020,0.01650555954409778,1797,38
+nifty50,linear,2,net_return,TrailingStop,2022,-0.0034291440294756774,1813,37
+nifty50,linear,2,net_return,TrailingStop,other years,0.00875257772632042,6527,135
+nifty50,exponential,0,objective,Hold,2020,-0.043126146405865505,1797,38
+nifty50,exponential,0,objective,Hold,2022,-0.015572887286797546,1813,37
+nifty50,exponential,0,objective,Hold,other years,0.00921880378689159,6527,135
+nifty50,exponential,0,objective,LSM,2020,-0.024636460826721707,1797,38
+nifty50,exponential,0,objective,LSM,2022,-0.005754754958098021,1813,37
+nifty50,exponential,0,objective,LSM,other years,0.001369103751012829,6527,135
+nifty50,exponential,0,objective,OSPG-GRU,2020,-0.01409700829496391,1797,38
+nifty50,exponential,0,objective,OSPG-GRU,2022,-0.004863926491500201,1813,37
+nifty50,exponential,0,objective,OSPG-GRU,other years,0.0016677996816340617,6527,135
+nifty50,exponential,0,objective,OSPG-MLP,2020,-0.01714967936663908,1797,38
+nifty50,exponential,0,objective,OSPG-MLP,2022,-0.004790376919079462,1813,37
+nifty50,exponential,0,objective,OSPG-MLP,other years,0.000681605978230753,6527,135
+nifty50,exponential,0,objective,TakeProfitStopLoss,2020,0.0018560671338635347,1797,38
+nifty50,exponential,0,objective,TakeProfitStopLoss,2022,-0.0036703180206035567,1813,37
+nifty50,exponential,0,objective,TakeProfitStopLoss,other years,0.0035871210535081415,6527,135
+nifty50,exponential,0,objective,TrailingStop,2020,0.002002500481451729,1797,38
+nifty50,exponential,0,objective,TrailingStop,2022,-0.007048831747172308,1813,37
+nifty50,exponential,0,objective,TrailingStop,other years,0.0038759985631873274,6527,135
+nifty50,exponential,0,net_return,Hold,2020,0.02919688973566444,1797,38
+nifty50,exponential,0,net_return,Hold,2022,0.0031144769403954418,1813,37
+nifty50,exponential,0,net_return,Hold,other years,0.025172991372485288,6527,135
+nifty50,exponential,0,net_return,LSM,2020,0.022862276742989168,1797,38
+nifty50,exponential,0,net_return,LSM,2022,0.0036683816314509675,1813,37
+nifty50,exponential,0,net_return,LSM,other years,0.005920745497003475,6527,135
+nifty50,exponential,0,net_return,OSPG-GRU,2020,0.020004715144767368,1797,38
+nifty50,exponential,0,net_return,OSPG-GRU,2022,0.0023277057462821904,1813,37
+nifty50,exponential,0,net_return,OSPG-GRU,other years,0.0071317993855577015,6527,135
+nifty50,exponential,0,net_return,OSPG-MLP,2020,0.018267824945102533,1797,38
+nifty50,exponential,0,net_return,OSPG-MLP,2022,0.0019914285226140826,1813,37
+nifty50,exponential,0,net_return,OSPG-MLP,other years,0.00545367804205382,6527,135
+nifty50,exponential,0,net_return,TakeProfitStopLoss,2020,0.01063817763159196,1797,38
+nifty50,exponential,0,net_return,TakeProfitStopLoss,2022,0.002900614138851872,1813,37
+nifty50,exponential,0,net_return,TakeProfitStopLoss,other years,0.01019701394759151,6527,135
+nifty50,exponential,0,net_return,TrailingStop,2020,0.023032079990608915,1797,38
+nifty50,exponential,0,net_return,TrailingStop,2022,0.0029693847408006333,1813,37
+nifty50,exponential,0,net_return,TrailingStop,other years,0.015229319798399593,6527,135
+nifty50,exponential,1,objective,Hold,2020,-0.04657702617244485,1797,38
+nifty50,exponential,1,objective,Hold,2022,-0.018927339285616154,1813,37
+nifty50,exponential,1,objective,Hold,other years,0.00616526208925426,6527,135
+nifty50,exponential,1,objective,LSM,2020,-0.027667315189516564,1797,38
+nifty50,exponential,1,objective,LSM,2022,-0.00848555005004527,1813,37
+nifty50,exponential,1,objective,LSM,other years,-0.00145840597592727,6527,135
+nifty50,exponential,1,objective,OSPG-GRU,2020,-0.017880417526644158,1797,38
+nifty50,exponential,1,objective,OSPG-GRU,2022,-0.014453448634186959,1813,37
+nifty50,exponential,1,objective,OSPG-GRU,other years,-0.001675279828657021,6527,135
+nifty50,exponential,1,objective,OSPG-MLP,2020,-0.024121922225423566,1797,38
+nifty50,exponential,1,objective,OSPG-MLP,2022,-0.010883885731379342,1813,37
+nifty50,exponential,1,objective,OSPG-MLP,other years,-0.0017795706544305304,6527,135
+nifty50,exponential,1,objective,TakeProfitStopLoss,2020,-0.0013130499728395571,1797,38
+nifty50,exponential,1,objective,TakeProfitStopLoss,2022,-0.006917254659295222,1813,37
+nifty50,exponential,1,objective,TakeProfitStopLoss,other years,0.00043331766405802,6527,135
+nifty50,exponential,1,objective,TrailingStop,2020,-0.001138622301526059,1797,38
+nifty50,exponential,1,objective,TrailingStop,2022,-0.010330203086992422,1813,37
+nifty50,exponential,1,objective,TrailingStop,other years,0.0007369281473768505,6527,135
+nifty50,exponential,1,net_return,Hold,2020,0.025908720758873086,1797,38
+nifty50,exponential,1,net_return,Hold,2022,-9.036164407875462e-05,1813,37
+nifty50,exponential,1,net_return,Hold,other years,0.021897678301007605,6527,135
+nifty50,exponential,1,net_return,LSM,2020,0.02007018891005043,1797,38
+nifty50,exponential,1,net_return,LSM,2022,0.000608564708431894,1813,37
+nifty50,exponential,1,net_return,LSM,other years,0.0029318106153188002,6527,135
+nifty50,exponential,1,net_return,OSPG-GRU,2020,0.016225129540062416,1797,38
+nifty50,exponential,1,net_return,OSPG-GRU,2022,-0.0022077029863850923,1813,37
+nifty50,exponential,1,net_return,OSPG-GRU,other years,0.0034733404918618517,6527,135
+nifty50,exponential,1,net_return,OSPG-MLP,2020,0.015845257201026076,1797,38
+nifty50,exponential,1,net_return,OSPG-MLP,2022,-0.0018120271442377883,1813,37
+nifty50,exponential,1,net_return,OSPG-MLP,other years,0.003253566285468148,6527,135
+nifty50,exponential,1,net_return,TakeProfitStopLoss,2020,0.007409301664717771,1797,38
+nifty50,exponential,1,net_return,TakeProfitStopLoss,2022,-0.000303541177885765,1813,37
+nifty50,exponential,1,net_return,TakeProfitStopLoss,other years,0.0069695474493563,6527,135
+nifty50,exponential,1,net_return,TrailingStop,2020,0.01976360689159729,1797,38
+nifty50,exponential,1,net_return,TrailingStop,2022,-0.00023499029032022622,1813,37
+nifty50,exponential,1,net_return,TrailingStop,other years,0.01198577564568896,6527,135
+nifty50,exponential,2,objective,Hold,2020,-0.050067942023692635,1797,38
+nifty50,exponential,2,objective,Hold,2022,-0.022323467895394848,1813,37
+nifty50,exponential,2,objective,Hold,other years,0.003072505595379729,6527,135
+nifty50,exponential,2,objective,LSM,2020,-0.031480727849561484,1797,38
+nifty50,exponential,2,objective,LSM,2022,-0.0129881685792723,1813,37
+nifty50,exponential,2,objective,LSM,other years,-0.004870465129404237,6527,135
+nifty50,exponential,2,objective,OSPG-GRU,2020,-0.020661976083698207,1797,38
+nifty50,exponential,2,objective,OSPG-GRU,2022,-0.011622980632555803,1813,37
+nifty50,exponential,2,objective,OSPG-GRU,other years,-0.0057258071995124424,6527,135
+nifty50,exponential,2,objective,OSPG-MLP,2020,-0.027624424869929734,1797,38
+nifty50,exponential,2,objective,OSPG-MLP,2022,-0.01562579756832952,1813,37
+nifty50,exponential,2,objective,OSPG-MLP,other years,-0.0058682487322287155,6527,135
+nifty50,exponential,2,objective,TakeProfitStopLoss,2020,-0.0045226753291901355,1797,38
+nifty50,exponential,2,objective,TakeProfitStopLoss,2022,-0.01020547671291412,1813,37
+nifty50,exponential,2,objective,TakeProfitStopLoss,other years,-0.002760953390600836,6527,135
+nifty50,exponential,2,objective,TrailingStop,2020,-0.004319597896757398,1797,38
+nifty50,exponential,2,objective,TrailingStop,2022,-0.0136530312062595,1813,37
+nifty50,exponential,2,objective,TrailingStop,other years,-0.00244231196708988,6527,135
+nifty50,exponential,2,net_return,Hold,2020,0.022631040359360286,1797,38
+nifty50,exponential,2,net_return,Hold,2022,-0.003284977457948458,1813,37
+nifty50,exponential,2,net_return,Hold,other years,0.018632812799136027,6527,135
+nifty50,exponential,2,net_return,LSM,2020,0.016769075964034198,1797,38
+nifty50,exponential,2,net_return,LSM,2022,-0.003087086205589695,1813,37
+nifty50,exponential,2,net_return,LSM,other years,-0.0004579854413054929,6527,135
+nifty50,exponential,2,net_return,OSPG-GRU,2020,0.013454849119092527,1797,38
+nifty50,exponential,2,net_return,OSPG-GRU,2022,-0.004245924989602625,1813,37
+nifty50,exponential,2,net_return,OSPG-GRU,other years,-0.0009130521635067716,6527,135
+nifty50,exponential,2,net_return,OSPG-MLP,2020,0.015143904605634848,1797,38
+nifty50,exponential,2,net_return,OSPG-MLP,2022,-0.0052837641427945295,1813,37
+nifty50,exponential,2,net_return,OSPG-MLP,other years,0.0006953169977703106,6527,135
+nifty50,exponential,2,net_return,TakeProfitStopLoss,2020,0.004190725142714108,1797,38
+nifty50,exponential,2,net_return,TakeProfitStopLoss,2022,-0.00349747590350132,1813,37
+nifty50,exponential,2,net_return,TakeProfitStopLoss,other years,0.0037523759000788934,6527,135
+nifty50,exponential,2,net_return,TrailingStop,2020,0.01650555954409778,1797,38
+nifty50,exponential,2,net_return,TrailingStop,2022,-0.0034291440294756774,1813,37
+nifty50,exponential,2,net_return,TrailingStop,other years,0.00875257772632042,6527,135
+sp100,linear,0,objective,Hold,2020,0.021028348644526625,4223,43
+sp100,linear,0,objective,Hold,2022,-0.009265747741522622,4158,42
+sp100,linear,0,objective,Hold,other years,0.017558189764765437,16441,167
+sp100,linear,0,objective,LSM,2020,0.031940805137881535,4223,43
+sp100,linear,0,objective,LSM,2022,-0.007038669852385043,4158,42
+sp100,linear,0,objective,LSM,other years,0.003180557784855841,16441,167
+sp100,linear,0,objective,OSPG-GRU,2020,0.020457430378536104,4223,43
+sp100,linear,0,objective,OSPG-GRU,2022,-0.00957354633617666,4158,42
+sp100,linear,0,objective,OSPG-GRU,other years,0.009025692820411895,16441,167
+sp100,linear,0,objective,OSPG-MLP,2020,0.02701959938591979,4223,43
+sp100,linear,0,objective,OSPG-MLP,2022,-0.008722192909399334,4158,42
+sp100,linear,0,objective,OSPG-MLP,other years,0.0062419507916390785,16441,167
+sp100,linear,0,objective,TakeProfitStopLoss,2020,0.006325389778018989,4223,43
+sp100,linear,0,objective,TakeProfitStopLoss,2022,-0.0035968845129506254,4158,42
+sp100,linear,0,objective,TakeProfitStopLoss,other years,0.006992904180309905,16441,167
+sp100,linear,0,objective,TrailingStop,2020,0.010736801407039287,4223,43
+sp100,linear,0,objective,TrailingStop,2022,-0.0049660782878925966,4158,42
+sp100,linear,0,objective,TrailingStop,other years,0.012019490374506033,16441,167
+sp100,linear,0,net_return,Hold,2020,0.021028348644526625,4223,43
+sp100,linear,0,net_return,Hold,2022,-0.009265747741522622,4158,42
+sp100,linear,0,net_return,Hold,other years,0.017558189764765437,16441,167
+sp100,linear,0,net_return,LSM,2020,0.031940805137881535,4223,43
+sp100,linear,0,net_return,LSM,2022,-0.007038669852385043,4158,42
+sp100,linear,0,net_return,LSM,other years,0.003180557784855841,16441,167
+sp100,linear,0,net_return,OSPG-GRU,2020,0.020457430378536104,4223,43
+sp100,linear,0,net_return,OSPG-GRU,2022,-0.00957354633617666,4158,42
+sp100,linear,0,net_return,OSPG-GRU,other years,0.009025692820411895,16441,167
+sp100,linear,0,net_return,OSPG-MLP,2020,0.02701959938591979,4223,43
+sp100,linear,0,net_return,OSPG-MLP,2022,-0.008722192909399334,4158,42
+sp100,linear,0,net_return,OSPG-MLP,other years,0.0062419507916390785,16441,167
+sp100,linear,0,net_return,TakeProfitStopLoss,2020,0.006325389778018989,4223,43
+sp100,linear,0,net_return,TakeProfitStopLoss,2022,-0.0035968845129506254,4158,42
+sp100,linear,0,net_return,TakeProfitStopLoss,other years,0.006992904180309905,16441,167
+sp100,linear,0,net_return,TrailingStop,2020,0.010736801407039287,4223,43
+sp100,linear,0,net_return,TrailingStop,2022,-0.0049660782878925966,4158,42
+sp100,linear,0,net_return,TrailingStop,other years,0.012019490374506033,16441,167
+sp100,linear,1,objective,Hold,2020,0.020415915365323736,4223,43
+sp100,linear,1,objective,Hold,2022,-0.00986001001419584,4158,42
+sp100,linear,1,objective,Hold,other years,0.01694783795644914,16441,167
+sp100,linear,1,objective,LSM,2020,0.03132182634843571,4223,43
+sp100,linear,1,objective,LSM,2022,-0.007634267971037949,4158,42
+sp100,linear,1,objective,LSM,other years,0.0025788299685298908,16441,167
+sp100,linear,1,objective,OSPG-GRU,2020,0.01865364616588225,4223,43
+sp100,linear,1,objective,OSPG-GRU,2022,-0.009881904560951721,4158,42
+sp100,linear,1,objective,OSPG-GRU,other years,0.009088995750017584,16441,167
+sp100,linear,1,objective,OSPG-MLP,2020,0.02649639920240511,4223,43
+sp100,linear,1,objective,OSPG-MLP,2022,-0.008612734474978562,4158,42
+sp100,linear,1,objective,OSPG-MLP,other years,0.005426498418731859,16441,167
+sp100,linear,1,objective,TakeProfitStopLoss,2020,0.0057217756283971305,4223,43
+sp100,linear,1,objective,TakeProfitStopLoss,2022,-0.004194547083471632,4158,42
+sp100,linear,1,objective,TakeProfitStopLoss,other years,0.006388889642163229,16441,167
+sp100,linear,1,objective,TrailingStop,2020,0.010130541204255964,4223,43
+sp100,linear,1,objective,TrailingStop,2022,-0.005562919588529604,4158,42
+sp100,linear,1,objective,TrailingStop,other years,0.011412460789157,16441,167
+sp100,linear,1,net_return,Hold,2020,0.020415915365323736,4223,43
+sp100,linear,1,net_return,Hold,2022,-0.00986001001419584,4158,42
+sp100,linear,1,net_return,Hold,other years,0.01694783795644914,16441,167
+sp100,linear,1,net_return,LSM,2020,0.03132182634843571,4223,43
+sp100,linear,1,net_return,LSM,2022,-0.007634267971037949,4158,42
+sp100,linear,1,net_return,LSM,other years,0.0025788299685298908,16441,167
+sp100,linear,1,net_return,OSPG-GRU,2020,0.01865364616588225,4223,43
+sp100,linear,1,net_return,OSPG-GRU,2022,-0.009881904560951721,4158,42
+sp100,linear,1,net_return,OSPG-GRU,other years,0.009088995750017584,16441,167
+sp100,linear,1,net_return,OSPG-MLP,2020,0.02649639920240511,4223,43
+sp100,linear,1,net_return,OSPG-MLP,2022,-0.008612734474978562,4158,42
+sp100,linear,1,net_return,OSPG-MLP,other years,0.005426498418731859,16441,167
+sp100,linear,1,net_return,TakeProfitStopLoss,2020,0.0057217756283971305,4223,43
+sp100,linear,1,net_return,TakeProfitStopLoss,2022,-0.004194547083471632,4158,42
+sp100,linear,1,net_return,TakeProfitStopLoss,other years,0.006388889642163229,16441,167
+sp100,linear,1,net_return,TrailingStop,2020,0.010130541204255964,4223,43
+sp100,linear,1,net_return,TrailingStop,2022,-0.005562919588529604,4158,42
+sp100,linear,1,net_return,TrailingStop,other years,0.011412460789157,16441,167
+sp100,linear,2,objective,Hold,2020,0.019803849325744492,4223,43
+sp100,linear,2,objective,Hold,2022,-0.0104539159433117,4158,42
+sp100,linear,2,objective,Hold,other years,0.016337852139622824,16441,167
+sp100,linear,2,objective,LSM,2020,0.030703218723564685,4223,43
+sp100,linear,2,objective,LSM,2022,-0.008229508945106524,4158,42
+sp100,linear,2,objective,LSM,other years,0.0019774629724015075,16441,167
+sp100,linear,2,objective,OSPG-GRU,2020,0.01864725669736152,4223,43
+sp100,linear,2,objective,OSPG-GRU,2022,-0.01013260384773869,4158,42
+sp100,linear,2,objective,OSPG-GRU,other years,0.008268075944785198,16441,167
+sp100,linear,2,objective,OSPG-MLP,2020,0.024034347230362577,4223,43
+sp100,linear,2,objective,OSPG-MLP,2022,-0.009421002802798156,4158,42
+sp100,linear,2,objective,OSPG-MLP,other years,0.005572831808379899,16441,167
+sp100,linear,2,objective,TakeProfitStopLoss,2020,0.005118523430094142,4223,43
+sp100,linear,2,objective,TakeProfitStopLoss,2022,-0.004791851271479945,4158,42
+sp100,linear,2,objective,TakeProfitStopLoss,other years,0.005785237295424486,16441,167
+sp100,linear,2,objective,TrailingStop,2020,0.009524644539471399,4223,43
+sp100,linear,2,objective,TrailingStop,2022,-0.0061594029991203685,4158,42
+sp100,linear,2,objective,TrailingStop,other years,0.010805795203159455,16441,167
+sp100,linear,2,net_return,Hold,2020,0.019803849325744492,4223,43
+sp100,linear,2,net_return,Hold,2022,-0.0104539159433117,4158,42
+sp100,linear,2,net_return,Hold,other years,0.016337852139622824,16441,167
+sp100,linear,2,net_return,LSM,2020,0.030703218723564685,4223,43
+sp100,linear,2,net_return,LSM,2022,-0.008229508945106524,4158,42
+sp100,linear,2,net_return,LSM,other years,0.0019774629724015075,16441,167
+sp100,linear,2,net_return,OSPG-GRU,2020,0.01864725669736152,4223,43
+sp100,linear,2,net_return,OSPG-GRU,2022,-0.01013260384773869,4158,42
+sp100,linear,2,net_return,OSPG-GRU,other years,0.008268075944785198,16441,167
+sp100,linear,2,net_return,OSPG-MLP,2020,0.024034347230362577,4223,43
+sp100,linear,2,net_return,OSPG-MLP,2022,-0.009421002802798156,4158,42
+sp100,linear,2,net_return,OSPG-MLP,other years,0.005572831808379899,16441,167
+sp100,linear,2,net_return,TakeProfitStopLoss,2020,0.005118523430094142,4223,43
+sp100,linear,2,net_return,TakeProfitStopLoss,2022,-0.004791851271479945,4158,42
+sp100,linear,2,net_return,TakeProfitStopLoss,other years,0.005785237295424486,16441,167
+sp100,linear,2,net_return,TrailingStop,2020,0.009524644539471399,4223,43
+sp100,linear,2,net_return,TrailingStop,2022,-0.0061594029991203685,4158,42
+sp100,linear,2,net_return,TrailingStop,other years,0.010805795203159455,16441,167
+sp100,exponential,0,objective,Hold,2020,-0.03528540370807917,4223,43
+sp100,exponential,0,objective,Hold,2022,-0.03850463639872806,4158,42
+sp100,exponential,0,objective,Hold,other years,0.002628766597748045,16441,167
+sp100,exponential,0,objective,LSM,2020,0.003987678494176649,4223,43
+sp100,exponential,0,objective,LSM,2022,-0.013177383562378893,4158,42
+sp100,exponential,0,objective,LSM,other years,-0.0017159545889630105,16441,167
+sp100,exponential,0,objective,OSPG-GRU,2020,-0.0144483552428335,4223,43
+sp100,exponential,0,objective,OSPG-GRU,2022,-0.022171601495067257,4158,42
+sp100,exponential,0,objective,OSPG-GRU,other years,-0.002977762550621094,16441,167
+sp100,exponential,0,objective,OSPG-MLP,2020,-0.025718476550617826,4223,43
+sp100,exponential,0,objective,OSPG-MLP,2022,-0.03270678838828874,4158,42
+sp100,exponential,0,objective,OSPG-MLP,other years,-0.0018282528511107841,16441,167
+sp100,exponential,0,objective,TakeProfitStopLoss,2020,-0.002235150763555909,4223,43
+sp100,exponential,0,objective,TakeProfitStopLoss,2022,-0.010590992833037334,4158,42
+sp100,exponential,0,objective,TakeProfitStopLoss,other years,0.0008479152954106359,16441,167
+sp100,exponential,0,objective,TrailingStop,2020,-0.0045338266898044014,4223,43
+sp100,exponential,0,objective,TrailingStop,2022,-0.015446633826239087,4158,42
+sp100,exponential,0,objective,TrailingStop,other years,0.0016819748077543425,16441,167
+sp100,exponential,0,net_return,Hold,2020,0.021028348644526625,4223,43
+sp100,exponential,0,net_return,Hold,2022,-0.009265747741522622,4158,42
+sp100,exponential,0,net_return,Hold,other years,0.017558189764765437,16441,167
+sp100,exponential,0,net_return,LSM,2020,0.02971938381907913,4223,43
+sp100,exponential,0,net_return,LSM,2022,-0.0023802821563574843,4158,42
+sp100,exponential,0,net_return,LSM,other years,0.0019058441433419694,16441,167
+sp100,exponential,0,net_return,OSPG-GRU,2020,0.02180131903941027,4223,43
+sp100,exponential,0,net_return,OSPG-GRU,2022,-0.0033621505685340882,4158,42
+sp100,exponential,0,net_return,OSPG-GRU,other years,0.0017656104003182114,16441,167
+sp100,exponential,0,net_return,OSPG-MLP,2020,0.013997919725785065,4223,43
+sp100,exponential,0,net_return,OSPG-MLP,2022,-0.008688075470489977,4158,42
+sp100,exponential,0,net_return,OSPG-MLP,other years,0.002154083258282648,16441,167
+sp100,exponential,0,net_return,TakeProfitStopLoss,2020,0.006325389778018989,4223,43
+sp100,exponential,0,net_return,TakeProfitStopLoss,2022,-0.0035968845129506254,4158,42
+sp100,exponential,0,net_return,TakeProfitStopLoss,other years,0.006992904180309905,16441,167
+sp100,exponential,0,net_return,TrailingStop,2020,0.010736801407039287,4223,43
+sp100,exponential,0,net_return,TrailingStop,2022,-0.0049660782878925966,4158,42
+sp100,exponential,0,net_return,TrailingStop,other years,0.012019490374506033,16441,167
+sp100,exponential,1,objective,Hold,2020,-0.03592179701247065,4223,43
+sp100,exponential,1,objective,Hold,2022,-0.03917650884320421,4158,42
+sp100,exponential,1,objective,Hold,other years,0.002043319804544578,16441,167
+sp100,exponential,1,objective,LSM,2020,0.003396440426176187,4223,43
+sp100,exponential,1,objective,LSM,2022,-0.013622862266808974,4158,42
+sp100,exponential,1,objective,LSM,other years,-0.002364746528572328,16441,167
+sp100,exponential,1,objective,OSPG-GRU,2020,-0.014750850642632391,4223,43
+sp100,exponential,1,objective,OSPG-GRU,2022,-0.01824263425267771,4158,42
+sp100,exponential,1,objective,OSPG-GRU,other years,-0.0036340845922484583,16441,167
+sp100,exponential,1,objective,OSPG-MLP,2020,-0.026499548264716788,4223,43
+sp100,exponential,1,objective,OSPG-MLP,2022,-0.0345044318705487,4158,42
+sp100,exponential,1,objective,OSPG-MLP,other years,-0.0028807790429226615,16441,167
+sp100,exponential,1,objective,TakeProfitStopLoss,2020,-0.0028361961670788096,4223,43
+sp100,exponential,1,objective,TakeProfitStopLoss,2022,-0.01121287750901573,4158,42
+sp100,exponential,1,objective,TakeProfitStopLoss,other years,0.00025287515018831817,16441,167
+sp100,exponential,1,objective,TrailingStop,2020,-0.005137667567688697,4223,43
+sp100,exponential,1,objective,TrailingStop,2022,-0.016078541365377553,4158,42
+sp100,exponential,1,objective,TrailingStop,other years,0.0010908313812675655,16441,167
+sp100,exponential,1,net_return,Hold,2020,0.020415915365323736,4223,43
+sp100,exponential,1,net_return,Hold,2022,-0.00986001001419584,4158,42
+sp100,exponential,1,net_return,Hold,other years,0.01694783795644914,16441,167
+sp100,exponential,1,net_return,LSM,2020,0.029064090815536077,4223,43
+sp100,exponential,1,net_return,LSM,2022,-0.003048207687033425,4158,42
+sp100,exponential,1,net_return,LSM,other years,0.0011760887104409745,16441,167
+sp100,exponential,1,net_return,OSPG-GRU,2020,0.021548873463090527,4223,43
+sp100,exponential,1,net_return,OSPG-GRU,2022,-0.0016503821388796696,4158,42
+sp100,exponential,1,net_return,OSPG-GRU,other years,0.001057414318184199,16441,167
+sp100,exponential,1,net_return,OSPG-MLP,2020,0.013592968884517963,4223,43
+sp100,exponential,1,net_return,OSPG-MLP,2022,-0.009785418322932421,4158,42
+sp100,exponential,1,net_return,OSPG-MLP,other years,0.0010839007953136566,16441,167
+sp100,exponential,1,net_return,TakeProfitStopLoss,2020,0.0057217756283971305,4223,43
+sp100,exponential,1,net_return,TakeProfitStopLoss,2022,-0.004194547083471632,4158,42
+sp100,exponential,1,net_return,TakeProfitStopLoss,other years,0.006388889642163229,16441,167
+sp100,exponential,1,net_return,TrailingStop,2020,0.010130541204255964,4223,43
+sp100,exponential,1,net_return,TrailingStop,2022,-0.005562919588529604,4158,42
+sp100,exponential,1,net_return,TrailingStop,other years,0.011412460789157,16441,167
+sp100,exponential,2,objective,Hold,2020,-0.03655960106235265,4223,43
+sp100,exponential,2,objective,Hold,2022,-0.039849894022968194,4158,42
+sp100,exponential,2,objective,Hold,other years,0.0014564778374331264,16441,167
+sp100,exponential,2,objective,LSM,2020,0.002764686669162997,4223,43
+sp100,exponential,2,objective,LSM,2022,-0.014412585704370172,4158,42
+sp100,exponential,2,objective,LSM,other years,-0.0029471850842478064,16441,167
+sp100,exponential,2,objective,OSPG-GRU,2020,-0.015435083260243697,4223,43
+sp100,exponential,2,objective,OSPG-GRU,2022,-0.02097066310281812,4158,42
+sp100,exponential,2,objective,OSPG-GRU,other years,-0.00407522645266426,16441,167
+sp100,exponential,2,objective,OSPG-MLP,2020,-0.024635265467596992,4223,43
+sp100,exponential,2,objective,OSPG-MLP,2022,-0.03442699375628927,4158,42
+sp100,exponential,2,objective,OSPG-MLP,other years,-0.0034270286525175083,16441,167
+sp100,exponential,2,objective,TakeProfitStopLoss,2020,-0.0034386717031564813,4223,43
+sp100,exponential,2,objective,TakeProfitStopLoss,2022,-0.011836228850842857,4158,42
+sp100,exponential,2,objective,TakeProfitStopLoss,other years,-0.0003435888224383934,16441,167
+sp100,exponential,2,objective,TrailingStop,2020,-0.005742935324902114,4223,43
+sp100,exponential,2,objective,TrailingStop,2022,-0.016711927590741617,4158,42
+sp100,exponential,2,objective,TrailingStop,other years,0.0004982758802602689,16441,167
+sp100,exponential,2,net_return,Hold,2020,0.019803849325744492,4223,43
+sp100,exponential,2,net_return,Hold,2022,-0.0104539159433117,4158,42
+sp100,exponential,2,net_return,Hold,other years,0.016337852139622824,16441,167
+sp100,exponential,2,net_return,LSM,2020,0.028289242436231977,4223,43
+sp100,exponential,2,net_return,LSM,2022,-0.0035876472007946966,4158,42
+sp100,exponential,2,net_return,LSM,other years,0.0006180309199996848,16441,167
+sp100,exponential,2,net_return,OSPG-GRU,2020,0.020307580055932847,4223,43
+sp100,exponential,2,net_return,OSPG-GRU,2022,-0.0037520850392800446,4158,42
+sp100,exponential,2,net_return,OSPG-GRU,other years,0.0003078752327967319,16441,167
+sp100,exponential,2,net_return,OSPG-MLP,2020,0.012273180506195214,4223,43
+sp100,exponential,2,net_return,OSPG-MLP,2022,-0.009922613031663493,4158,42
+sp100,exponential,2,net_return,OSPG-MLP,other years,0.001144306037775923,16441,167
+sp100,exponential,2,net_return,TakeProfitStopLoss,2020,0.005118523430094142,4223,43
+sp100,exponential,2,net_return,TakeProfitStopLoss,2022,-0.004791851271479945,4158,42
+sp100,exponential,2,net_return,TakeProfitStopLoss,other years,0.005785237295424486,16441,167
+sp100,exponential,2,net_return,TrailingStop,2020,0.009524644539471399,4223,43
+sp100,exponential,2,net_return,TrailingStop,2022,-0.0061594029991203685,4158,42
+sp100,exponential,2,net_return,TrailingStop,other years,0.010805795203159455,16441,167
+crypto,linear,0,objective,Hold,2022,-0.047279110835966885,488,61
+crypto,linear,0,objective,Hold,other years,0.07383371927011705,1190,153
+crypto,linear,0,objective,LSM,2022,-0.025297817714028135,488,61
+crypto,linear,0,objective,LSM,other years,0.02896489113058436,1190,153
+crypto,linear,0,objective,OSPG-GRU,2022,-0.041944534352302276,488,61
+crypto,linear,0,objective,OSPG-GRU,other years,0.06895601189769249,1190,153
+crypto,linear,0,objective,OSPG-MLP,2022,-0.03499580065340659,488,61
+crypto,linear,0,objective,OSPG-MLP,other years,0.0678615296723334,1190,153
+crypto,linear,0,objective,TakeProfitStopLoss,2022,0.0008570579059675158,488,61
+crypto,linear,0,objective,TakeProfitStopLoss,other years,0.00659952707836891,1190,153
+crypto,linear,0,objective,TrailingStop,2022,-0.0003014174160730313,488,61
+crypto,linear,0,objective,TrailingStop,other years,0.022394505129137706,1190,153
+crypto,linear,0,net_return,Hold,2022,-0.047279110835966885,488,61
+crypto,linear,0,net_return,Hold,other years,0.07383371927011705,1190,153
+crypto,linear,0,net_return,LSM,2022,-0.025297817714028135,488,61
+crypto,linear,0,net_return,LSM,other years,0.02896489113058436,1190,153
+crypto,linear,0,net_return,OSPG-GRU,2022,-0.041944534352302276,488,61
+crypto,linear,0,net_return,OSPG-GRU,other years,0.06895601189769249,1190,153
+crypto,linear,0,net_return,OSPG-MLP,2022,-0.03499580065340659,488,61
+crypto,linear,0,net_return,OSPG-MLP,other years,0.0678615296723334,1190,153
+crypto,linear,0,net_return,TakeProfitStopLoss,2022,0.0008570579059675158,488,61
+crypto,linear,0,net_return,TakeProfitStopLoss,other years,0.00659952707836891,1190,153
+crypto,linear,0,net_return,TrailingStop,2022,-0.0003014174160730313,488,61
+crypto,linear,0,net_return,TrailingStop,other years,0.022394505129137706,1190,153
+crypto,linear,1,objective,Hold,2022,-0.04994299988096321,488,61
+crypto,linear,1,objective,Hold,other years,0.07083118839937973,1190,153
+crypto,linear,1,objective,LSM,2022,-0.028023168333561534,488,61
+crypto,linear,1,objective,LSM,other years,0.0260878173387273,1190,153
+crypto,linear,1,objective,OSPG-GRU,2022,-0.04858137511266365,488,61
+crypto,linear,1,objective,OSPG-GRU,other years,0.06663191227006907,1190,153
+crypto,linear,1,objective,OSPG-MLP,2022,-0.0366425711243001,488,61
+crypto,linear,1,objective,OSPG-MLP,other years,0.06403088970268378,1190,153
+crypto,linear,1,objective,TakeProfitStopLoss,2022,-0.0019414239815267258,488,61
+crypto,linear,1,objective,TakeProfitStopLoss,other years,0.0037849887562004885,1190,153
+crypto,linear,1,objective,TrailingStop,2022,-0.00309666010754,488,61
+crypto,linear,1,objective,TrailingStop,other years,0.019535802698179436,1190,153
+crypto,linear,1,net_return,Hold,2022,-0.04994299988096321,488,61
+crypto,linear,1,net_return,Hold,other years,0.07083118839937973,1190,153
+crypto,linear,1,net_return,LSM,2022,-0.028023168333561534,488,61
+crypto,linear,1,net_return,LSM,other years,0.0260878173387273,1190,153
+crypto,linear,1,net_return,OSPG-GRU,2022,-0.04858137511266365,488,61
+crypto,linear,1,net_return,OSPG-GRU,other years,0.06663191227006907,1190,153
+crypto,linear,1,net_return,OSPG-MLP,2022,-0.0366425711243001,488,61
+crypto,linear,1,net_return,OSPG-MLP,other years,0.06403088970268378,1190,153
+crypto,linear,1,net_return,TakeProfitStopLoss,2022,-0.0019414239815267258,488,61
+crypto,linear,1,net_return,TakeProfitStopLoss,other years,0.0037849887562004885,1190,153
+crypto,linear,1,net_return,TrailingStop,2022,-0.00309666010754,488,61
+crypto,linear,1,net_return,TrailingStop,other years,0.019535802698179436,1190,153
+crypto,linear,2,objective,Hold,2022,-0.052599450863209135,488,61
+crypto,linear,2,objective,Hold,other years,0.06783704114096607,1190,153
+crypto,linear,2,objective,LSM,2022,-0.03074090927844914,488,61
+crypto,linear,2,objective,LSM,other years,0.0232187768602102,1190,153
+crypto,linear,2,objective,OSPG-GRU,2022,-0.04948316207028149,488,61
+crypto,linear,2,objective,OSPG-GRU,other years,0.062455029483816184,1190,153
+crypto,linear,2,objective,OSPG-MLP,2022,-0.038642807683510916,488,61
+crypto,linear,2,objective,OSPG-MLP,other years,0.06143029000345332,1190,153
+crypto,linear,2,objective,TakeProfitStopLoss,2022,-0.0047320919985731295,488,61
+crypto,linear,2,objective,TakeProfitStopLoss,other years,0.0009783091369660352,1190,153
+crypto,linear,2,objective,TrailingStop,2022,-0.005884097972983615,488,61
+crypto,linear,2,objective,TrailingStop,other years,0.016685082284379912,1190,153
+crypto,linear,2,net_return,Hold,2022,-0.052599450863209135,488,61
+crypto,linear,2,net_return,Hold,other years,0.06783704114096607,1190,153
+crypto,linear,2,net_return,LSM,2022,-0.03074090927844914,488,61
+crypto,linear,2,net_return,LSM,other years,0.0232187768602102,1190,153
+crypto,linear,2,net_return,OSPG-GRU,2022,-0.04948316207028149,488,61
+crypto,linear,2,net_return,OSPG-GRU,other years,0.062455029483816184,1190,153
+crypto,linear,2,net_return,OSPG-MLP,2022,-0.038642807683510916,488,61
+crypto,linear,2,net_return,OSPG-MLP,other years,0.06143029000345332,1190,153
+crypto,linear,2,net_return,TakeProfitStopLoss,2022,-0.0047320919985731295,488,61
+crypto,linear,2,net_return,TakeProfitStopLoss,other years,0.0009783091369660352,1190,153
+crypto,linear,2,net_return,TrailingStop,2022,-0.005884097972983615,488,61
+crypto,linear,2,net_return,TrailingStop,other years,0.016685082284379912,1190,153
+crypto,exponential,0,objective,Hold,2022,-0.24420023310421124,488,61
+crypto,exponential,0,objective,Hold,other years,-0.08202240953626802,1190,153
+crypto,exponential,0,objective,LSM,2022,-0.006642478326027807,488,61
+crypto,exponential,0,objective,LSM,other years,0.0,1190,153
+crypto,exponential,0,objective,OSPG-GRU,2022,-0.015909371118655473,488,61
+crypto,exponential,0,objective,OSPG-GRU,other years,-0.0009626921981760256,1190,153
+crypto,exponential,0,objective,OSPG-MLP,2022,-0.009774064339758588,488,61
+crypto,exponential,0,objective,OSPG-MLP,other years,-0.005021769829452934,1190,153
+crypto,exponential,0,objective,TakeProfitStopLoss,2022,-0.013219667695430705,488,61
+crypto,exponential,0,objective,TakeProfitStopLoss,other years,-0.01089057618407945,1190,153
+crypto,exponential,0,objective,TrailingStop,2022,-0.026417522119021604,488,61
+crypto,exponential,0,objective,TrailingStop,other years,-0.014362094432198677,1190,153
+crypto,exponential,0,net_return,Hold,2022,-0.047279110835966885,488,61
+crypto,exponential,0,net_return,Hold,other years,0.07383371927011705,1190,153
+crypto,exponential,0,net_return,LSM,2022,-1.668883223475642e-05,488,61
+crypto,exponential,0,net_return,LSM,other years,0.0,1190,153
+crypto,exponential,0,net_return,OSPG-GRU,2022,-0.001090704681172496,488,61
+crypto,exponential,0,net_return,OSPG-GRU,other years,0.0031307599150256628,1190,153
+crypto,exponential,0,net_return,OSPG-MLP,2022,-0.001439017063504965,488,61
+crypto,exponential,0,net_return,OSPG-MLP,other years,0.0031760799913623295,1190,153
+crypto,exponential,0,net_return,TakeProfitStopLoss,2022,0.0008570579059675158,488,61
+crypto,exponential,0,net_return,TakeProfitStopLoss,other years,0.00659952707836891,1190,153
+crypto,exponential,0,net_return,TrailingStop,2022,-0.0003014174160730313,488,61
+crypto,exponential,0,net_return,TrailingStop,other years,0.022394505129137706,1190,153
+crypto,exponential,1,objective,Hold,2022,-0.24880558210872622,488,61
+crypto,exponential,1,objective,Hold,other years,-0.08531556775893445,1190,153
+crypto,exponential,1,objective,LSM,2022,-0.009452023813946253,488,61
+crypto,exponential,1,objective,LSM,other years,-0.002815722118179719,1190,153
+crypto,exponential,1,objective,OSPG-GRU,2022,-0.016542756387382642,488,61
+crypto,exponential,1,objective,OSPG-GRU,other years,-0.005763878288117687,1190,153
+crypto,exponential,1,objective,OSPG-MLP,2022,-0.012078834386038661,488,61
+crypto,exponential,1,objective,OSPG-MLP,other years,-0.008120332127482536,1190,153
+crypto,exponential,1,objective,TakeProfitStopLoss,2022,-0.016142880657428162,488,61
+crypto,exponential,1,objective,TakeProfitStopLoss,other years,-0.013773790565402374,1190,153
+crypto,exponential,1,objective,TrailingStop,2022,-0.029468326952520538,488,61
+crypto,exponential,1,objective,TrailingStop,other years,-0.017251514248759484,1190,153
+crypto,exponential,1,net_return,Hold,2022,-0.04994299988096321,488,61
+crypto,exponential,1,net_return,Hold,other years,0.07083118839937973,1190,153
+crypto,exponential,1,net_return,LSM,2022,-0.0028990845840084546,488,61
+crypto,exponential,1,net_return,LSM,other years,-0.0027960854803276147,1190,153
+crypto,exponential,1,net_return,OSPG-GRU,2022,-0.003489303311036092,488,61
+crypto,exponential,1,net_return,OSPG-GRU,other years,0.0018119638979951557,1190,153
+crypto,exponential,1,net_return,OSPG-MLP,2022,-0.0035067108751469338,488,61
+crypto,exponential,1,net_return,OSPG-MLP,other years,0.0023520364899030206,1190,153
+crypto,exponential,1,net_return,TakeProfitStopLoss,2022,-0.0019414239815267258,488,61
+crypto,exponential,1,net_return,TakeProfitStopLoss,other years,0.0037849887562004885,1190,153
+crypto,exponential,1,net_return,TrailingStop,2022,-0.00309666010754,488,61
+crypto,exponential,1,net_return,TrailingStop,other years,0.019535802698179436,1190,153
+crypto,exponential,2,objective,Hold,2022,-0.2534489791322427,488,61
+crypto,exponential,2,objective,Hold,other years,-0.08863979471337442,1190,153
+crypto,exponential,2,objective,LSM,2022,-0.009157613511294621,488,61
+crypto,exponential,2,objective,LSM,other years,-0.004905788590097288,1190,153
+crypto,exponential,2,objective,OSPG-GRU,2022,-0.01612420047241234,488,61
+crypto,exponential,2,objective,OSPG-GRU,other years,-0.005753307859284367,1190,153
+crypto,exponential,2,objective,OSPG-MLP,2022,-0.013982252696356548,488,61
+crypto,exponential,2,objective,OSPG-MLP,other years,-0.011480904256505095,1190,153
+crypto,exponential,2,objective,TakeProfitStopLoss,2022,-0.019098058109955737,488,61
+crypto,exponential,2,objective,TakeProfitStopLoss,other years,-0.016688556659258065,1190,153
+crypto,exponential,2,objective,TrailingStop,2022,-0.03255180285957892,488,61
+crypto,exponential,2,objective,TrailingStop,other years,-0.020172095959501042,1190,153
+crypto,exponential,2,net_return,Hold,2022,-0.052599450863209135,488,61
+crypto,exponential,2,net_return,Hold,other years,0.06783704114096607,1190,153
+crypto,exponential,2,net_return,LSM,2022,-0.002656476718698147,488,61
+crypto,exponential,2,net_return,LSM,other years,-0.004574956391012601,1190,153
+crypto,exponential,2,net_return,OSPG-GRU,2022,-0.0061640941547325455,488,61
+crypto,exponential,2,net_return,OSPG-GRU,other years,-0.0023472807844184354,1190,153
+crypto,exponential,2,net_return,OSPG-MLP,2022,-0.0063107377494671215,488,61
+crypto,exponential,2,net_return,OSPG-MLP,other years,-0.0007598949152986699,1190,153
+crypto,exponential,2,net_return,TakeProfitStopLoss,2022,-0.0047320919985731295,488,61
+crypto,exponential,2,net_return,TakeProfitStopLoss,other years,0.0009783091369660352,1190,153
+crypto,exponential,2,net_return,TrailingStop,2022,-0.005884097972983615,488,61
+crypto,exponential,2,net_return,TrailingStop,other years,0.016685082284379912,1190,153

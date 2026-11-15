@@ -1,0 +1,122 @@
+[
+  {
+    "number": 0,
+    "n_train": 5681,
+    "n_validation": 987,
+    "n_test": 799,
+    "validation_start": "2018-01-30",
+    "test_start": "2018-07-30",
+    "test_end_exclusive": "2019-01-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 1,
+    "n_train": 6809,
+    "n_validation": 799,
+    "n_test": 940,
+    "validation_start": "2018-07-30",
+    "test_start": "2019-01-30",
+    "test_end_exclusive": "2019-07-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 2,
+    "n_train": 7796,
+    "n_validation": 940,
+    "n_test": 752,
+    "validation_start": "2019-01-30",
+    "test_start": "2019-07-30",
+    "test_end_exclusive": "2020-01-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 3,
+    "n_train": 8924,
+    "n_validation": 752,
+    "n_test": 940,
+    "validation_start": "2019-07-30",
+    "test_start": "2020-01-30",
+    "test_end_exclusive": "2020-07-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 4,
+    "n_train": 9864,
+    "n_validation": 940,
+    "n_test": 857,
+    "validation_start": "2020-01-30",
+    "test_start": "2020-07-30",
+    "test_end_exclusive": "2021-01-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 5,
+    "n_train": 10945,
+    "n_validation": 857,
+    "n_test": 288,
+    "validation_start": "2020-07-30",
+    "test_start": "2021-01-30",
+    "test_end_exclusive": "2021-07-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 6,
+    "n_train": 12037,
+    "n_validation": 288,
+    "n_test": 1026,
+    "validation_start": "2021-01-30",
+    "test_start": "2021-07-30",
+    "test_end_exclusive": "2022-01-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 7,
+    "n_train": 12325,
+    "n_validation": 1026,
+    "n_test": 980,
+    "validation_start": "2021-07-30",
+    "test_start": "2022-01-30",
+    "test_end_exclusive": "2022-07-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 8,
+    "n_train": 13495,
+    "n_validation": 980,
+    "n_test": 833,
+    "validation_start": "2022-01-30",
+    "test_start": "2022-07-30",
+    "test_end_exclusive": "2023-01-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 9,
+    "n_train": 14671,
+    "n_validation": 833,
+    "n_test": 1029,
+    "validation_start": "2022-07-30",
+    "test_start": "2023-01-30",
+    "test_end_exclusive": "2023-07-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 10,
+    "n_train": 15749,
+    "n_validation": 1029,
+    "n_test": 843,
+    "validation_start": "2023-01-30",
+    "test_start": "2023-07-30",
+    "test_end_exclusive": "2024-01-30",
+    "embargo_days": 0
+  },
+  {
+    "number": 11,
+    "n_train": 16925,
+    "n_validation": 843,
+    "n_test": 850,
+    "validation_start": "2023-07-30",
+    "test_start": "2024-01-30",
+    "test_end_exclusive": "2024-07-30",
+    "embargo_days": 0
+  }
+]

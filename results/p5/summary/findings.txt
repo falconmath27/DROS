@@ -1,0 +1,12 @@
+nifty50, linear, objective: GRU minus MLP -0.00083, 95% CI [-0.00278, 0.00222], adjusted p=0.5777.
+nifty50, linear, net_return: GRU minus MLP -0.00083, 95% CI [-0.00278, 0.00222], adjusted p=0.5777.
+nifty50, exponential, objective: GRU minus MLP 0.00054, 95% CI [-0.00227, 0.00428], adjusted p=0.7541.
+nifty50, exponential, net_return: GRU minus MLP 0.00014, 95% CI [-0.00170, 0.00230], adjusted p=0.8806.
+sp100, linear, objective: GRU minus MLP 0.00088, 95% CI [-0.00107, 0.00331], adjusted p=0.5742.
+sp100, linear, net_return: GRU minus MLP 0.00088, 95% CI [-0.00107, 0.00331], adjusted p=0.5742.
+sp100, exponential, objective: GRU minus MLP 0.00422, 95% CI [0.00042, 0.00725], adjusted p=0.0180.
+sp100, exponential, net_return: GRU minus MLP 0.00270, 95% CI [0.00000, 0.00515], adjusted p=0.0450.
+crypto, linear, objective: GRU minus MLP -0.00163, 95% CI [-0.01310, 0.00487], adjusted p=0.7506.
+crypto, linear, net_return: GRU minus MLP -0.00163, 95% CI [-0.01310, 0.00487], adjusted p=0.7506.
+crypto, exponential, objective: GRU minus MLP 0.00037, 95% CI [-0.00250, 0.00402], adjusted p=0.8296.
+crypto, exponential, net_return: GRU minus MLP -0.00038, 95% CI [-0.00194, 0.00253], adjusted p=0.7681.

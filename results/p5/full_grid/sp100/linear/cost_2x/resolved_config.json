@@ -1,0 +1,90 @@
+{
+  "scenario_id": "7d22e7f521717115c705670726efbbdc734d56fbfee7887ccde406c684a1603d",
+  "created_at": "2026-11-14T19:58:35.141660+00:00",
+  "source_config": "C:\\Users\\ASUS\\OneDrive\\Desktop\\DROS\\experiments\\backtest\\config.json",
+  "source_config_sha256": "c0c01930ad2c7240d853851542dd2b6a29e5527b99336c66b111e69c67a39b9c",
+  "market": "sp100",
+  "objective": "linear",
+  "risk_aversion": null,
+  "cost_multiplier": 2.0,
+  "base_costs": {
+    "buy_bps": 1.0,
+    "sell_bps": 1.0,
+    "half_spread_bps": 1.0,
+    "slippage_bps": 1.0,
+    "funding_bps_per_day": 0.0,
+    "discount_rate": 0.0,
+    "label": "US_assumed_1bp_fees_each_side"
+  },
+  "cost_policy": "Rewards are rebuilt and every learned policy is refit for this scenario. No fixed-exit rescoring is reported.",
+  "methods": [
+    "OSPG-GRU",
+    "OSPG-MLP",
+    "LSM",
+    "Hold",
+    "TakeProfitStopLoss",
+    "TrailingStop"
+  ],
+  "smoke": false,
+  "training_budget": {
+    "OSPG": "default full budget",
+    "LSM": "default",
+    "rules": "fixed"
+  },
+  "verified_inputs": {
+    "clean_prices": {
+      "path": "results/p4/sp100/clean_prices.csv",
+      "sha256": "715d0ab90b8f227175d7e20dc0a5bfbbd8d5b0d227a3bf2367103226c5102e41"
+    },
+    "context": {
+      "path": "results/p4/sp100/context.csv",
+      "sha256": "6b88095b76be1d0b16c3f1fc49eb14e51af61e4c6b18125a5825105e104b2fa3"
+    },
+    "linear_windows": {
+      "path": "results/p4/sp100/windows.npz",
+      "sha256": "4007f882036e0db81eaa8ed4927b703eb2dd0b78653363861097d35034944040"
+    },
+    "dataset_manifest": {
+      "path": "results/p4/sp100/dataset_manifest.json",
+      "sha256": "050bed2ac4e56288df03211cceb5692bea7ed99a9fa4e5390613854dd91da388"
+    },
+    "source_manifest": {
+      "path": "results/p4/sp100/source_manifest.json",
+      "sha256": "8bed260c659c662957c62a3b2c0cc6b61593301b59a8ef47087c765dbabe1ebf"
+    },
+    "context_manifest": {
+      "path": "results/p4/sp100/context_manifest.json",
+      "sha256": "8a7d06a9335a487bc3b0a6bb0484b8ab31469698b57d0c0cb6b4c07ee06059cd"
+    },
+    "p4_run_config": {
+      "path": "results/p4/sp100/run_config.json",
+      "sha256": "c6f5ee52d570273b25d01cfb2299704604b214219a802e27afefd6e7e04e4f06"
+    },
+    "p4_folds": {
+      "path": "results/p4/sp100/folds.json",
+      "sha256": "e7d189b44e59b92328d6223831858b80be65f63723215349adb0403bf0c27975"
+    }
+  },
+  "windows_sha256": "a9bbbf24849268924c1cd8aea3126f4a97c5985fb2de2c1731cc8364bfd4a30c",
+  "dataset": {
+    "assets": 100,
+    "windows": 48444,
+    "features": [
+      "return_since_entry",
+      "drawdown",
+      "time_remaining",
+      "log_return",
+      "trailing_vol",
+      "log_return_lag_1",
+      "log_return_lag_2",
+      "log_return_lag_5",
+      "context_^GSPC",
+      "context_^VIX"
+    ]
+  },
+  "limitations": [
+    "The equity constituents and crypto ranking are fixed supplied or retrieval-date universes, not historical point-in-time membership.",
+    "Entry and exit use a stylized adjusted daily-close reference price with assumed friction; same-close execution is not guaranteed.",
+    "Overlapping windows are not a self-financing portfolio return."
+  ]
+}

@@ -1,0 +1,7 @@
+market,objective,cost_multiplier,fold,seed,method,status,artifact,error_type,error_message
+sp100,linear,1.0,0,0,OSPG-GRU,completed,C:\Users\ASUS\OneDrive\Desktop\DROS\results\p5\grid_smoke\sp100\linear\cost_1x\fold_0_seed_0.npz,,
+sp100,linear,1.0,0,0,OSPG-MLP,completed,C:\Users\ASUS\OneDrive\Desktop\DROS\results\p5\grid_smoke\sp100\linear\cost_1x\fold_0_seed_0.npz,,
+sp100,linear,1.0,0,0,LSM,completed,C:\Users\ASUS\OneDrive\Desktop\DROS\results\p5\grid_smoke\sp100\linear\cost_1x\fold_0_seed_0.npz,,
+sp100,linear,1.0,0,0,Hold,completed,C:\Users\ASUS\OneDrive\Desktop\DROS\results\p5\grid_smoke\sp100\linear\cost_1x\fold_0_seed_0.npz,,
+sp100,linear,1.0,0,0,TakeProfitStopLoss,completed,C:\Users\ASUS\OneDrive\Desktop\DROS\results\p5\grid_smoke\sp100\linear\cost_1x\fold_0_seed_0.npz,,
+sp100,linear,1.0,0,0,TrailingStop,completed,C:\Users\ASUS\OneDrive\Desktop\DROS\results\p5\grid_smoke\sp100\linear\cost_1x\fold_0_seed_0.npz,,

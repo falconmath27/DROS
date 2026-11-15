@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "experiment": "P5 real-data optimal-stopping backtest",
+  "frozen_on": "2026-11-14",
+  "input_policy": {
+    "reuse_p4_artifacts": true,
+    "artifact_root": "results/p4",
+    "hash_algorithm": "sha256",
+    "verify_hashes_before_each_run": true,
+    "universe_selection": "Fixed supplied or retrieval-date universe. This is not historical point-in-time membership and must be reported as survivorship/selection bias.",
+    "execution_model": "Adjusted daily-close reference price with proportional friction; same-close execution is not guaranteed."
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "methods": [
+    "OSPG-GRU",
+    "OSPG-MLP",
+    "LSM",
+    "Hold",
+    "TakeProfitStopLoss",
+    "TrailingStop"
+  ],
+  "contrasts": {
+    "primary": {
+      "left": "OSPG-GRU",
+      "right": "OSPG-MLP",
+      "label": "history-aware GRU versus memoryless MLP"
+    },
+    "secondary": [
+      {
+        "left": "OSPG-GRU",
+        "right": "LSM"
+      },
+      {
+        "left": "OSPG-GRU",
+        "right": "Hold"
+      },
+      {
+        "left": "OSPG-GRU",
+        "right": "TakeProfitStopLoss"
+      },
+      {
+        "left": "OSPG-GRU",
+        "right": "TrailingStop"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "name": "linear",
+      "training_reward": "net_return",
+      "report_metrics": [
+        "objective",
+        "net_return"
+      ]
+    },
+    {
+      "name": "exponential",
+      "training_reward": "(1 - exp(-risk_aversion * net_return)) / risk_aversion",
+      "risk_aversion": 5.0,
+      "risk_aversion_policy": "fixed_before test evaluation; inherited from the P4 handoff",
+      "report_metrics": [
+        "objective",
+        "net_return"
+      ]
+    }
+  ],
+  "horizon": {
+    "calendar_days": 30,
+    "sessions": null,
+    "terminal_rule": "Last observed market-calendar date on or before entry date plus 30 calendar days.",
+    "padding": "Absorbing terminal state; stopping indices are clipped to terminal_index."
+  },
+  "walk_forward": {
+    "train_months": 36,
+    "validation_months": 6,
+    "test_months": 6,
+    "step_months": 6,
+    "expanding_train": true,
+    "shared_date_boundaries_across_assets": true,
+    "purge": {
+      "basis": "scheduled deadline",
+      "train_condition": "deadline < validation_start",
+      "validation_condition": "entry_date >= validation_start and deadline < test_start",
+      "test_condition": "entry_date >= test_start and deadline < test_end_exclusive"
+    },
+    "additional_embargo_days": 0,
+    "embargo_decision": "No additional embargo. The mandatory scheduled-deadline purge already excludes every window whose 30-calendar-day outcome horizon reaches a validation or test boundary. Boundary audits below confirm strictly positive separation for all frozen folds."
+  },
+  "markets": {
+    "nifty50": {
+      "calendar": "equity",
+      "venue": "nse",
+      "source": "yahoo",
+      "source_period": {
+        "start": "2015-01-01",
+        "end_exclusive": "2025-01-01",
+        "first_observation": "2015-01-01",
+        "last_observation": "2024-12-31",
+        "retrieved_at": "2026-11-09T12:34:32.810263+00:00"
+      },
+      "universe": {
+        "selection": "Fixed supplied/retrieval-date NIFTY 50 universe",
+        "requested_assets": 50,
+        "usable_assets": 50,
+        "missing_assets": {}
+      },
+      "features": {
+        "names": [
+          "return_since_entry",
+          "drawdown",
+          "time_remaining",
+          "log_return",
+          "trailing_vol",
+          "log_return_lag_1",
+          "log_return_lag_2",
+          "log_return_lag_5",
+          "context_^NSEI",
+          "context_^INDIAVIX"
+        ],
+        "lookback_observations": 20,
+        "window_stride_observations": 5,
+        "volatility_annualization": 252,
+        "context_source_observation_lag": 1
+      },
+      "costs": {
+        "buy_bps": 12.0,
+        "sell_bps": 12.0,
+        "half_spread_bps": 2.0,
+        "slippage_bps": 2.0,
+        "funding_bps_per_day": 0.0,
+        "discount_rate": 0.0,
+        "label": "NSE_assumed_12bp_fees_each_side"
+      },
+      "inputs": {
+        "clean_prices": {
+          "path": "results/p4/nifty50/clean_prices.csv",
+          "sha256": "ba7a4cf1f07d01f79d9e54211869c2b21d05d7d3219a965bac699a5566ddccea"
+        },
+        "context": {
+          "path": "results/p4/nifty50/context.csv",
+          "sha256": "3bd7d03d82379e485953d15e30003f751439233293da5e6e597b977a44a94ccb"
+        },
+        "linear_windows": {
+          "path": "results/p4/nifty50/windows.npz",
+          "sha256": "3056df68c67ec32c6d5b992e265cf4504db3236842b04983bf31f7e16c9a8f52"
+        },
+        "dataset_manifest": {
+          "path": "results/p4/nifty50/dataset_manifest.json",
+          "sha256": "2b41193e9003dc097d4fee489b43edf4f855ad227b14068d26e7c66c81632352"
+        },
+        "source_manifest": {
+          "path": "results/p4/nifty50/source_manifest.json",
+          "sha256": "3e698c323797f4a2d7979c17c2f190620feb7a7e33dbc51dc3086c822b959424"
+        },
+        "context_manifest": {
+          "path": "results/p4/nifty50/context_manifest.json",
+          "sha256": "f956993fe3e1cc0f0d95a8d3b91c986c88f606ad90d3d81b830a48a976a7eb27"
+        },
+        "p4_run_config": {
+          "path": "results/p4/nifty50/run_config.json",
+          "sha256": "eddb2450d79aaa3def1b4e90e35112cd620cdd5f1083a79759a03ba6ca46dbb7"
+        },
+        "p4_folds": {
+          "path": "results/p4/nifty50/folds.json",
+          "sha256": "267446bcf3c9607c5b628dd679ce183c62194f76f82f3b2611d6e8fff1f5bd32"
+        }
+      },
+      "dataset": {
+        "observations": 2467,
+        "windows": 20014,
+        "skipped_windows": 4486,
+        "folds": 12
+      },
+      "boundary_audit": {
+        "checked_folds": 12,
+        "minimum_days_from_last_train_deadline_to_validation_start": 2,
+        "maximum_days_from_last_train_deadline_to_validation_start": 91,
+        "minimum_days_from_last_validation_deadline_to_test_start": 1,
+        "maximum_days_from_last_validation_deadline_to_test_start": 91,
+        "all_deadline_conditions_pass": true
+      }
+    },
+    "sp100": {
+      "calendar": "equity",
+      "venue": "us",
+      "source": "yahoo",
+      "source_period": {
+        "start": "2015-01-01",
+        "end_exclusive": "2025-01-01",
+        "first_observation": "2015-01-02",
+        "last_observation": "2024-12-31",
+        "retrieved_at": "2026-11-09T12:34:41.279911+00:00"
+      },
+      "universe": {
+        "selection": "Fixed supplied/retrieval-date S&P 100 universe",
+        "requested_assets": 101,
+        "usable_assets": 100,
+        "missing_assets": {
+          "SNDK": "No observations in the frozen source period."
+        }
+      },
+      "features": {
+        "names": [
+          "return_since_entry",
+          "drawdown",
+          "time_remaining",
+          "log_return",
+          "trailing_vol",
+          "log_return_lag_1",
+          "log_return_lag_2",
+          "log_return_lag_5",
+          "context_^GSPC",
+          "context_^VIX"
+        ],
+        "lookback_observations": 20,
+        "window_stride_observations": 5,
+        "volatility_annualization": 252,
+        "context_source_observation_lag": 1
+      },
+      "costs": {
+        "buy_bps": 1.0,
+        "sell_bps": 1.0,
+        "half_spread_bps": 1.0,
+        "slippage_bps": 1.0,
+        "funding_bps_per_day": 0.0,
+        "discount_rate": 0.0,
+        "label": "US_assumed_1bp_fees_each_side"
+      },
+      "inputs": {
+        "clean_prices": {
+          "path": "results/p4/sp100/clean_prices.csv",
+          "sha256": "715d0ab90b8f227175d7e20dc0a5bfbbd8d5b0d227a3bf2367103226c5102e41"
+        },
+        "context": {
+          "path": "results/p4/sp100/context.csv",
+          "sha256": "6b88095b76be1d0b16c3f1fc49eb14e51af61e4c6b18125a5825105e104b2fa3"
+        },
+        "linear_windows": {
+          "path": "results/p4/sp100/windows.npz",
+          "sha256": "4007f882036e0db81eaa8ed4927b703eb2dd0b78653363861097d35034944040"
+        },
+        "dataset_manifest": {
+          "path": "results/p4/sp100/dataset_manifest.json",
+          "sha256": "050bed2ac4e56288df03211cceb5692bea7ed99a9fa4e5390613854dd91da388"
+        },
+        "source_manifest": {
+          "path": "results/p4/sp100/source_manifest.json",
+          "sha256": "8bed260c659c662957c62a3b2c0cc6b61593301b59a8ef47087c765dbabe1ebf"
+        },
+        "context_manifest": {
+          "path": "results/p4/sp100/context_manifest.json",
+          "sha256": "8a7d06a9335a487bc3b0a6bb0484b8ab31469698b57d0c0cb6b4c07ee06059cd"
+        },
+        "p4_run_config": {
+          "path": "results/p4/sp100/run_config.json",
+          "sha256": "c6f5ee52d570273b25d01cfb2299704604b214219a802e27afefd6e7e04e4f06"
+        },
+        "p4_folds": {
+          "path": "results/p4/sp100/folds.json",
+          "sha256": "e7d189b44e59b92328d6223831858b80be65f63723215349adb0403bf0c27975"
+        }
+      },
+      "dataset": {
+        "observations": 2516,
+        "windows": 48444,
+        "skipped_windows": 1456,
+        "folds": 12
+      },
+      "boundary_audit": {
+        "checked_folds": 12,
+        "minimum_days_from_last_train_deadline_to_validation_start": 1,
+        "maximum_days_from_last_train_deadline_to_validation_start": 7,
+        "minimum_days_from_last_validation_deadline_to_test_start": 1,
+        "maximum_days_from_last_validation_deadline_to_test_start": 8,
+        "all_deadline_conditions_pass": true
+      }
+    },
+    "crypto": {
+      "calendar": "crypto",
+      "venue": "crypto",
+      "source": "binance",
+      "source_period": {
+        "start": "2017-01-01",
+        "end_exclusive": "2025-01-01",
+        "first_observation": "2017-08-17",
+        "last_observation": "2024-12-31",
+        "retrieved_at": "2026-11-09T12:34:37.248692+00:00"
+      },
+      "universe": {
+        "selection": "Frozen Binance top-10 retrieval-date ranking",
+        "requested_assets": 10,
+        "usable_assets": 8,
+        "missing_assets": {
+          "FIGR_HELOC/USDT": "Binance data API rejected the frozen symbol request.",
+          "HYPE/USDT": "No observations in the frozen source period."
+        }
+      },
+      "features": {
+        "names": [
+          "return_since_entry",
+          "drawdown",
+          "time_remaining",
+          "log_return",
+          "trailing_vol",
+          "log_return_lag_1",
+          "log_return_lag_2",
+          "log_return_lag_5"
+        ],
+        "lookback_observations": 20,
+        "window_stride_observations": 5,
+        "volatility_annualization": 365,
+        "context_source_observation_lag": 1
+      },
+      "costs": {
+        "buy_bps": 10.0,
+        "sell_bps": 10.0,
+        "half_spread_bps": 2.0,
+        "slippage_bps": 2.0,
+        "funding_bps_per_day": 0.0,
+        "discount_rate": 0.0,
+        "label": "spot_assumed_10bp_taker_each_side"
+      },
+      "inputs": {
+        "clean_prices": {
+          "path": "results/p4/crypto/clean_prices.csv",
+          "sha256": "80a05eab190bf1e966dead3f016bb95bb9aef9b1923851c9441c737ea7fdca51"
+        },
+        "linear_windows": {
+          "path": "results/p4/crypto/windows.npz",
+          "sha256": "f8f7e073c460f52f4b8e453fa27b25f9496b6740b9dee6530b56cdb62efbe494"
+        },
+        "dataset_manifest": {
+          "path": "results/p4/crypto/dataset_manifest.json",
+          "sha256": "e65191800d9ba78bc5d2978c9f4a65492b7e8b39e828a477533d3d16587c3878"
+        },
+        "source_manifest": {
+          "path": "results/p4/crypto/source_manifest.json",
+          "sha256": "74bbbe14fa0fcd0ced71b16a3380b2fe50b51a405c949ea9896d8df0c6fbdd5a"
+        },
+        "p4_run_config": {
+          "path": "results/p4/crypto/run_config.json",
+          "sha256": "1bc19feef950b1e02b728db54a6e6886e2036e52d9c00629c8ac1557c4ad3ed6"
+        },
+        "p4_folds": {
+          "path": "results/p4/crypto/folds.json",
+          "sha256": "48b806f8fd27a78e5c4d7e27e5f32ea0a4632c535ee634757e64384304e3b917"
+        }
+      },
+      "dataset": {
+        "observations": 2694,
+        "windows": 3590,
+        "skipped_windows": 674,
+        "folds": 7
+      },
+      "boundary_audit": {
+        "checked_folds": 7,
+        "minimum_days_from_last_train_deadline_to_validation_start": 1,
+        "maximum_days_from_last_train_deadline_to_validation_start": 2,
+        "minimum_days_from_last_validation_deadline_to_test_start": 1,
+        "maximum_days_from_last_validation_deadline_to_test_start": 3,
+        "all_deadline_conditions_pass": true
+      }
+    }
+  },
+  "run_identity": {
+    "dimensions": [
+      "market",
+      "objective",
+      "fold",
+      "seed",
+      "method"
+    ],
+    "output_root": "results/p5",
+    "required_metadata": [
+      "config_sha256",
+      "input_sha256",
+      "market",
+      "objective",
+      "fold",
+      "seed",
+      "method",
+      "window_id"
+    ]
+  }
+}

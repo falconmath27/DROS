@@ -1,6 +1,25 @@
-% Slide block for P5 (backtest results). Frames only; included by slides.tex.
-\begin{frame}{Backtest results (P5)}
+\begin{frame}{P5: completed real-data grid}
 \begin{itemize}
-\item To do: results by asset class, bootstrap intervals, regimes, memory vs Hurst.
+\item NIFTY 50, S\&P 100, crypto; 31 walk-forward folds; three seeds.
+\item Six stopping methods, linear and exponential reward ($a=5$).
+\item 0x/1x/2x costs with refitting: 3,348 completed evaluations.
+\item Zero recorded failures; matching support passed.
+\end{itemize}
+\end{frame}
+\begin{frame}{Primary comparison: GRU minus MLP}
+\resizebox{\linewidth}{!}{\input{../results/p5/summary/primary.tex}}
+\end{frame}
+\begin{frame}{Memory and economic advantage}
+\includegraphics[width=.95\linewidth]{../results/p5/summary/persistence.png}
+\end{frame}
+\begin{frame}{Uncertainty, costs and limits}
+\begin{itemize}
+\item Paired 30-day date-block bootstrap; 15/60-day sensitivity; Holm within comparison families.
+\item Utility and economic returns labelled separately. Cost sweeps refit policies.
+\item Calendar slices: 2020, 2022, other years; no 2008 coverage.
+\item Deadline purge, prefix-causality and terminal checks; stylized close fills.
+\item Fixed universe selection bias; overlapping windows are not portfolio returns.
+\item Optional stopping does not guarantee profits; concave utility changes the optimization target.
+\item Persistence plot exploratory; Task 5 diagnostics and P4 review pending.
 \end{itemize}
 \end{frame}

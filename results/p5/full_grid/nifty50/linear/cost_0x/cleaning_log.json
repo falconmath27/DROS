@@ -1,0 +1,480 @@
+[
+  {
+    "asset": "ADANIENT.NS",
+    "action": "flag_jump_retained",
+    "date": "2015-06-03",
+    "log_return": -0.49019433581472516
+  },
+  {
+    "asset": "ADANIENT.NS",
+    "action": "flag_jump_retained",
+    "date": "2024-11-21",
+    "log_return": -0.2562709621287498
+  },
+  {
+    "asset": "ADANIENT.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ADANIPORTS.NS",
+    "action": "flag_jump_retained",
+    "date": "2024-06-04",
+    "log_return": -0.23761854201246724
+  },
+  {
+    "asset": "ADANIPORTS.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "APOLLOHOSP.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ASIANPAINT.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "AXISBANK.NS",
+    "action": "flag_jump_retained",
+    "date": "2020-03-23",
+    "log_return": -0.3272655772536641
+  },
+  {
+    "asset": "AXISBANK.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BSE.NS",
+    "action": "coverage",
+    "first": "2017-02-03",
+    "last": "2024-12-31",
+    "observations": 1952,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BAJAJ-AUTO.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BAJFINANCE.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BAJAJFINSV.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BEL.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "BHARTIARTL.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "CIPLA.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "COALINDIA.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "DRREDDY.NS",
+    "action": "flag_jump_retained",
+    "date": "2021-07-27",
+    "log_return": -0.11087349832201454
+  },
+  {
+    "asset": "DRREDDY.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "EICHERMOT.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ETERNAL.NS",
+    "action": "coverage",
+    "first": "2021-07-23",
+    "last": "2024-12-31",
+    "observations": 850,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "GRASIM.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "HCLTECH.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "HDFCBANK.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "HDFCLIFE.NS",
+    "action": "coverage",
+    "first": "2017-11-17",
+    "last": "2024-12-31",
+    "observations": 1757,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "HINDALCO.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "HINDUNILVR.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ICICIBANK.NS",
+    "action": "flag_jump_retained",
+    "date": "2017-10-25",
+    "log_return": 0.1370423793172506
+  },
+  {
+    "asset": "ICICIBANK.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ITC.NS",
+    "action": "flag_jump_retained",
+    "date": "2020-02-03",
+    "log_return": -0.124610640537135
+  },
+  {
+    "asset": "ITC.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "INFY.NS",
+    "action": "flag_jump_retained",
+    "date": "2019-10-22",
+    "log_return": -0.17659444028258608
+  },
+  {
+    "asset": "INFY.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "INDIGO.NS",
+    "action": "coverage",
+    "first": "2015-11-10",
+    "last": "2024-12-31",
+    "observations": 2255,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "JSWSTEEL.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "JIOFIN.NS",
+    "action": "coverage",
+    "first": "2023-08-21",
+    "last": "2024-12-31",
+    "observations": 335,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "KOTAKBANK.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "LT.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "M&M.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MARUTI.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "MAXHEALTH.NS",
+    "action": "coverage",
+    "first": "2020-08-21",
+    "last": "2024-12-31",
+    "observations": 1079,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "NTPC.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "NESTLEIND.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ONGC.NS",
+    "action": "flag_jump_retained",
+    "date": "2018-10-05",
+    "log_return": -0.15904473988727297
+  },
+  {
+    "asset": "ONGC.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "POWERGRID.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "RELIANCE.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "SBILIFE.NS",
+    "action": "coverage",
+    "first": "2017-10-03",
+    "last": "2024-12-31",
+    "observations": 1789,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "SHRIRAMFIN.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "SBIN.NS",
+    "action": "flag_jump_retained",
+    "date": "2017-10-25",
+    "log_return": 0.244413149733683
+  },
+  {
+    "asset": "SBIN.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "SUNPHARMA.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TCS.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TATACONSUM.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TMPV.NS",
+    "action": "flag_jump_retained",
+    "date": "2019-02-08",
+    "log_return": -0.19337509108467366
+  },
+  {
+    "asset": "TMPV.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TATASTEEL.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TECHM.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TITAN.NS",
+    "action": "flag_jump_retained",
+    "date": "2017-11-06",
+    "log_return": 0.1721651819903247
+  },
+  {
+    "asset": "TITAN.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "TRENT.NS",
+    "action": "flag_jump_retained",
+    "date": "2024-02-07",
+    "log_return": 0.17280364214656885
+  },
+  {
+    "asset": "TRENT.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  },
+  {
+    "asset": "ULTRACEMCO.NS",
+    "action": "coverage",
+    "first": "2015-01-01",
+    "last": "2024-12-31",
+    "observations": 2467,
+    "note": "No listing/delisting extrapolation; terminal delisting proceeds unknown."
+  }
+]

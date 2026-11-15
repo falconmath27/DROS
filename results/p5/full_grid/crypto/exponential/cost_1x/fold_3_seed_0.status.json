@@ -1,0 +1,97 @@
+{
+  "market": "crypto",
+  "fold": 3,
+  "seed": 0,
+  "started_at": "2026-11-15T08:21:18.181092+00:00",
+  "updated_at": "2026-11-15T08:25:10.844718+00:00",
+  "deadline_purge": {
+    "train_deadline_before_validation": true,
+    "validation_deadline_before_test": true,
+    "train_deadline_max": "2022-03-04",
+    "validation_start": "2022-03-06",
+    "validation_deadline_max": "2022-09-05",
+    "test_start": "2022-09-06"
+  },
+  "n_train": 2005,
+  "n_validation": 248,
+  "n_test": 240,
+  "window_id_sha256": "efd93fb7896cca609ba2347fcb36260eb1b49e39b5bc3b8d5ad2c1980d89f5ef",
+  "entry_date_sha256": "1af9fe1eec7f58aa64c66e3bf36608b52104ff524f54b5763634735936bc039d",
+  "asset_id_sha256": "2a817d5d15b521f67e4e1205d531750fb4198fb826808cbef93daf64cd21c49e",
+  "test_features_sha256": "9503f8f6c00753bcf7b35427ee652419d94457236bd4a23c76d459c713a432ed",
+  "methods": {
+    "OSPG-GRU": {
+      "status": "completed",
+      "started_at": "2026-11-15T08:21:18.182293+00:00",
+      "completed_at": "2026-11-15T08:23:44.777141+00:00",
+      "error": null,
+      "prefix_causal": true,
+      "mean_objective": 0.004590513999763759,
+      "mean_net_return": 0.00794630827044777,
+      "mean_stop_index": 1.3333333333333333,
+      "immediate_exit_rate": 0.0,
+      "global_entry_decision": false
+    },
+    "OSPG-MLP": {
+      "status": "completed",
+      "started_at": "2026-11-15T08:23:44.780278+00:00",
+      "completed_at": "2026-11-15T08:25:10.630548+00:00",
+      "error": null,
+      "prefix_causal": true,
+      "mean_objective": 0.005262735853383841,
+      "mean_net_return": 0.009497872948617135,
+      "mean_stop_index": 1.0791666666666666,
+      "immediate_exit_rate": 0.0,
+      "global_entry_decision": false
+    },
+    "LSM": {
+      "status": "completed",
+      "started_at": "2026-11-15T08:25:10.634269+00:00",
+      "completed_at": "2026-11-15T08:25:10.761154+00:00",
+      "error": null,
+      "prefix_causal": true,
+      "mean_objective": -0.00281572211817972,
+      "mean_net_return": -0.0027960854803276147,
+      "mean_stop_index": 0.0,
+      "immediate_exit_rate": 1.0,
+      "global_entry_decision": true
+    },
+    "Hold": {
+      "status": "completed",
+      "started_at": "2026-11-15T08:25:10.764745+00:00",
+      "completed_at": "2026-11-15T08:25:10.790127+00:00",
+      "error": null,
+      "prefix_causal": true,
+      "mean_objective": -0.11438821056697196,
+      "mean_net_return": 0.016259123733052893,
+      "mean_stop_index": 30.0,
+      "immediate_exit_rate": 0.0,
+      "global_entry_decision": null
+    },
+    "TakeProfitStopLoss": {
+      "status": "completed",
+      "started_at": "2026-11-15T08:25:10.793453+00:00",
+      "completed_at": "2026-11-15T08:25:10.820334+00:00",
+      "error": null,
+      "prefix_causal": true,
+      "mean_objective": -0.0034128156751331794,
+      "mean_net_return": 0.009091809364562461,
+      "mean_stop_index": 6.208333333333333,
+      "immediate_exit_rate": 0.0,
+      "global_entry_decision": null
+    },
+    "TrailingStop": {
+      "status": "completed",
+      "started_at": "2026-11-15T08:25:10.823638+00:00",
+      "completed_at": "2026-11-15T08:25:10.842522+00:00",
+      "error": null,
+      "prefix_causal": true,
+      "mean_objective": -0.017637716871428153,
+      "mean_net_return": 0.013276472834846587,
+      "mean_stop_index": 10.933333333333334,
+      "immediate_exit_rate": 0.0,
+      "global_entry_decision": null
+    }
+  },
+  "status": "completed"
+}
