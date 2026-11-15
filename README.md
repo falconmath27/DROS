@@ -35,7 +35,7 @@ common/        problem.py: the shared data format                               
 experiments/   run_all.py (E1-E5), run_parallel.py, summarize.py, paired.py, benchmarks.py;
                replication/ (P1), rough_vol/ (P3), backtest/ (P5): notes, configs, seeds
 results/       generated tables, summaries and per-path results (do not edit by hand)
-report/        main.tex (report), slides.tex (deck); one .tex file per section / slide block
+report/        main.tex (4-page report), slides.tex (13-slide viva deck)
 tests/         test_all.py
 docs/          the paper and the project plan
 ```
@@ -101,7 +101,7 @@ Always run from this folder (the project root).
 | `experiments/report_tables.py` | report | LaTeX tables for the report from P3 and P5 result files |
 | `experiments/` | P1/P2 | `run_all.py` (E1–E5), `run_parallel.py`, `summarize.py`, `paired.py` (paired differences on the same test paths), `benchmarks.py` (tree vs PDE table) |
 | `results/` | generated | `summary.md`, `paired.md`, `benchmarks.md`, LaTeX tables, `paths/` (per-path test rewards for P5), `archive_v1/` (first run, before batch norm) |
-| `report/` | all | `main.tex` is the 4-page report (`main.pdf`); `slides.tex` compiles the deck from `slides_p1_p2.tex`, `slides_p3.tex`, `slides_p4.tex`, `slides_p5.tex`. Compile from inside `report/` (tables are read from `../results/`). |
+| `report/` | all | `main.tex` is the 4-page report (`main.pdf`); `slides.tex` is the 13-slide viva deck (`slides.pdf`), following the report section by section. Compile from inside `report/` (tables are read from `../results/`). |
 
 ## Experiments
 

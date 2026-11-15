@@ -1,21 +1,20 @@
-% Full presentation deck: one slide block per person, in the order of the report.
-% Compile from this folder (pdflatex or tectonic slides.tex).
+% Presentation for the 15-20 minute viva; follows report/main.tex section by section.
+% Compile from this folder (pdflatex or tectonic slides.tex). Tables are read from ../results/.
 \documentclass[aspectratio=169,11pt]{beamer}
 \usetheme{default}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]
 \usepackage{amsmath,amssymb,booktabs,graphicx}
+\input{../results/report/persistence_corr.tex}
 
 \title{Optimal Stopping with Memory}
 \subtitle{Deep recurrent policies for American options under rough volatility\\
 and multi-market backtesting}
 \author{\small
-  \begin{tabular}{ll}
-  Anamay Mittal & 2024ADPS0865G\\
-  Vraj Shah     & 2024ADPS0846G\\
-  Anshul D Jain & 2024ADPS0844G\\
-  Sachit Kapoor & 2024ADPS0858G\\
-  Mridul Kwatra & 2024ADPS0819G
+  \begin{tabular}{llcll}
+  Anamay Mittal & 2024ADPS0865G & \quad & Sachit Kapoor & 2024ADPS0858G\\
+  Vraj Shah     & 2024ADPS0846G &       & Mridul Kwatra & 2024ADPS0819G\\
+  Anshul D Jain & 2024ADPS0844G &       &               &
   \end{tabular}}
 \institute{MAC F244 Stochastic Calculus --- Project Presentation\\BITS Pilani, K K Birla Goa Campus}
 \date{15 November 2026}
@@ -26,29 +25,216 @@ and multi-market backtesting}
 \titlepage
 \end{frame}
 
-\begin{frame}{Outline}
-\tableofcontents
+% ------------------------------------------------------------------ 2
+\begin{frame}{The question}
+\begin{itemize}
+\item Exercising an American option, or closing a trade, is an \textbf{optimal stopping} problem.
+\item Classical methods (binomial tree, Longstaff--Schwartz, Deep Optimal Stopping) use
+  \textbf{backward induction} and assume today's state is enough to decide (Markov).
+\item Real volatility is persistent and rough, so the past may matter.
+\item \textbf{OSPG} (Damera Venkata \& Bhattacharyya, NeurIPS 2023) learns the stopping rule
+  directly, with a memoryless (MLP) or a recurrent (GRU) policy.
+\end{itemize}
+\vspace{4pt}
+\textbf{Three experiments}
+\begin{enumerate}
+\item Replicate OSPG on option benchmarks with known exact prices.
+\item Stopping problems with memory: fractional Brownian motion and rough Bergomi.
+\item \textbf{Real-data backtest}: does learned exit timing pay on NIFTY 50, S\&P 100 and crypto?
+\end{enumerate}
 \end{frame}
 
-\input{slides_p1_p2}   % (P2) optimal stopping, free boundary, baselines; (P1) OSPG, replication
-\input{slides_p3}      % (P3) fBm and rough volatility
-\input{slides_p4}      % (P4) data and backtest harness
-\input{slides_p5}      % (P5) backtest results
-
-\section{Takeaways}
-\begin{frame}{Takeaways}
+% ------------------------------------------------------------------ 3
+\begin{frame}{Mathematical formulation}
 \begin{itemize}
-\item \textbf{OSPG works without backward induction.} On the Markovian benchmarks OSPG-MLP is
-  closest to the exact prices ($-0.12\%$ put, $-0.05\%$/$-0.44\%$ geometric call), ahead of
-  Longstaff--Schwartz and FQI.
-\item \textbf{Memory helps only where there is memory to use.} GRU policies win clearly for fBm
-  with $h\le0.3$, cost $0.1$--$0.5\%$ on Markovian problems, and show no advantage in the
-  rough Bergomi pilot or, with one exception, on real markets.
-\item \textbf{Learned exits do not beat holding.} After costs, every exit rule earns less than
-  holding to the 30-day deadline; on equities the gap is $0.55$--$1.40$ points per window.
-  Consistent with optional sampling for upward-drifting prices.
-\item \textbf{Caveats:} rough-volatility runs are reduced pilots; market universes carry
-  survivorship bias; execution is stylized.
+\item Observe $S_0,\dots,S_H$ with filtration $(\mathcal F_j)$; stopping at $j$ pays $R_j$,
+  discounted to date 0 (put: $R_j=e^{-rt_j}(K-S_j)^+$).
+\item Value: $V_0=\sup_{\tau}\mathbb E[R_\tau]$ over stopping times, $\{\tau=j\}\in\mathcal F_j$.
+\item \textbf{Snell envelope:}\quad $U_H=R_H,\qquad U_j=\max\big(R_j,\ \mathbb E[U_{j+1}\mid\mathcal F_j]\big)$
+  \begin{itemize}
+  \item smallest supermartingale above $R$; optimal $\tau^*=\min\{j:U_j=R_j\}$
+  \item backward induction estimates the continuation value $C_j=\mathbb E[U_{j+1}\mid\mathcal F_j]$;
+    with memory, $C_j$ depends on the whole path
+  \end{itemize}
+\item \textbf{Optional sampling} for bounded $\tau\le H$:
+  \begin{itemize}
+  \item martingale: $\mathbb E[M_\tau]=M_0$ --- no rule beats holding
+  \item submartingale (upward drift): $\mathbb E[M_\tau]\le\mathbb E[M_H]$ --- stopping at the
+    deadline is optimal
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 4
+\begin{frame}{Exact ground truth: the free-boundary problem}
+\begin{itemize}
+\item In continuous time the American put solves a linear complementarity problem
+  \[\min\big(-\partial_tV-\mathcal LV,\ V-g\big)=0,\qquad
+  \mathcal LV=rS\partial_SV+\tfrac12\sigma^2S^2\partial_{SS}V-rV,\]
+  i.e.\ the Black--Scholes / Feynman--Kac PDE where waiting is optimal and $V=g$ where
+  exercising is.
+\item Solved with Crank--Nicolson in $\log S$ and a penalty for $V\ge g$.
+\item \textbf{Agrees with a binomial tree to within $4\times10^{-4}$} on all twenty
+  Longstaff--Schwartz test cases (e.g.\ $S_0=36$, $\sigma=0.2$, $T=1$: Bermudan $4.478$,
+  American $4.487$).
+\item These exact prices are what every simulation method is measured against.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 5
+\begin{frame}{OSPG: learn the stopping rule directly}
+\begin{itemize}
+\item A network outputs $\varphi_j=\mathbb P(\text{stop at }j\mid\text{not before},\mathcal F_j)$,
+  with $\varphi_H=1$.
+\item Stopping does not change the path, so the stopping-time law is exact:
+  \[\psi_j=\varphi_j\prod_{n<j}(1-\varphi_n),\qquad J(\theta)=\mathbb E\Big[\sum_{j=0}^H\psi_jR_j\Big].\]
+\item Policy gradient with a constant baseline $b$:
+  \[\nabla_\theta J=\mathbb E\Big[\sum_j(R_j-b)\,\psi_j\,\nabla_\theta\log\psi_j\Big].\]
+\item Trained on pre-simulated paths: \textbf{no rollouts, no backward recursion}.
+\item OSPG-GRU reads the history ($1\times20$ GRU); OSPG-MLP sees today only ($2\times20$).
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 6
+\begin{frame}{1. Replication: OSPG matches the exact prices}
+\centering\scriptsize
+\input{../results/replication_table.tex}
+
+\vspace{6pt}\normalsize
+\begin{itemize}\small
+\item OSPG-MLP is closest: $-0.12\%$ (put), $-0.05\%$ and $-0.44\%$ (geometric calls), against
+  $-0.9\%$ to $-1.6\%$ for Longstaff--Schwartz and FQI.
+\item Paired on identical paths, OSPG-GRU trails OSPG-MLP by $0.1$--$0.5\%$: memory costs a
+  little when there is nothing to remember.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 7
+\begin{frame}{2. Stopping with memory: fBm and rough Bergomi}
+\small
+\begin{itemize}
+\item fBm $W^h$: increments negatively correlated for $h<\frac12$, positively for $h>\frac12$;
+  not a semimartingale for $h\neq\frac12$. Reward $R_j=W^h_{t_j}$.
+\item Rough Bergomi: $v_t=\xi_0\exp(\eta\widetilde W^h_t-\frac12\eta^2t^{2h})$,
+  $\widetilde W^h_t=\sqrt{2h}\int_0^t(t-s)^{h-1/2}dW_s$ (hybrid scheme); American put.
+\end{itemize}
+\vspace{2pt}
+\begin{columns}[T]
+\begin{column}{.5\textwidth}\centering\scriptsize
+fBm, mean test reward\\[2pt]
+\resizebox{.95\linewidth}{!}{\input{../results/report/fbm_compact.tex}}
+\end{column}
+\begin{column}{.5\textwidth}\centering\scriptsize
+Rough Bergomi put (pilot, se $0.31$--$0.37$)\\[2pt]
+\resizebox{.95\linewidth}{!}{\input{../results/report/e4_compact.tex}}
+\end{column}
+\end{columns}
+\vspace{4pt}
+\begin{itemize}
+\item fBm: $\approx0$ at $h=\frac12$ (optional stopping); \textbf{GRU clearly ahead for $h\le0.3$}.
+\item Rough Bergomi pilot (3{,}000 paths): no method distinguishable, no GRU advantage.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 8
+\begin{frame}{3. Real-data backtest: design}
+\begin{itemize}
+\item \textbf{Data:} daily adjusted closes, NIFTY 50 (50 stocks) and S\&P 100 (100) for
+  2015--2024, eight crypto assets (Binance) for 2017--2024: \textbf{72{,}048 trade windows}.
+\item \textbf{Trade:} buy at a close, exit by a 30-day deadline. Policies see only past data
+  (return so far, drawdown, volatility, lagged returns, time left, index and VIX).
+\item \textbf{Net return with costs on both legs:}\quad
+  $r_j=\dfrac{S_j}{S_0}\,\dfrac{1-c_s}{1+c_b}-1$
+\item \textbf{Walk-forward:} expanding folds, 36-month train, 6 validation, 6 test; 31 folds; tests
+  2018--2024 (crypto 2021--2024).
+\item \textbf{Compared:} Hold, take-profit/stop-loss, trailing stop, Longstaff--Schwartz,
+  OSPG-MLP, OSPG-GRU; linear and exponential-utility rewards; $0\times$, $1\times$, $2\times$
+  costs; three seeds: 3{,}348 runs.
+\item \textbf{Inference:} windows overlap and assets co-move, so intervals come from a
+  date-block bootstrap (Holm-corrected), not i.i.d.\ standard errors.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 9
+\begin{frame}{3. Result: nothing beats holding to the deadline}
+\centering\scriptsize
+\resizebox{\linewidth}{!}{\input{../results/report/p5_means.tex}}
+
+\vspace{6pt}\normalsize
+\begin{itemize}
+\item Mean economic net return per window (percent), base costs.
+\item \textbf{No learned or rule-based exit earns more than Hold, in any market}, under
+  either reward.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 10
+\begin{frame}{3. How large is the gap?}
+\centering\scriptsize
+\resizebox{\linewidth}{!}{\input{../results/report/p5_vs_hold.tex}}
+
+\vspace{6pt}\normalsize
+\begin{itemize}\small
+\item OSPG-GRU minus each comparator, percentage points, 95\% date-block bootstrap interval;
+  $^{*}$Holm-adjusted $p<0.05$.
+\item \textbf{Equities: OSPG-GRU trails Hold by $0.55$--$1.40$ points per window}
+  (Holm $p\le0.012$). Crypto: intervals too wide to decide.
+\item GRU vs MLP: no difference in 5 of 6 cases (exception: S\&P 100, exponential, $+0.27$).
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 11
+\begin{frame}{3. Changing the data: costs, markets, persistence}
+\begin{columns}[T]
+\begin{column}{.52\textwidth}\centering\scriptsize
+Net return per window (percent), OSPG policies\\[2pt]
+\resizebox{\linewidth}{!}{\input{../results/report/p5_costs.tex}}
+\end{column}
+\begin{column}{.46\textwidth}
+\begin{itemize}\small
+\item \textbf{Costs:} doubling costs lowers both policies; the GRU--MLP gap stays within
+  $0.27$ points.
+\item \textbf{Markets:} Hold has the highest mean in all three; the gap is significant on
+  both equity universes, while crypto is too noisy to decide.
+\item \textbf{Volatility persistence:} rank correlation with the GRU advantage is
+  \perslinear{} (linear) and \persexponential{} (exponential) --- weak at most.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------ 12
+\begin{frame}{Conclusions}
+\begin{itemize}
+\item \textbf{OSPG works without backward induction}: on Markovian benchmarks it matches exact
+  prices better than Longstaff--Schwartz and FQI.
+\item \textbf{Memory helps only where there is memory to use}: strongly for fBm with
+  $h\le0.3$; not in the rough Bergomi pilot; not reliably on real markets.
+\item \textbf{Learned exit timing does not beat holding} after costs; holding earned
+  $1.30$--$3.57\%$ per window, a positive drift. Consistent with optional sampling: for a
+  submartingale, early exits give up drift.
+\item \textbf{Limitations:} prices are lower bounds (no dual bounds); rough-volatility runs are
+  reduced pilots; current index members (survivorship bias); stylized close-to-close execution;
+  submartingale property not tested directly.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 13
+\begin{frame}{References and data}
+\footnotesize
+\begin{itemize}
+\item N. Damera Venkata, C. Bhattacharyya. Deep recurrent optimal stopping. \emph{NeurIPS}, 2023.
+\item S. Becker, P. Cheridito, A. Jentzen. Deep optimal stopping. \emph{JMLR} 20(74), 2019.
+\item F. A. Longstaff, E. S. Schwartz. Valuing American options by simulation.
+  \emph{Review of Financial Studies} 14(1), 2001.
+\item C. Bayer, P. Friz, J. Gatheral. Pricing under rough volatility. \emph{Quantitative Finance} 16(6), 2016.
+\item J. Gatheral, T. Jaisson, M. Rosenbaum. Volatility is rough. \emph{Quantitative Finance} 18(6), 2018.
+\item M. Bennedsen, A. Lunde, M. S. Pakkanen. Hybrid scheme for Brownian semistationary processes.
+  \emph{Finance and Stochastics} 21(4), 2017.
+\item P. A. Forsyth, K. R. Vetzal. Quadratic convergence for valuing American options using a
+  penalty method. \emph{SIAM J. Sci. Comput.} 23(6), 2002.
+\item \textbf{Data:} Yahoo Finance (via \texttt{yfinance}) for NIFTY 50 and S\&P 100 constituents;
+  Binance public spot prices and CoinGecko rankings for crypto. Code: \texttt{github.com/falconmath27/DROS}.
 \end{itemize}
 \end{frame}
 

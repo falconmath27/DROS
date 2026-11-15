@@ -119,6 +119,15 @@ outputs differ only by about 1e-17 in two interval columns and by machine-specif
   return: +0.10 linear, 0.00 exponential).
 - README team table points to report sections instead of the removed files.
 
+### Slides matched to the 4-page report
+- `report/slides.tex` is now a single 13-slide deck for the 15-20 minute viva in the project
+  brief: question; mathematical formulation (Snell envelope, optional sampling); PDE ground
+  truth; OSPG; replication; fBm and rough Bergomi; real-data design; "nothing beats holding";
+  size of the gap; effect of changing costs, markets and volatility persistence; conclusions;
+  references and data sources. Every table is the same generated file the report uses.
+- Removed `slides_p1_p2.tex`, `slides_p3.tex`, `slides_p4.tex`, `slides_p5.tex`,
+  `slides_p1_results_notes.tex`. README updated.
+
 # Open issues
 
 1. **Hash checks break on Windows checkouts.** `experiments/backtest/summarize.py` compares
