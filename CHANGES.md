@@ -105,6 +105,20 @@ outputs differ only by about 1e-17 in two interval columns and by machine-specif
 - Kept `results/p4/model_handoff_smoke/` and `results/p4/offline_replay/` (0.9 MB, cited as
   P4 validation evidence) and `results/archive_v1/` (first replication run, cited in README).
 
+### Four-page report (replaces the 13-page version)
+- `report/main.tex` is now a single file: 4 pages, 11pt, one column, including references.
+  Sections: introduction; optimal stopping and OSPG (with the PDE ground truth in one
+  sentence); replication (Table 1); fBm and rough Bergomi (compact side-by-side tables); the
+  real-market backtest, given the most space (data and design, mean returns, contrasts with
+  holding, cost sensitivity, volatility-persistence figure); conclusion with limitations.
+- Removed the per-section files `intro.tex`, `theory.tex`, `method.tex`,
+  `results_replication.tex`, `rough_vol.tex`, `data_backtest.tex`, `backtest_results.tex`,
+  `conclusion.tex` (the long version stays in git history, commit `5c977a7`).
+- `experiments/report_tables.py`: adds `fbm_compact.tex`, `e4_compact.tex` and
+  `persistence_corr.tex` (Spearman correlation of volatility persistence with the GRU-minus-MLP
+  return: +0.10 linear, 0.00 exponential).
+- README team table points to report sections instead of the removed files.
+
 # Open issues
 
 1. **Hash checks break on Windows checkouts.** `experiments/backtest/summarize.py` compares
