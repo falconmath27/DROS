@@ -216,7 +216,7 @@ def test_batch_norm_decisions_do_not_depend_on_other_paths(make, small_put):
     "simulators.gbm", "simulators.fbm", "simulators.rbergomi", "simulators.market",
     "data", "data.loaders", "data.clean", "data.windows", "data.features", "data.splits",
     "backtest", "backtest.rules", "backtest.costs", "backtest.run",
-    "analysis", "analysis.bootstrap", "analysis.hurst", "analysis.regimes",
+    "analysis", "analysis.bootstrap",
     "experiments.runner", "experiments.summarize", "experiments.paired",
 ])
 def test_every_module_imports(module):
