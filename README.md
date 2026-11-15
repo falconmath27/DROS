@@ -14,8 +14,8 @@ NIFTY 50, S&P 100 and crypto.
 
 | | File |
 | --- | --- |
-| Report (4 pages) | [`report/main.pdf`](report/main.pdf) (source: [`report/main.tex`](report/main.tex)) |
-| Slides (13 slides, 15-20 min viva) | [`report/slides.pdf`](report/slides.pdf) (source: [`report/slides.tex`](report/slides.tex)) |
+| Report (5 pages) | [`report/main.pdf`](report/main.pdf) (source: [`report/main.tex`](report/main.tex)) |
+| Slides (15 slides, 15-20 min viva) | [`report/slides.pdf`](report/slides.pdf) (source: [`report/slides.tex`](report/slides.tex)) |
 | Source code | this repository (Python); see [Repository structure](#repository-structure) |
 
 ## Team

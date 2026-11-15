@@ -73,7 +73,7 @@ def e4_table():
 
 def fbm_compact(hs=(0.05, 0.10, 0.30, 0.50, 0.70, 0.95),
                 methods=("DOS", "FQI-GRU", "OSPG-MLP", "OSPG-GRU")):
-    """Short fBm table for the 4-page report: mean test reward at selected Hurst values."""
+    """Short fBm table for the report: mean test reward at selected Hurst values."""
     rows = {}
     with open(os.path.join(RES, "fbm_medium_summary.csv")) as f:
         for r in csv.DictReader(f):

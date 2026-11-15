@@ -6,6 +6,7 @@
 \setbeamertemplate{footline}[frame number]
 \usepackage{amsmath,amssymb,booktabs,graphicx}
 \input{../results/report/persistence_corr.tex}
+\newcommand{\by}[1]{\hfill{\normalfont\small\itshape #1}}
 
 \title{Optimal Stopping with Memory}
 \subtitle{Deep recurrent policies for American options under rough volatility\\
@@ -26,54 +27,53 @@ and multi-market backtesting}
 \end{frame}
 
 % ------------------------------------------------------------------ 2
-\begin{frame}{The question}
+\begin{frame}{The question\by{Anamay Mittal}}
 \begin{itemize}
-\item Exercising an American option, or closing a trade, is an \textbf{optimal stopping} problem.
-\item Classical methods (binomial tree, Longstaff--Schwartz, Deep Optimal Stopping) use
-  \textbf{backward induction} and assume today's state is enough to decide (Markov).
-\item Real volatility is persistent and rough, so the past may matter.
+\item \textbf{The problem.} Exercising an American option, or closing a trade, is an
+  \textbf{optimal stopping} problem: each day, stop and collect the reward, or wait.
+\item \textbf{The classical answer.} Work backwards from the last date, asking each day whether
+  waiting is worth more than stopping (binomial tree, Longstaff--Schwartz, Deep Optimal
+  Stopping). This assumes today's price is enough to decide (Markov).
+\item \textbf{Why memory matters.} Real volatility is persistent and rough, so the path so far
+  may carry information. Backward induction then needs a much larger state.
 \item \textbf{OSPG} (Damera Venkata \& Bhattacharyya, NeurIPS 2023) learns the stopping rule
-  directly, with a memoryless (MLP) or a recurrent (GRU) policy.
+  directly, optionally with a recurrent network that reads the history.
 \end{itemize}
 \vspace{4pt}
-\textbf{Three experiments}
+\textbf{We test OSPG in three steps}
 \begin{enumerate}
-\item Replicate OSPG on option benchmarks with known exact prices.
+\item Option benchmarks with known exact prices.
 \item Stopping problems with memory: fractional Brownian motion and rough Bergomi.
-\item \textbf{Real-data backtest}: does learned exit timing pay on NIFTY 50, S\&P 100 and crypto?
+\item \textbf{Ten years of real market data} with transaction costs: NIFTY 50, S\&P 100, crypto.
 \end{enumerate}
 \end{frame}
 
 % ------------------------------------------------------------------ 3
-\begin{frame}{Mathematical formulation}
+\begin{frame}{Optimal stopping: the problem and the optimal rule\by{Anamay Mittal}}
 \begin{itemize}
-\item Observe $S_0,\dots,S_H$ with filtration $(\mathcal F_j)$; stopping at $j$ pays $R_j$,
-  discounted to date 0 (put: $R_j=e^{-rt_j}(K-S_j)^+$).
-\item Value: $V_0=\sup_{\tau}\mathbb E[R_\tau]$ over stopping times, $\{\tau=j\}\in\mathcal F_j$.
-\item \textbf{Snell envelope:}\quad $U_H=R_H,\qquad U_j=\max\big(R_j,\ \mathbb E[U_{j+1}\mid\mathcal F_j]\big)$
-  \begin{itemize}
-  \item smallest supermartingale above $R$; optimal $\tau^*=\min\{j:U_j=R_j\}$
-  \item backward induction estimates the continuation value $C_j=\mathbb E[U_{j+1}\mid\mathcal F_j]$;
-    with memory, $C_j$ depends on the whole path
-  \end{itemize}
-\item \textbf{Optional sampling} for bounded $\tau\le H$:
-  \begin{itemize}
-  \item martingale: $\mathbb E[M_\tau]=M_0$ --- no rule beats holding
-  \item submartingale (upward drift): $\mathbb E[M_\tau]\le\mathbb E[M_H]$ --- stopping at the
-    deadline is optimal
-  \end{itemize}
+\item \textbf{The problem.} Prices $S_0,\dots,S_H$; $\mathcal F_j$ is the information at date $j$.
+  Stopping at $j$ pays $R_j$, discounted to date 0 (put: $R_j=e^{-rt_j}(K-S_j)^+$).
+  A rule may use only the past, $\{\tau=j\}\in\mathcal F_j$. Goal: $V_0=\sup_\tau\mathbb E[R_\tau]$.
+\item \textbf{The optimal rule.} Working backwards gives the Snell envelope, the value of acting
+  optimally from date $j$ on:
+  \[U_H=R_H,\qquad U_j=\max\big(R_j,\ C_j\big),\qquad C_j=\mathbb E[U_{j+1}\mid\mathcal F_j].\]
+  Stop the first time stopping pays at least the \textbf{continuation value} $C_j$:
+  $\tau^*=\min\{j:U_j=R_j\}$.
+\item \textbf{Classical methods} estimate $C_j$ from today's state, one date at a time, backwards:
+  Longstaff--Schwartz (regression), DOS (one network per date), FQI (one network for all dates).
+\item With memory, $C_j$ depends on the whole path, and an error at one date carries into the next.
 \end{itemize}
 \end{frame}
 
 % ------------------------------------------------------------------ 4
-\begin{frame}{Exact ground truth: the free-boundary problem}
+\begin{frame}{Exact prices: the free-boundary problem\by{Anamay Mittal}}
 \begin{itemize}
-\item In continuous time the American put solves a linear complementarity problem
+\item In continuous time the American put solves
   \[\min\big(-\partial_tV-\mathcal LV,\ V-g\big)=0,\qquad
-  \mathcal LV=rS\partial_SV+\tfrac12\sigma^2S^2\partial_{SS}V-rV,\]
-  i.e.\ the Black--Scholes / Feynman--Kac PDE where waiting is optimal and $V=g$ where
-  exercising is.
-\item Solved with Crank--Nicolson in $\log S$ and a penalty for $V\ge g$.
+  \mathcal LV=rS\partial_SV+\tfrac12\sigma^2S^2\partial_{SS}V-rV.\]
+\item Where waiting is optimal, the Black--Scholes equation holds; where exercising is, $V=g$,
+  with payoff $g(S)=(K-S)^+$.
+\item Our solver: Crank--Nicolson in $\log S$, with a penalty enforcing $V\ge g$.
 \item \textbf{Agrees with a binomial tree to within $4\times10^{-4}$} on all twenty
   Longstaff--Schwartz test cases (e.g.\ $S_0=36$, $\sigma=0.2$, $T=1$: Bermudan $4.478$,
   American $4.487$).
@@ -82,35 +82,58 @@ and multi-market backtesting}
 \end{frame}
 
 % ------------------------------------------------------------------ 5
-\begin{frame}{OSPG: learn the stopping rule directly}
+\begin{frame}{When is holding optimal? Optional sampling\by{Anamay Mittal}}
 \begin{itemize}
-\item A network outputs $\varphi_j=\mathbb P(\text{stop at }j\mid\text{not before},\mathcal F_j)$,
-  with $\varphi_H=1$.
-\item Stopping does not change the path, so the stopping-time law is exact:
-  \[\psi_j=\varphi_j\prod_{n<j}(1-\varphi_n),\qquad J(\theta)=\mathbb E\Big[\sum_{j=0}^H\psi_jR_j\Big].\]
-\item Policy gradient with a constant baseline $b$:
-  \[\nabla_\theta J=\mathbb E\Big[\sum_j(R_j-b)\,\psi_j\,\nabla_\theta\log\psi_j\Big].\]
-\item Trained on pre-simulated paths: \textbf{no rollouts, no backward recursion}.
-\item OSPG-GRU reads the history ($1\times20$ GRU); OSPG-MLP sees today only ($2\times20$).
+\item For any bounded stopping time $\tau\le H$:
+  \begin{itemize}
+  \item \textbf{martingale} (a fair game): $\mathbb E[M_\tau]=M_0$ --- no rule beats holding;
+  \item \textbf{submartingale} (drifting upwards): $\mathbb E[M_\tau]\le\mathbb E[M_H]$ ---
+    stopping at the deadline is optimal.
+  \end{itemize}
+\item So a clever exit can only pay if prices are not a fair or upward-drifting game.
+\item This is the lens for the real-data backtest: we will see that nothing beats holding.
 \end{itemize}
 \end{frame}
 
 % ------------------------------------------------------------------ 6
-\begin{frame}{1. Replication: OSPG matches the exact prices}
-\centering\scriptsize
-\input{../results/replication_table.tex}
-
-\vspace{6pt}\normalsize
-\begin{itemize}\small
-\item OSPG-MLP is closest: $-0.12\%$ (put), $-0.05\%$ and $-0.44\%$ (geometric calls), against
-  $-0.9\%$ to $-1.6\%$ for Longstaff--Schwartz and FQI.
-\item Paired on identical paths, OSPG-GRU trails OSPG-MLP by $0.1$--$0.5\%$: memory costs a
-  little when there is nothing to remember.
+\begin{frame}{OSPG: learn the stopping rule directly\by{Anamay Mittal}}
+\begin{itemize}
+\item \textbf{Idea.} Instead of estimating $C_j$, learn the rule. A network outputs, at each date,
+  $\varphi_j$ = probability of stopping, given it has not stopped yet ($\varphi_H=1$).
+\item \textbf{Exact objective.} Stopping does not change the path, so
+  \[\psi_j=\varphi_j\prod_{n<j}(1-\varphi_n),\qquad J(\theta)=\mathbb E\Big[\sum_{j}\psi_jR_j\Big].\]
+\item \textbf{Training.} Policy gradient on pre-simulated paths:
+  $\nabla_\theta J=\mathbb E\big[\sum_j(R_j-b)\,\psi_j\,\nabla_\theta\log\psi_j\big]$;
+  the constant $b$ cuts noise without bias since $\sum_j\psi_j=1$.
+  \textbf{No rollouts, no backward recursion.}
+\item \textbf{Two policies.} OSPG-MLP sees today only ($2\times20$); OSPG-GRU reads the history
+  ($1\times20$ GRU). After training: stop at the first date with $\varphi_j\ge\frac12$.
+\item \textbf{Three fixes} not in the paper: a ``mostly wait'' starting bias, a small penalty on
+  the raw output, a separate date-0 decision. Without them training collapses.
 \end{itemize}
 \end{frame}
 
 % ------------------------------------------------------------------ 7
-\begin{frame}{2. Stopping with memory: fBm and rough Bergomi}
+\begin{frame}{1. Replication: OSPG matches the exact prices\by{Anamay Mittal}}
+\small
+\textbf{Set-up.} Bermudan put (exact $4.478$), max-call on 20/50 assets (Becker et al.\ bounds),
+geometric call on 7/20 assets (exact). Out-of-sample values, three seeds.
+
+\vspace{4pt}
+\centering\scriptsize
+\input{../results/replication_table.tex}
+
+\vspace{4pt}\raggedright
+\begin{itemize}\small
+\item \textbf{Results.} OSPG-MLP is closest: $-0.12\%$ (put), $-0.05\%$ and $-0.44\%$ (geometric
+  calls), against $-0.9\%$ to $-1.6\%$ for Longstaff--Schwartz and FQI --- the paper's ranking.
+\item \textbf{Memory has a cost here.} OSPG-GRU trails OSPG-MLP by $0.1$--$0.5\%$: with nothing
+  to remember, it must learn to ignore the history.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 7
+\begin{frame}{2. Stopping with memory: fBm and rough Bergomi\by{Mridul Kwatra}}
 \small
 \begin{itemize}
 \item fBm $W^h$: increments negatively correlated for $h<\frac12$, positively for $h>\frac12$;
@@ -137,26 +160,41 @@ Rough Bergomi put (pilot, se $0.31$--$0.37$)\\[2pt]
 \end{frame}
 
 % ------------------------------------------------------------------ 8
-\begin{frame}{3. Real-data backtest: design}
+\begin{frame}{3. Real-data backtest: data and trades\by{Vraj Shah}}
 \begin{itemize}
-\item \textbf{Data:} daily adjusted closes, NIFTY 50 (50 stocks) and S\&P 100 (100) for
-  2015--2024, eight crypto assets (Binance) for 2017--2024: \textbf{72{,}048 trade windows}.
-\item \textbf{Trade:} buy at a close, exit by a 30-day deadline. Policies see only past data
-  (return so far, drawdown, volatility, lagged returns, time left, index and VIX).
-\item \textbf{Net return with costs on both legs:}\quad
-  $r_j=\dfrac{S_j}{S_0}\,\dfrac{1-c_s}{1+c_b}-1$
-\item \textbf{Walk-forward:} expanding folds, 36-month train, 6 validation, 6 test; 31 folds; tests
-  2018--2024 (crypto 2021--2024).
-\item \textbf{Compared:} Hold, take-profit/stop-loss, trailing stop, Longstaff--Schwartz,
-  OSPG-MLP, OSPG-GRU; linear and exponential-utility rewards; $0\times$, $1\times$, $2\times$
-  costs; three seeds: 3{,}348 runs.
-\item \textbf{Inference:} windows overlap and assets co-move, so intervals come from a
-  date-block bootstrap (Holm-corrected), not i.i.d.\ standard errors.
+\item \textbf{Data.} Daily split- and dividend-adjusted closes: NIFTY 50 (50 stocks) and
+  S\&P 100 (100 usable of 101 tickers) for 2015--2024; eight crypto assets (Binance) for
+  2017--2024. Every download is logged in a source manifest.
+\item \textbf{Cleaning.} Large moves are flagged, not deleted (crashes stay in). Missing prices
+  stay missing: no interpolation or back-filling; windows that cross a gap are dropped.
+\item \textbf{Trades.} A long position bought at a close and sold by a 30-calendar-day deadline,
+  with a new entry every five sessions: \textbf{72{,}048 trade windows}.
+\item \textbf{No look-ahead.} Policies see only the past: return since entry, drawdown, time left,
+  trailing volatility, lagged returns, and the index and VIX lagged by one observation.
+\item \textbf{Costs on both legs.}\quad $r_j=\dfrac{S_j}{S_0}\,\dfrac{1-c_s}{1+c_b}-1$, with fee /
+  half-spread / slippage per side of $12/2/2$ bp (NSE), $1/1/1$ (US), $10/2/2$ (crypto).
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------ 10
+\begin{frame}{3. Backtest: walk-forward evaluation\by{Vraj Shah, Anshul D Jain}}
+\begin{itemize}
+\item \textbf{Walk-forward folds.} Train on the past, test on the future: expanding folds of
+  36 months training, 6 validation, 6 test, advancing 6 months. Windows that cross a boundary
+  are purged. 31 folds; tests 2018--2024 (crypto 2021--2024).
+\item \textbf{Simple rules, fixed in advance.} Hold to the deadline; take-profit/stop-loss at
+  $+5\%/-3\%$; a $5\%$ trailing stop. No thresholds are tuned on test data.
+\item \textbf{The grid.} These rules, Longstaff--Schwartz, OSPG-MLP and OSPG-GRU; linear and
+  exponential-utility rewards; $0\times$, $1\times$, $2\times$ costs; three seeds:
+  \textbf{3{,}348 runs}, all completed.
+\item \textbf{Inference.} Windows overlap and assets move together, so intervals come from a
+  paired date-block bootstrap (30-day blocks, 2{,}000 replicates) with Holm correction, not
+  i.i.d.\ standard errors.
 \end{itemize}
 \end{frame}
 
 % ------------------------------------------------------------------ 9
-\begin{frame}{3. Result: nothing beats holding to the deadline}
+\begin{frame}{3. Result: nothing beats holding to the deadline\by{Anshul D Jain}}
 \centering\scriptsize
 \resizebox{\linewidth}{!}{\input{../results/report/p5_means.tex}}
 
@@ -169,7 +207,7 @@ Rough Bergomi put (pilot, se $0.31$--$0.37$)\\[2pt]
 \end{frame}
 
 % ------------------------------------------------------------------ 10
-\begin{frame}{3. How large is the gap?}
+\begin{frame}{3. How large is the gap?\by{Anshul D Jain}}
 \centering\scriptsize
 \resizebox{\linewidth}{!}{\input{../results/report/p5_vs_hold.tex}}
 
@@ -184,7 +222,7 @@ Rough Bergomi put (pilot, se $0.31$--$0.37$)\\[2pt]
 \end{frame}
 
 % ------------------------------------------------------------------ 11
-\begin{frame}{3. Changing the data: costs, markets, persistence}
+\begin{frame}{3. Changing the data: costs, markets, persistence\by{Anshul D Jain}}
 \begin{columns}[T]
 \begin{column}{.52\textwidth}\centering\scriptsize
 Net return per window (percent), OSPG policies\\[2pt]
@@ -204,7 +242,7 @@ Net return per window (percent), OSPG policies\\[2pt]
 \end{frame}
 
 % ------------------------------------------------------------------ 12
-\begin{frame}{Conclusions}
+\begin{frame}{Conclusions\by{Sachit Kapoor}}
 \begin{itemize}
 \item \textbf{OSPG works without backward induction}: on Markovian benchmarks it matches exact
   prices better than Longstaff--Schwartz and FQI.
