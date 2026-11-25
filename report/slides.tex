@@ -125,10 +125,10 @@ geometric call on 7/20 assets (exact). Out-of-sample values, three seeds.
 
 \vspace{4pt}\raggedright
 \begin{itemize}\small
-\item \textbf{Results.} OSPG-MLP is closest: $-0.12\%$ (put), $-0.05\%$ and $-0.44\%$ (geometric
-  calls), against $-0.9\%$ to $-1.6\%$ for Longstaff--Schwartz and FQI --- the paper's ranking.
-\item \textbf{Memory has a cost here.} OSPG-GRU trails OSPG-MLP by $0.1$--$0.5\%$: with nothing
-  to remember, it must learn to ignore the history.
+\item \textbf{Results.} OSPG-MLP is closest to the exact prices: put $-0.12\%$ (others $-0.24\%$ to
+  $-0.45\%$); geometric calls $-0.05\%$, $-0.44\%$ (LSM, FQI $-0.9\%$ to $-1.6\%$).
+\item \textbf{Memory has a cost here.} OSPG-GRU trails OSPG-MLP by $0.1$--$0.5\%$ in 4 of 5
+  problems: with nothing to remember, it must learn to ignore the history.
 \end{itemize}
 \end{frame}
 

@@ -15,7 +15,8 @@ NIFTY 50, S&P 100 and crypto.
 | | File |
 | --- | --- |
 | Report (5 pages) | [`report/main.pdf`](report/main.pdf) (source: [`report/main.tex`](report/main.tex)) |
-| Slides (15 slides, 15-20 min viva) | [`report/slides.pdf`](report/slides.pdf) (source: [`report/slides.tex`](report/slides.tex)) |
+| Presentation (17 slides, 20 min viva) | [`report/presentation.pdf`](report/presentation.pdf) (source: [`report/presentation.tex`](report/presentation.tex)) |
+| Earlier shorter deck (15 slides) | [`report/slides.pdf`](report/slides.pdf) (source: [`report/slides.tex`](report/slides.tex)) |
 | Source code | this repository (Python); see [Repository structure](#repository-structure) |
 
 ## Team
@@ -33,7 +34,7 @@ NIFTY 50, S&P 100 and crypto.
 1. **Replication.** Against exact prices from a binomial tree and our finite-difference solver
    of the free-boundary problem (which agree to within 4×10⁻⁴), OSPG-MLP is within 0.12% on an
    American put and 0.44% on a 20-asset geometric call, ahead of Longstaff–Schwartz and fitted
-   Q-iteration (0.9–1.6%).
+   Q-iteration (0.24–0.45% on the put, 0.9–1.6% on the geometric calls).
 2. **Memory in simulation.** When stopping fractional Brownian motion with Hurst parameter
    h ≤ 0.3, the recurrent policy clearly beats the memoryless one; in a reduced rough Bergomi
    pilot no method is distinguishable.
@@ -63,7 +64,8 @@ experiments/   run_all.py (option benchmarks E1-E5), rough_vol/ (fBm, rough Berg
                backtest/ (real-data grid and statistics), summarize.py, paired.py,
                benchmarks.py (tree vs PDE), report_tables.py (tables for report and slides)
 results/       generated outputs (never edited by hand)
-report/        main.tex / main.pdf (report), slides.tex / slides.pdf (presentation)
+report/        main.tex / main.pdf (report), presentation.tex / presentation.pdf (viva deck),
+               slides.tex / slides.pdf (earlier 15-slide deck)
 tests/         80 tests: pricing accuracy, loss gradient, causality (no look-ahead), simulators,
                data accounting, bootstrap
 docs/          the OSPG paper and the project plan
@@ -107,8 +109,8 @@ Data download and execution assumptions for the backtest are documented in
 [`backtest/P4_GUIDE.md`](backtest/P4_GUIDE.md) and
 [`experiments/backtest/README.md`](experiments/backtest/README.md).
 
-Compile the report and slides from inside `report/` with `pdflatex main.tex` (twice) and
-`pdflatex slides.tex`, or with `tectonic main.tex` and `tectonic slides.tex`.
+Compile the report and slides from inside `report/` with `pdflatex main.tex` (twice),
+`pdflatex presentation.tex` and `pdflatex slides.tex`, or with `tectonic` on the same files.
 
 **Note on line endings.** The backtest statistics check SHA-256 hashes of their frozen inputs.
 On Windows, clone with `git config core.autocrlf false`; otherwise git rewrites line endings and
@@ -124,8 +126,8 @@ On Windows, clone with `git config core.autocrlf false`; otherwise git rewrites 
   one state.
 - OSPG-MLP uses batch normalisation as in the paper; the baselines run without it because it
   lowered fitted Q-iteration's accuracy on the American put.
-- The OSPG paper's own max-call values lie below Becker et al.'s lower bound, so the
-  replication compares against Becker et al. (2019).
+- The OSPG paper's own max-call values lie 0.6–0.9 below the midpoint of Becker et al.'s
+  bounds, so the replication compares against Becker et al. (2019).
 - The rough-volatility results are reduced-compute runs (fewer paths and splits, shorter
   training); `results/summary.md` also contains an earlier full-budget rough Bergomi run made
   with an exact Cholesky simulator, which the current hybrid-scheme code no longer reproduces.

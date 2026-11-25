@@ -118,16 +118,17 @@ call on the geometric average of 7 and 20 correlated assets (exact via a one-dim
 Each uses 100{,}000 paths (40{,}000 for the max-call), 50/50 train/test splits and three seeds.
 All values are out of sample, hence lower bounds (Table~\ref{tab:replication}).
 
-\paragraph{Results.} OSPG-MLP is the most accurate wherever differences exceed the noise:
-$-0.12\%$ on the put and $-0.05\%$/$-0.44\%$ on the geometric calls, against $-0.9\%$ to
-$-1.6\%$ for Longstaff--Schwartz and FQI. This is the paper's ranking, with errors of the
-paper's size. On the max-call all methods agree with Becker et al.\ within one standard error;
-the paper's own values lie about $0.8$ below Becker et al.'s lower bound, so we compare with
-Becker et al.
+\paragraph{Results.} OSPG-MLP is the most accurate wherever the exact price is known:
+$-0.12\%$ on the put, against $-0.24\%$ to $-0.45\%$ for the other methods, and
+$-0.05\%$/$-0.44\%$ on the geometric calls, against $-0.9\%$ to $-1.6\%$ for Longstaff--Schwartz
+and FQI. This is the paper's ranking, with errors of the paper's size. On the max-call all methods
+lie within $0.3\%$ of the midpoint of Becker et al.'s bounds; the paper's own values lie $0.6$ to
+$0.9$ below it, so we compare with Becker et al.
 
 \paragraph{Memory has a cost here.} Paired on identical paths, OSPG-GRU trails OSPG-MLP by
-$0.1$--$0.5\%$ ($z=2.2$--$3.7$): with no memory to exploit, the recurrent policy must learn to
-ignore the history.
+$0.1$--$0.5\%$ in four of the five problems ($z=2.2$--$3.7$; on the 7-asset geometric call the
+gap is not significant): with no memory to exploit, the recurrent policy must learn to ignore
+the history.
 
 \begin{table}[ht]
 \centering\scriptsize
